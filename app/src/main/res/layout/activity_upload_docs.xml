@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgcircle"
+    tools:context=".UploadDocs">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/licence_front_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/adamina"
+                    android:paddingBottom="2dp"
+                    android:text="@string/driving_licence_photo_front_txt"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/licence_front"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/licence_front"
+                    android:layout_width="match_parent"
+                    android:layout_height="200sp"
+                    android:background="@drawable/layoutbg"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@id/licence_back_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/licence_front_txt"
+                    app:srcCompat="@drawable/capture_image"
+                    android:contentDescription="@string/licence_front" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/capture_licence_front"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/licence_front"
+                    app:layout_constraintEnd_toEndOf="@+id/licence_front"
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+                    android:contentDescription="@string/capture_licence_front"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/licence_back_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/adamina"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="2dp"
+                    android:text="@string/driving_licence_photo_back_txt"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/licence_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/licence_front" />
+
+                <ImageView
+                    android:id="@+id/licence_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="200sp"
+                    android:background="@drawable/layoutbg"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@id/address_proof_front_txt"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/licence_back_txt"
+                    app:srcCompat="@drawable/capture_image"
+                    android:contentDescription="@string/licence_back" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/capture_licence_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/licence_back"
+                    app:layout_constraintEnd_toEndOf="@id/licence_back"
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+                    android:contentDescription="@string/capture_licence_back"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/address_proof_front_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/adamina"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="2dp"
+                    android:text="@string/address_proof_photo_front_txt"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/address_proof_front"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/licence_back" />
+
+                <ImageView
+                    android:id="@+id/address_proof_front"
+                    android:layout_width="match_parent"
+                    android:layout_height="200sp"
+                    android:background="@drawable/layoutbg"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@id/address_proof_back_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/address_proof_front_txt"
+                    app:srcCompat="@drawable/capture_image"
+                    android:contentDescription="@string/address_proof_front" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/capture_address_proof_front"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/address_proof_front"
+                    app:layout_constraintEnd_toEndOf="@id/address_proof_front"
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+                    android:contentDescription="@string/capture_address_proof_front"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/address_proof_back_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/adamina"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="2dp"
+                    android:text="@string/address_proof_photo_back_txt"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/address_proof_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/address_proof_front" />
+
+                <ImageView
+                    android:id="@+id/address_proof_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="200sp"
+                    android:background="@drawable/layoutbg"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@id/continuebtn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/address_proof_back_txt"
+                    app:srcCompat="@drawable/capture_image"
+                    android:contentDescription="@string/address_proof_back" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/capture_address_proof_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/address_proof_back"
+                    app:layout_constraintEnd_toEndOf="@id/address_proof_back"
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+                    android:contentDescription="@string/capture_address_proof_back"
+                    android:focusable="true" />
+
+                <Button
+                    android:id="@+id/continuebtn"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btnshape"
+                    android:fontFamily="@font/adamina"
+                    android:text="@string/continuebtn"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/address_proof_back"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

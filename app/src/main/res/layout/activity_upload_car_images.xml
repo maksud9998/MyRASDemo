@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgcircle"
+    tools:context=".UploadCarImages">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/car_front_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/adamina"
+                    android:paddingBottom="2dp"
+                    android:text="Car Photo (Front)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/car_front"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/car_front"
+                    android:layout_width="match_parent"
+                    android:layout_height="200sp"
+                    android:background="@drawable/layoutbg"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@id/car_back_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_front_txt"
+                    app:srcCompat="@drawable/capture_image" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/capture_car_front"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/car_front"
+                    app:layout_constraintEnd_toEndOf="@+id/car_front"
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+
+                <TextView
+                    android:id="@+id/car_back_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/adamina"
+                    android:paddingBottom="2dp"
+                    android:text="Car Photo (Back)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/car_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_front" />
+
+                <ImageView
+                    android:id="@+id/car_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="200sp"
+                    android:background="@drawable/layoutbg"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@id/car_right_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_back_txt"
+                    app:srcCompat="@drawable/capture_image" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/capture_car_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/car_back"
+                    app:layout_constraintEnd_toEndOf="@+id/car_back"
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+
+                <TextView
+                    android:id="@+id/car_right_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/adamina"
+                    android:paddingBottom="2dp"
+                    android:text="Car Photo (Right)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/car_right"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_back" />
+
+                <ImageView
+                    android:id="@+id/car_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="200sp"
+                    android:background="@drawable/layoutbg"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@id/car_left_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_right_txt"
+                    app:srcCompat="@drawable/capture_image" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/capture_car_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/car_right"
+                    app:layout_constraintEnd_toEndOf="@+id/car_right"
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+
+                <TextView
+                    android:id="@+id/car_left_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/adamina"
+                    android:paddingBottom="2dp"
+                    android:text="Car Photo (Left)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/car_left"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_right" />
+
+                <ImageView
+                    android:id="@+id/car_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="200sp"
+                    android:background="@drawable/layoutbg"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@id/car_speedometer_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_left_txt"
+                    app:srcCompat="@drawable/capture_image" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/capture_car_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/car_left"
+                    app:layout_constraintEnd_toEndOf="@+id/car_left"
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+
+                <TextView
+                    android:id="@+id/car_speedometer_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/adamina"
+                    android:paddingBottom="2dp"
+                    android:text="Car Photo (Speedometer)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_left" />
+
+                <ImageView
+                    android:id="@+id/car_speedometer"
+                    android:layout_width="match_parent"
+                    android:layout_height="200sp"
+                    android:background="@drawable/layoutbg"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_speedometer_txt"
+                    app:srcCompat="@drawable/capture_image" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/capture_car_speedometer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/car_speedometer"
+                    app:layout_constraintEnd_toEndOf="@+id/car_speedometer"
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+
+                <Button
+                    android:id="@+id/continuebtn"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btnshape"
+                    android:fontFamily="@font/adamina"
+                    android:text="@string/continuebtn"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_speedometer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

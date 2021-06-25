@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"/>
+    <item android:id="@+id/menu_mytrips"
+        android:icon="@drawable/ic_baseline_directions_car_24"
+        android:title="My Trips"/>
+    <item android:id="@+id/menu_docs"
+        android:icon="@drawable/ic_baseline_chrome_reader_mode_24"
+        android:title="Documents"/>
+    <item android:id="@+id/menu_privacypolicy"
+        android:icon="@drawable/ic_baseline_privacy_tip_24"
+        android:title="Privacy Policy"/>
+    <item android:id="@+id/menu_contactus"
+        android:icon="@drawable/ic_baseline_connect_without_contact_24"
+        android:title="Contact Us"/>
+    <item android:id="@+id/menu_"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
+        android:title="Exit"/>
+</menu>
