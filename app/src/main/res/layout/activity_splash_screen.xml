@@ -21,8 +21,9 @@
         android:id="@+id/splash_screen_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/adamina"
         android:text="Rent-A-Savari"
+        android:fontFamily="@font/poppins"
+
         android:textColor="#DF1111"
         android:textSize="48dp"
         app:layout_constraintBottom_toBottomOf="parent"

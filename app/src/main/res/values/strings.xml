@@ -12,8 +12,8 @@
     <string name="startAMPM">--</string>
     <string name="starticoncal">starticoncal</string>
     <string name="startday">---------</string>
-    <string name="select_pickup_time">Select PickUp Time</string>
-    <string name="select_drop_time">Select Drop Time</string>
+    <string name="select_pickup_time">Trip Start</string>
+    <string name="select_drop_time">Trip End</string>
     <string name="enddate">---- -- ----</string>
     <string name="startdate">---- -- ----</string>
     <string name="endAMPM">--</string>

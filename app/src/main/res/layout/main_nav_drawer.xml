@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Maksud Ahmed"
         android:textSize="20sp"
+        android:fontFamily="@font/poppins"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="@color/black"/>
@@ -25,6 +26,7 @@
         android:onClick="onClickEditProfile"
         android:text="Edit Profile"
         android:textSize="14sp"
+        android:fontFamily="@font/poppins"
         android:textAlignment="center"
         android:textColor="@color/black"/>
     <TextView
@@ -34,6 +36,7 @@
         android:onClick="onClickLogout"
         android:text="Log Out"
         android:textSize="18sp"
+        android:fontFamily="@font/poppins"
         android:textAlignment="center"
         android:textColor="@color/black"/>
     <View
@@ -58,6 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Home"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins"
             android:textColor="@color/black"
             android:padding="12dp"/>
     </LinearLayout>
@@ -77,6 +82,8 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:layout_weight="1"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins"
             android:text="My Trip"
             android:padding="12dp"/>
     </LinearLayout>
@@ -95,6 +102,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins"
             android:text="Upload Car Images"
             android:textColor="@color/black"
             android:padding="12dp"/>
@@ -115,6 +124,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Documents"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins"
             android:textColor="@color/black"
             android:padding="12dp"/>
     </LinearLayout>
@@ -133,6 +144,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins"
             android:text="Terms And Conditions"
             android:textColor="@color/black"
             android:padding="12dp"/>
@@ -152,6 +165,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins"
             android:text="Contact Us"
             android:textColor="@color/black"
             android:padding="12dp"/>
@@ -171,6 +186,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins"
             android:text="Exit"
             android:textColor="@color/black"
             android:padding="12dp"/>

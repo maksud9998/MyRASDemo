@@ -66,6 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Transmisson"
+            android:fontFamily="@font/poppins"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView3"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,6 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="oil type"
+            android:fontFamily="@font/poppins"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.565"
@@ -105,6 +107,7 @@
         android:layout_marginBottom="16dp"
         android:text="FRI 12 JUN 21:00 PM"
         android:textColor="@color/green"
+        android:fontFamily="@font/poppins"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView7" />
@@ -128,6 +131,7 @@
         android:layout_marginEnd="230dp"
         android:text="FRI 13 JUN 21:00 PM"
         android:textColor="@color/red"
+        android:fontFamily="@font/poppins"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="@+id/imageView8" />
@@ -139,6 +143,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="14dp"
         android:text="Keep In Mind"
+        android:fontFamily="@font/poppins"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,18 +170,20 @@
         android:text="Indian Driving License Mandatory"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/black"
+        android:fontFamily="@font/poppins"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="175dp"
-        android:layout_height="41dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="175dp"
         android:layout_marginBottom="175dp"
         android:text="Fare And Fuel Policy"
+        android:fontFamily="@font/poppins"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -185,8 +192,11 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="336dp"
-        android:layout_height="38dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:fontFamily="@font/poppins"
         android:text="Fare is inclusive of all taxes. Excess charge ₹15/km. Fuel bills whill be reimbursed after trip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -199,9 +209,10 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="₹ 3880"
+        android:text="Rs 3880"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/red"
+        android:fontFamily="@font/poppins"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.621"
@@ -211,9 +222,9 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="308dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:background="#EA2222"
+        android:background="@drawable/btnshape"
         android:text="Checkout"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -243,6 +254,7 @@
         android:text="Total-"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/black"
+        android:fontFamily="@font/poppins"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toStartOf="@+id/textView16"
         app:layout_constraintHorizontal_bias="0.896"
@@ -257,6 +269,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="10dp"
         android:text="carname"
+        android:fontFamily="@font/poppins"
         app:layout_constraintStart_toStartOf="@+id/textView21"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
@@ -267,6 +280,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
         android:text="carnumber"
+        android:fontFamily="@font/poppins"
         app:layout_constraintStart_toEndOf="@+id/textView19"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
@@ -277,6 +291,7 @@
         android:layout_marginStart="108dp"
         android:layout_marginTop="27dp"
         android:text="bodytype"
+        android:fontFamily="@font/poppins"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
@@ -287,6 +302,7 @@
         android:layout_marginTop="21dp"
         android:layout_marginEnd="7dp"
         android:text="capavity"
+        android:fontFamily="@font/poppins"
         app:layout_constraintEnd_toEndOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 

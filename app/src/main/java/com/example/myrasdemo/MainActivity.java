@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(Calendar.MINUTE,minute);
-                        SimpleDateFormat startDayFormat = new SimpleDateFormat("EEE");
+                        SimpleDateFormat startDayFormat = new SimpleDateFormat("EEEE");
                         startDay.setText(startDayFormat.format(calendar.getTime()));
                         SimpleDateFormat startDateFormat = new SimpleDateFormat("MMMM  dd  yyyy");
                         startDate.setText(startDateFormat.format(calendar.getTime()));
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(Calendar.MINUTE,minute);
-                        SimpleDateFormat endDayFormat = new SimpleDateFormat("EEE");
+                        SimpleDateFormat endDayFormat = new SimpleDateFormat("EEEE");
                         endDay.setText(endDayFormat.format(calendar.getTime()));
                         SimpleDateFormat endDateFormat = new SimpleDateFormat("MMMM  dd  yyyy");
                         endDate.setText(endDateFormat.format(calendar.getTime()));
