@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     TextView startDate, startDay, startTime,startAM_PM, endDate, endDay, endTime,endAM_PM;
     RelativeLayout startLayout, endLayout;
     Button findcarbtn;
-    RecyclerView recyclerView;
+    RecyclerView carlistrecyclerView;
     boolean startCheck = false,endCheck=false;
     String []arr={"Item1","Item2","Item3","Item4","Item5","Item6","Item7","Item8","Item9","Item10","Item2","Item3","Item4","Item5","Item6","Item7","Item8","Item9","Item10"};
     CarListAdapter clAdapter = new CarListAdapter(arr);
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         endLayout = findViewById(R.id.endLayout);
         findcarbtn = findViewById(R.id.findcarbtn);
         drawerLayout = findViewById(R.id.drawer_layout);
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        carlistrecyclerView = findViewById(R.id.carlistrecyclerView);
+        carlistrecyclerView.setLayoutManager(new LinearLayoutManager(this));
         startLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showCarList() {
-        recyclerView.setAdapter(clAdapter);
+        carlistrecyclerView.setAdapter(clAdapter);
     }
 
     public void onClickSmallPackage(View view) {
@@ -191,13 +191,6 @@ public class MainActivity extends AppCompatActivity {
         {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
-    }
-
-    public static void redirectActivity(Activity activity,Class aClass)
-    {
-        Intent intent = new Intent(activity,aClass);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        activity.startActivity(intent);
     }
 
     public static void exit(Activity activity)

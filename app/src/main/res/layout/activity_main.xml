@@ -231,7 +231,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/carlistrecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"

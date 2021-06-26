@@ -4,29 +4,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHolder> {
+public class BookingListAdapter extends RecyclerView.Adapter<BookingListAdapter.ViewHolder> {
     private String[] localDataSet;
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView;
         public ViewHolder(View view) {
             super(view);
-            textView = (TextView) view.findViewById(R.id.carSeat);
+            textView = (TextView) view.findViewById(R.id.textView5);
         }
         public TextView getTextView() {
             return textView;
         }
     }
-
-    public CarListAdapter(String[] dataSet)
+    public BookingListAdapter(String[] dataSet)
     {
         localDataSet = dataSet;
     }
-
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public BookingListAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.cars_list, viewGroup, false);
-        return new ViewHolder(view);
+                .inflate(R.layout.booking_list, viewGroup, false);
+        return new BookingListAdapter.ViewHolder(view);
     }
 
     @Override
