@@ -2,6 +2,7 @@ package com.example.myrasdemo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 public class BookingListAdapter extends RecyclerView.Adapter<BookingListAdapter.ViewHolder> {
@@ -28,8 +29,9 @@ public class BookingListAdapter extends RecyclerView.Adapter<BookingListAdapter.
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        viewHolder.getTextView().setText(localDataSet[position]);
+    public void onBindViewHolder(ViewHolder viewHolder, final int position)
+    {
+            viewHolder.getTextView().setText(localDataSet[position]);
     }
 
     @Override

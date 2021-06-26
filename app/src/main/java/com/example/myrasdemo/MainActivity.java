@@ -263,4 +263,8 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this,UploadCarImages.class);
         startActivity(i);
     }
+
+    public void onClickLogout(View view) {
+        finish();
+    }
 }

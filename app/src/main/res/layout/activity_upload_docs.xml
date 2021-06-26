@@ -6,14 +6,30 @@
     android:layout_height="match_parent"
     android:background="@drawable/bgcircle"
     tools:context=".UploadDocs">
-    <ScrollView
+    <TextView
+        android:id="@+id/documentphotostxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#DC4433"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center_horizontal"
+        android:text="Document Photos"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:padding="12dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/documentphotostxt">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

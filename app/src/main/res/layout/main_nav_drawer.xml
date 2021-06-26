@@ -27,6 +27,15 @@
         android:textSize="14sp"
         android:textAlignment="center"
         android:textColor="@color/black"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="3dp"
+        android:onClick="onClickLogout"
+        android:text="Log Out"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="@color/black"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -124,7 +133,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Privacy Policy"
+            android:text="Terms And Conditions"
             android:textColor="@color/black"
             android:padding="12dp"/>
     </LinearLayout>
