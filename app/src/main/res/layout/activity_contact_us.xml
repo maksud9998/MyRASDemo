@@ -47,8 +47,8 @@
             android:hint="First Name"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextDate"
-            app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
+            app:layout_constraintBottom_toTopOf="@+id/Reg_Bdate"
+            app:layout_constraintEnd_toStartOf="@+id/Reg_Last_Name"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -66,10 +66,10 @@
             android:hint="Last Name"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextDate"
+            app:layout_constraintBottom_toTopOf="@+id/Reg_Bdate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+            app:layout_constraintStart_toEndOf="@+id/Reg_First_Name"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
