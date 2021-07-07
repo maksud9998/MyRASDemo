@@ -21,8 +21,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="414dp"
-        android:layout_height="591dp"
+        android:layout_width="413dp"
+        android:layout_height="573dp"
         android:background="@drawable/bg"
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +38,7 @@
             android:id="@+id/Reg_IDDetail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/edit_text"
             android:fontFamily="@font/poppins"
             android:hint="Enter Adhar/Passport/PAN detail"
@@ -46,48 +46,15 @@
             android:paddingLeft="20dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Passport" />
-
-        <RadioButton
-            android:id="@+id/Adhar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/poppins"
-            android:text="Adhar Card"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="335dp" />
-
-        <RadioButton
-            android:id="@+id/Passport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/poppins"
-            android:text="Passport"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/Pan"
-            app:layout_constraintStart_toEndOf="@+id/Adhar"
             app:layout_constraintTop_toBottomOf="@+id/Reg_Licence_Number" />
-
-        <RadioButton
-            android:id="@+id/Pan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="PAN Card"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="333dp" />
 
         <EditText
             android:id="@+id/Reg_Mobile"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:fontFamily="@font/poppins"
@@ -96,7 +63,7 @@
             android:paddingLeft="20dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Reg_Email" />
 
@@ -104,7 +71,7 @@
             android:id="@+id/Reg_Email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:fontFamily="@font/poppins"
@@ -113,6 +80,7 @@
             android:paddingLeft="20dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.466"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Reg_First_Name" />
 
@@ -120,7 +88,7 @@
             android:id="@+id/Reg_Password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:fontFamily="@font/poppins"
@@ -129,7 +97,7 @@
             android:paddingLeft="20dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Reg_Mobile" />
 
@@ -137,7 +105,7 @@
             android:id="@+id/Reg_Licence_Number"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:fontFamily="@font/poppins"
@@ -146,7 +114,7 @@
             android:paddingLeft="20dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Reg_Password" />
 
