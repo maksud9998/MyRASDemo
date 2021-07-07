@@ -41,7 +41,7 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/edit_text"
             android:fontFamily="@font/poppins"
-            android:hint="Enter Adhar/Passport/PAN detail"
+            android:hint="Enter Aadhar card detail"
             android:inputType="number"
             android:paddingLeft="20dp"
             android:textSize="16sp"
