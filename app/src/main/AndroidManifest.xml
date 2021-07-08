@@ -9,7 +9,10 @@
         android:roundIcon="@drawable/ras_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyRASDemo">
-        <activity android:name=".UploadCarImages"></activity>
+        <activity android:name=".ForgetPassword"></activity>
+        <activity android:name=".EmailVerify" />
+
+        <activity android:name=".UploadCarImages" />
         <activity android:name=".ContactUs" />
         <activity android:name=".Register" />
         <activity android:name=".Payment" />
