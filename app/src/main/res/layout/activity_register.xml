@@ -38,7 +38,7 @@
             android:id="@+id/Reg_IDDetail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/edit_text"
             android:fontFamily="@font/poppins"
             android:hint="Enter Aadhar card detail"
@@ -54,7 +54,7 @@
             android:id="@+id/Reg_Mobile"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:fontFamily="@font/poppins"
@@ -63,7 +63,7 @@
             android:paddingLeft="20dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintHorizontal_bias="0.466"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Reg_Email" />
 
@@ -71,7 +71,7 @@
             android:id="@+id/Reg_Email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:fontFamily="@font/poppins"
@@ -80,7 +80,7 @@
             android:paddingLeft="20dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Reg_First_Name" />
 
@@ -88,7 +88,7 @@
             android:id="@+id/Reg_Password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:fontFamily="@font/poppins"
@@ -97,7 +97,6 @@
             android:paddingLeft="20dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Reg_Mobile" />
 
@@ -105,7 +104,7 @@
             android:id="@+id/Reg_Licence_Number"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:fontFamily="@font/poppins"
@@ -114,7 +113,6 @@
             android:paddingLeft="20dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Reg_Password" />
 
@@ -151,7 +149,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/Register"
+            android:id="@+id/verify_Email"
             android:layout_width="192dp"
             android:layout_height="wrap_content"
             android:background="@drawable/btnshape"
@@ -161,9 +159,21 @@
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.442"
+            app:layout_constraintHorizontal_bias="0.447"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Reg_IDDetail" />
+            app:layout_constraintTop_toBottomOf="@+id/Reg_IDDetail"
+            app:layout_constraintVertical_bias="0.152" />
+
+        <Button
+            android:id="@+id/already_account"
+            android:layout_width="320dp"
+            android:layout_height="52dp"
+            android:text="Already have an account ?"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/verify_Email" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
