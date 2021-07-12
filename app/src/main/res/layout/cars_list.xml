@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/carImage"
-            android:padding="5dp"
+            android:paddingTop="10dp"
             android:background="@drawable/bgcircle">
 
             <Button
@@ -63,10 +63,10 @@
                 android:background="@drawable/btnshape"
                 android:text="@string/smallpackage"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:fontFamily="@font/poppins"
                 android:onClick="onClickSmallPackage"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/smallPackageKMS"
                 app:layout_constraintEnd_toStartOf="@+id/mediumPackage"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -78,12 +78,11 @@
                 android:text="150 KMs"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
-                android:textSize="14sp"
+                android:textSize="12sp"
+                android:layout_marginTop="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/mediumPackage"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="5dp"
                 app:layout_constraintTop_toBottomOf="@id/smallPackage" />
 
             <Button
@@ -95,9 +94,9 @@
                 android:text="@string/mediumpackage"
                 android:onClick="onClickMediumPackage"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:fontFamily="@font/poppins"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/mediumPackageKMS"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +109,8 @@
                 android:text="350 KMs"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
-                android:textSize="14sp"
+                android:textSize="12sp"
+                android:layout_marginTop="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -126,9 +126,9 @@
                 android:onClick="onClickHighPackage"
                 android:text="@string/highpackage"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:fontFamily="@font/poppins"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/highPackageKMS"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/mediumPackage"
@@ -141,12 +141,13 @@
                 android:text="600 KMs"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
-                android:textSize="14sp"
+                android:textSize="12sp"
+                android:layout_marginTop="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/mediumPackage"
-                app:layout_constraintTop_toBotttomOf="highPackage" />
+                app:layout_constraintTop_toBottomOf="@id/highPackage"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
