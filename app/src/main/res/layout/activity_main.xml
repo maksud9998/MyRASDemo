@@ -79,19 +79,6 @@
                     android:layout_below="@id/pickupTime"
                     android:background="@color/black"/>
                 <TextView
-                    android:id="@+id/startday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/startdate"
-                    android:layout_toEndOf="@+id/iconstartCal"
-                    android:padding="3dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="@string/startday"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
-
-                <TextView
                     android:id="@+id/startdate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -109,7 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/startdate"
-                    android:layout_toEndOf="@id/startday"
+                    android:layout_toEndOf="@id/iconstartCal"
                     android:fontFamily="@font/poppins"
                     android:padding="3dp"
                     android:text="@string/starttime"
@@ -117,18 +104,6 @@
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/startAM_PM"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/startdate"
-                    android:layout_toEndOf="@id/starttime"
-                    android:fontFamily="@font/poppins"
-                    android:paddingTop="3dp"
-                    android:text="@string/startAMPM"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -173,18 +148,6 @@
                     android:layout_marginLeft="20dp"
                     android:layout_below="@id/dropTime"
                     android:background="@color/black"/>
-                <TextView
-                    android:id="@+id/endday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/enddate"
-                    android:layout_toEndOf="@+id/iconendCal"
-                    android:fontFamily="@font/poppins"
-                    android:padding="3dp"
-                    android:text="@string/endday"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/enddate"
@@ -204,7 +167,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/enddate"
-                    android:layout_toEndOf="@id/endday"
+                    android:layout_toEndOf="@id/iconendCal"
                     android:fontFamily="@font/poppins"
                     android:padding="3dp"
                     android:text="@string/endtime"
@@ -212,18 +175,6 @@
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/endAM_PM"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/enddate"
-                    android:layout_toEndOf="@id/endtime"
-                    android:fontFamily="@font/poppins"
-                    android:paddingTop="3dp"
-                    android:text="@string/endAMPM"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
             </RelativeLayout>
 
             <Button

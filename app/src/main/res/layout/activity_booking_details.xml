@@ -11,311 +11,454 @@
         android:id="@+id/bookingdetailstxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Booking Details"
-        android:padding="12dp"
-        android:textColor="@color/white"
+        android:background="#DC4433"
         android:fontFamily="@font/poppins_semibold"
+        android:gravity="center_horizontal"
+        android:padding="12dp"
+        android:text="Booking Details"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="#DC4433"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="0dp"
-        android:layout_height="130dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintCircleRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bookingdetailstxt"
-        app:layout_constraintVertical_bias="0.0">
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="111dp"
-            android:layout_height="0dp"
-            android:src="@drawable/frontcar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="39dp"
-            android:layout_height="44dp"
-            android:src="@drawable/gear"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.15"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.186" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Transmisson"
-            android:fontFamily="@font/poppins"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="90dp"
-            android:layout_height="47dp"
-            android:src="@drawable/caroil"
-            app:layout_constraintBottom_toBottomOf="@+id/textView9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.566"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.28" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="oil type"
-            android:fontFamily="@font/poppins"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.565"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.765" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="230dp"
-        android:layout_marginBottom="16dp"
-        android:text="FRI 12 JUN 21:00 PM"
-        android:textColor="@color/green"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView7" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="13dp"
-        android:src="@drawable/greencircle"
-        app:layout_constraintBottom_toBottomOf="@+id/textView10"
-        app:layout_constraintEnd_toStartOf="@+id/textView10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="230dp"
-        android:text="FRI 13 JUN 21:00 PM"
-        android:textColor="@color/red"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="@+id/imageView8" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
-        android:text="Keep In Mind"
-        android:fontFamily="@font/poppins"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="0dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="243dp"
-        android:layout_marginBottom="243dp"
-        android:src="@drawable/driverlicense"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="14dp"
-        android:text="Indian Driving License Mandatory"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/black"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="175dp"
-        android:layout_marginBottom="175dp"
-        android:text="Fare And Fuel Policy"
-        android:fontFamily="@font/poppins"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:fontFamily="@font/poppins"
-        android:text="Fare is inclusive of all taxes. Excess charge ₹15/km. Fuel bills whill be reimbursed after trip"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.805"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.193" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rs 3880"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/red"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.621"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="0.252" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:background="@drawable/btnshape"
-        android:text="Checkout"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="0.841" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="0dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="14dp"
-        android:src="@drawable/redcircle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Total-"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/black"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/textView16"
-        app:layout_constraintHorizontal_bias="0.896"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="0.142" />
+        app:layout_constraintTop_toBottomOf="@+id/bookingdetailstxt"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="10dp"
-        android:text="carname"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintStart_toStartOf="@+id/textView21"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#E5E5E5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bookingdetailstxt">
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
-        android:text="carnumber"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintStart_toEndOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+            <TextView
+                android:id="@+id/carName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="@string/carname"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/imageView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="27dp"
-        android:text="bodytype"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+            <ImageView
+                android:id="@+id/transmission_img"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="17dp"
+                android:src="@drawable/gear"
+                app:layout_constraintBottom_toTopOf="@id/body_type_img"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carName" />
 
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="7dp"
-        android:text="capavity"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintEnd_toEndOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            <TextView
+                android:id="@+id/transmission_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/poppins"
+                android:text="Automatic"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/bodytype_txt"
+                app:layout_constraintStart_toEndOf="@id/transmission_img"
+                app:layout_constraintTop_toBottomOf="@id/carName" />
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/imageView10"-->
-    <!--        android:layout_width="69dp"-->
-    <!--        android:layout_height="46dp"-->
-    <!--        android:src="@drawable/infodesk"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/textView13"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.315"-->
-    <!--        app:layout_constraintStart_toEndOf="@+id/textView12"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/textView11"-->
-    <!--        app:layout_constraintVertical_bias="0.532" />-->
+            <ImageView
+                android:id="@+id/body_type_img"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/bodytype"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/transmission_img" />
 
+            <TextView
+                android:id="@+id/bodytype_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="SUV"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@id/body_type_img"
+                app:layout_constraintTop_toBottomOf="@id/transmission_txt" />
+
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/frontcar"
+                app:layout_constraintBottom_toTopOf="@id/noplatetxt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carName" />
+
+            <TextView
+                android:id="@+id/noplatetxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="GJ 01 UF 9998"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/details_link_txt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+            <TextView
+                android:id="@+id/details_link_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="More Info"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/line1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/noplatetxt" />
+
+            <ImageView
+                android:id="@+id/fueltype_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/caroil"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carName" />
+
+
+            <TextView
+                android:id="@+id/fueltype_txt"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Petrol"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@id/imageView3"
+                app:layout_constraintTop_toBottomOf="@id/carName" />
+
+            <ImageView
+                android:id="@+id/seat_capacity_img"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/noofseat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fueltype_img" />
+
+
+            <TextView
+                android:id="@+id/noofseat_txt"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="5 Seater"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@id/imageView3"
+                app:layout_constraintTop_toBottomOf="@id/fueltype_txt" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@id/kms_txt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/details_link_txt" />
+
+            <TextView
+                android:id="@+id/range_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins"
+                android:text="Range : "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line1" />
+
+            <TextView
+                android:id="@+id/kms_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:fontFamily="@font/poppins"
+                android:text="350 KMs"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/range_txt"
+                app:layout_constraintTop_toBottomOf="@id/line1" />
+
+            <TextView
+                android:id="@+id/start_trip_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="Start    : "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/range_txt" />
+
+            <TextView
+                android:id="@+id/start_date_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:text="29 September 2021"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/start_trip_txt"
+                app:layout_constraintTop_toBottomOf="@id/kms_txt" />
+
+            <TextView
+                android:id="@+id/start_time_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Wednesday 12:00 PM"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/start_trip_txt"
+                app:layout_constraintTop_toBottomOf="@id/start_date_txt" />
+
+            <TextView
+                android:id="@+id/end_trip_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="35dp"
+                android:fontFamily="@font/poppins"
+                android:text="End      : "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/start_trip_txt" />
+
+            <TextView
+                android:id="@+id/end_date_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:text="30 September 2021"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/end_trip_txt"
+                app:layout_constraintTop_toBottomOf="@id/start_time_txt" />
+
+            <TextView
+                android:id="@+id/end_time_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Wednesday 12:00 PM"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/end_trip_txt"
+                app:layout_constraintTop_toBottomOf="@id/end_date_txt" />
+
+
+            <TextView
+                android:id="@+id/read_TC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="Before Confirming Your Booking, Make Sure You Read All The Terms And Conditions."
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/line2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/end_time_txt" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@id/trip_fare_txt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/read_TC" />
+
+            <TextView
+                android:id="@+id/trip_fare_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/poppins"
+                android:text="Trip Fare"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line2" />
+
+            <TextView
+                android:id="@+id/trip_fare_price_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Rs 5550"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line2" />
+
+            <View
+                android:id="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#777676"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/trip_fare_txt" />
+
+            <TextView
+                android:id="@+id/refundable_deposite_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="Refundable Deposite"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line3" />
+
+            <TextView
+                android:id="@+id/plus_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="+"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@id/refundable_deposite_price_txt"
+                app:layout_constraintTop_toBottomOf="@id/line3" />
+
+            <TextView
+                android:id="@+id/refundable_deposite_price_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Rs 2000"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line3" />
+
+            <View
+                android:id="@+id/line4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#777676"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/refundable_deposite_txt" />
+
+            <TextView
+                android:id="@+id/total_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="Total"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line4" />
+
+            <TextView
+                android:id="@+id/total_price_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Rs 7550"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line4" />
+
+            <Button
+                android:id="@+id/confirm_booking_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/btnshape"
+                android:fontFamily="@font/poppins"
+                android:text="Confirm Booking"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/total_txt" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

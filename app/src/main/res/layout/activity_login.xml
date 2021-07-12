@@ -35,82 +35,80 @@
         app:layout_constraintVertical_bias="1.0">
 
         <EditText
-            android:id="@+id/OTP"
-            android:layout_width="match_parent"
-            android:layout_height="57dp"
+            android:id="@+id/passwd_otp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:fontFamily="@font/poppins"
-            android:hint="Enter your OTP"
+            android:hint="Enter Your Password Or OTP"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
+            android:layout_marginTop="50dp"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.35" />
+            app:layout_constraintVertical_bias="0.398" />
 
         <EditText
-            android:id="@+id/verify_Email_Code"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
+            android:id="@+id/email"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:background="@drawable/edit_text"
             android:fontFamily="@font/poppins"
-            android:hint="Enter Email ID"
-            android:inputType="number"
+            android:layout_marginBottom="30dp"
+            android:hint="Enter Your E-Mail Here"
             android:paddingLeft="20dp"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.172" />
+            app:layout_constraintBottom_toTopOf="@+id/passwd_otp"
+            app:layout_constraintEnd_toStartOf="@+id/Send_Otp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <Button
-            android:id="@+id/verify_Email"
-            android:layout_width="269dp"
-            android:layout_height="56dp"
-            android:layout_marginBottom="4dp"
+            android:id="@+id/loginbtn"
+            android:layout_width="192dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/btnshape"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins_semibold"
             android:text="Login"
+            android:layout_marginTop="30dp"
             android:textColor="@color/white"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/OTP" />
+            app:layout_constraintTop_toBottomOf="@+id/passwd_otp" />
 
         <Button
-            android:id="@+id/Sign_up"
-            android:layout_width="269dp"
-            android:layout_height="56dp"
-            android:layout_marginBottom="4dp"
+            android:id="@+id/Send_Otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/btnshape"
+            android:text="Send OTP"
             android:fontFamily="@font/poppins"
-            android:text="Sign Up"
+            android:layout_marginBottom="30dp"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/passwd_otp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/OTP"
-            app:layout_constraintVertical_bias="0.798" />
+            app:layout_constraintStart_toEndOf="@id/email"/>
 
-        <Button
-            android:id="@+id/Forgot_Pass"
-            android:layout_width="252dp"
-            android:layout_height="44dp"
-            android:text="Forgot Password ?"
-            app:layout_constraintBottom_toTopOf="@+id/verify_Email"
+        <TextView
+            android:id="@+id/registerlink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't Have An Account? Register Here"
+            android:textColor="#DC4433"
+            android:fontFamily="@font/poppins"
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/OTP"
-            app:layout_constraintVertical_bias="0.108" />
-
+            app:layout_constraintTop_toBottomOf="@id/loginbtn"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView

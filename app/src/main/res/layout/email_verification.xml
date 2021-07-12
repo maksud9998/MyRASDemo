@@ -52,8 +52,8 @@
 
         <Button
             android:id="@+id/verify_Email"
-            android:layout_width="269dp"
-            android:layout_height="56dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="244dp"
             android:background="@drawable/btnshape"
             android:fontFamily="@font/poppins"

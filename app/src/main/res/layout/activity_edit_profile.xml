@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditProfile">
-    <Button
-        android:id="@+id/verify_btn"
-        android:layout_width="371dp"
+    <TextView
+        android:id="@+id/berify_link"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bgcircle"
-        android:text="Verify Your Document"
-        android:textColor="@color/white"
+        android:text="Verify Your Documents Here"
+        android:textColor="#DC4433"
         android:textSize="16sp"
         android:fontFamily="@font/poppins"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,10 +21,10 @@
 
     <Button
         android:id="@+id/submit"
-        android:layout_width="287dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btnshape"
-        android:text="submit"
+        android:text="Confirm Changes"
         android:textColor="@android:color/white"
         android:textSize="16sp"
         android:fontFamily="@font/poppins"

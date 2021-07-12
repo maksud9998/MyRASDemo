@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Shortening/Rescheduling within 24hrs of booking start or booking end."
+                android:text="SNo Alteration In Booking Scheduled"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
@@ -98,7 +98,7 @@
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
-                android:text="Late return would be charged at ₹300/hour in addition to the hourly fee for use of the vehicle. " />
+                android:text="Late return would be charged at ₹300/hour in addition to the hourly fee for use of the vehicle." />
 
             <View
                 android:layout_width="match_parent"
@@ -120,7 +120,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
                 android:text="If car is not returned back within 4 hours of booking end time, then an FIR will be filed against customer.
-            Customer can be charged under Indian Penal Code, 1860 for the offence of theft" />
+            Customer can be charged under Indian Penal Code, 1860 for the offence of theft." />
 
             <View
                 android:layout_width="match_parent"
@@ -143,7 +143,7 @@
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
-                android:text="The minimum booking duration for which the prices will be charged is 4 hours. " />
+                android:text="The minimum booking duration for which the prices will be charged is 4 hours." />
 
             <View
                 android:layout_width="match_parent"
@@ -166,7 +166,7 @@
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
-                android:text="The Member shall be responsible for the costs related to the repair, recovery, and loss of use of any Rent-A-Savari vehicle" />
+                android:text="The Member shall be responsible for the costs related to the repair, recovery, and loss of use of any Rent-A-Savari vehicle." />
 
             <View
                 android:layout_width="match_parent"
@@ -189,7 +189,7 @@
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
-                android:text="Full payment of fines + ₹500 per 30 days late in payment " />
+                android:text="Full payment of fines + ₹500 per 30 days late in payment." />
 
             <View
                 android:layout_width="match_parent"
@@ -212,7 +212,7 @@
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
-                android:text="Bookings would stand cancelled if after 4 hours of booking start time the customer still doesn’t show up.\nNo refunds would be applicable " />
+                android:text="Bookings would stand cancelled if after 4 hours of booking start time the customer still doesn’t show up.\nNo refunds would be applicable." />
 
             <View
                 android:layout_width="match_parent"
@@ -222,7 +222,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Towing and Impounding"
+                android:text="Towing And Impounding"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
@@ -235,7 +235,7 @@
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
-                android:text="No cost if caused by vehicle failure\nFull cost if caused by user negligence " />
+                android:text="No cost if caused by vehicle failure\nFull cost if caused by user negligence." />
 
             <View
                 android:layout_width="match_parent"
@@ -245,7 +245,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cleaning required"
+                android:text="Cleaning Required"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
@@ -258,7 +258,7 @@
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
-                android:text="Washing of removables (for footmats etc) would be charged at ₹500. Interior Washing / Drycleaning (for seat covers, door panels) would be charged at ₹1,500. " />
+                android:text="Washing of removables (for footmats etc) would be charged at ₹500. Interior Washing / Drycleaning (for seat covers, door panels) would be charged at ₹1,500." />
 
             <View
                 android:layout_width="match_parent"
@@ -281,7 +281,7 @@
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
-                android:text="If multiple bad reviews are submitted by station manager, cusotmer`s licence can be blacklisted from Rent-A-Savari" />
+                android:text="If multiple bad reviews are submitted by station manager, cusotmer's licence can be blacklisted from Rent-A-Savari." />
 
         </LinearLayout>
     </ScrollView>

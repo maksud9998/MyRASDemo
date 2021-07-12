@@ -24,25 +24,21 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    TextView startDate, startDay, startTime,startAM_PM, endDate, endDay, endTime,endAM_PM;
+    TextView startDate, startTime,startAM_PM, endDate, endDay, endTime,endAM_PM;
     RelativeLayout startLayout, endLayout;
     Button findcarbtn;
     RecyclerView carlistrecyclerView;
     boolean startCheck = false,endCheck=false;
-    String []arr={"Item1","Item2","Item3","Item4","Item5","Item6","Item7","Item8","Item9","Item10","Item2","Item3","Item4","Item5","Item6","Item7","Item8","Item9","Item10"};
+    String []arr={"5 Seater","5 Seater","5 Seater","5 Seater","5 Seater","5 Seater","5 Seater","5 Seater","5 Seater","5 Seater"};
     CarListAdapter clAdapter = new CarListAdapter(arr);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         startDate = findViewById(R.id.startdate);
-        startDay = findViewById(R.id.startday);
         startTime = findViewById(R.id.starttime);
-        startAM_PM = findViewById(R.id.startAM_PM);
         endDate = findViewById(R.id.enddate);
-        endDay = findViewById(R.id.endday);
         endTime = findViewById(R.id.endtime);
-        endAM_PM = findViewById(R.id.endAM_PM);
         startLayout = findViewById(R.id.startLayout);
         endLayout = findViewById(R.id.endLayout);
         findcarbtn = findViewById(R.id.findcarbtn);
@@ -86,32 +82,15 @@ public class MainActivity extends AppCompatActivity {
                 calendar.set(Calendar.YEAR,year);
                 calendar.set(Calendar.MONTH,month);
                 calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-
                 TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        if (hourOfDay==12)
-                        {
-                            startAM_PM.setText("PM");
-                        }
-                        else if(hourOfDay>12)
-                        {
-                            startAM_PM.setText("PM");
-                            hourOfDay = hourOfDay -12;
-                        }
-                        else
-                        {
-                            startAM_PM.setText("AM");
-                        }
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(Calendar.MINUTE,minute);
-                        SimpleDateFormat startDayFormat = new SimpleDateFormat("EEEE");
-                        startDay.setText(startDayFormat.format(calendar.getTime()));
                         SimpleDateFormat startDateFormat = new SimpleDateFormat("MMMM  dd  yyyy");
                         startDate.setText(startDateFormat.format(calendar.getTime()));
-                        SimpleDateFormat starttimeFormat = new SimpleDateFormat("HH:mm");
+                        SimpleDateFormat starttimeFormat = new SimpleDateFormat("EEEE HH:mm");
                         startTime.setText(starttimeFormat.format(calendar.getTime()));
-
                     }
                 };
                 new TimePickerDialog(MainActivity.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
@@ -132,28 +111,12 @@ public class MainActivity extends AppCompatActivity {
                 TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        if (hourOfDay==12)
-                        {
-                            endAM_PM.setText("PM");
-                        }
-                        else if(hourOfDay>12)
-                        {
-                            endAM_PM.setText("PM");
-                            hourOfDay = hourOfDay -12;
-                        }
-                        else
-                        {
-                            endAM_PM.setText("AM");
-                        }
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(Calendar.MINUTE,minute);
-                        SimpleDateFormat endDayFormat = new SimpleDateFormat("EEEE");
-                        endDay.setText(endDayFormat.format(calendar.getTime()));
                         SimpleDateFormat endDateFormat = new SimpleDateFormat("MMMM  dd  yyyy");
                         endDate.setText(endDateFormat.format(calendar.getTime()));
-                        SimpleDateFormat endtimeFormat = new SimpleDateFormat("HH:mm");
+                        SimpleDateFormat endtimeFormat = new SimpleDateFormat("EEEE HH:mm");
                         endTime.setText(endtimeFormat.format(calendar.getTime()));
-
                     }
                 };
                 new TimePickerDialog(MainActivity.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();

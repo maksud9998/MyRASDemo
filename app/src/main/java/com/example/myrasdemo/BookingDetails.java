@@ -13,7 +13,7 @@ public class BookingDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_details);
-        checkoutbtn = findViewById(R.id.button);
+        checkoutbtn = findViewById(R.id.confirm_booking_btn);
         checkoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -63,7 +63,7 @@
                 android:background="@drawable/btnshape"
                 android:text="@string/smallpackage"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:onClick="onClickSmallPackage"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -71,6 +71,20 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/smallPackageKMS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="150 KMs"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/mediumPackage"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/smallPackage" />
 
             <Button
                 android:id="@+id/mediumPackage"
@@ -81,13 +95,27 @@
                 android:text="@string/mediumpackage"
                 android:onClick="onClickMediumPackage"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/mediumPackageKMS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="350 KMs"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mediumPackage" />
 
             <Button
                 android:id="@+id/highPackage"
@@ -98,13 +126,28 @@
                 android:onClick="onClickHighPackage"
                 android:text="@string/highpackage"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/mediumPackage"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/highPackageKMS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="600 KMs"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/mediumPackage"
+                app:layout_constraintTop_toBotttomOf="highPackage" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
