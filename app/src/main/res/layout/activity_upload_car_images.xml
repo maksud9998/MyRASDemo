@@ -13,7 +13,7 @@
         android:background="#DC4433"
         android:fontFamily="@font/poppins_semibold"
         android:gravity="center_horizontal"
-        android:text="Car Photos"
+        android:text="@string/car_photos"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:padding="12dp"
@@ -41,20 +41,36 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/booking_id_dropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/select_booking_id"
+                    android:padding="12dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:background="@drawable/layoutbg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/car_front_txt"
+                    app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+
+                <TextView
                     android:id="@+id/car_front_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="2dp"
-                    android:text="Front Side"
+                    android:fontFamily="@font/poppins"
+                    android:padding="2dp"
+                    android:text="@string/front_side"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:fontFamily="@font/poppins"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@id/car_front"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/booking_id_dropdown" />
 
                 <ImageView
                     android:id="@+id/car_front"
@@ -68,7 +84,8 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/car_front_txt"
-                    app:srcCompat="@drawable/capture_image" />
+                    app:srcCompat="@drawable/capture_image"
+                    android:contentDescription="@string/todo1" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/capture_car_front"
@@ -80,15 +97,16 @@
                     android:focusable="true"
                     app:layout_constraintBottom_toBottomOf="@+id/car_front"
                     app:layout_constraintEnd_toEndOf="@+id/car_front"
-                    app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+                    android:contentDescription="@string/todo" />
 
                 <TextView
                     android:id="@+id/car_back_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="2dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Back Side"
+                    android:padding="2dp"
+                    android:text="@string/back_side"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -110,7 +128,8 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/car_back_txt"
-                    app:srcCompat="@drawable/capture_image" />
+                    app:srcCompat="@drawable/capture_image"
+                    android:contentDescription="@string/todo" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/capture_car_back"
@@ -122,17 +141,18 @@
                     android:focusable="true"
                     app:layout_constraintBottom_toBottomOf="@+id/car_back"
                     app:layout_constraintEnd_toEndOf="@+id/car_back"
-                    app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+                    android:contentDescription="@string/todo" />
 
                 <TextView
                     android:id="@+id/car_right_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="2dp"
-                    android:text="Right Side"
+                    android:fontFamily="@font/poppins"
+                    android:padding="2dp"
+                    android:text="@string/right_side"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:fontFamily="@font/poppins"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@id/car_right"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -152,7 +172,8 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/car_right_txt"
-                    app:srcCompat="@drawable/capture_image" />
+                    app:srcCompat="@drawable/capture_image"
+                    android:contentDescription="@string/todo" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/capture_car_right"
@@ -164,18 +185,19 @@
                     android:focusable="true"
                     app:layout_constraintBottom_toBottomOf="@+id/car_right"
                     app:layout_constraintEnd_toEndOf="@+id/car_right"
-                    app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+                    android:contentDescription="@string/todo" />
 
                 <TextView
                     android:id="@+id/car_left_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="2dp"
-                    android:text="Left Side"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
                     android:fontFamily="@font/poppins"
+                    android:padding="2dp"
+                    android:text="@string/left_side"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@id/car_left"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -194,7 +216,8 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/car_left_txt"
-                    app:srcCompat="@drawable/capture_image" />
+                    app:srcCompat="@drawable/capture_image"
+                    android:contentDescription="@string/todo" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/capture_car_left"
@@ -206,18 +229,19 @@
                     android:focusable="true"
                     app:layout_constraintBottom_toBottomOf="@+id/car_left"
                     app:layout_constraintEnd_toEndOf="@+id/car_left"
-                    app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+                    android:contentDescription="@string/todo" />
 
                 <TextView
                     android:id="@+id/car_speedometer_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="2dp"
-                    android:text="Speedometer"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
                     android:fontFamily="@font/poppins"
+                    android:padding="2dp"
+                    android:text="@string/speedometer"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -234,7 +258,8 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/car_speedometer_txt"
-                    app:srcCompat="@drawable/capture_image" />
+                    app:srcCompat="@drawable/capture_image"
+                    android:contentDescription="@string/todo" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/capture_car_speedometer"
@@ -246,23 +271,24 @@
                     android:focusable="true"
                     app:layout_constraintBottom_toBottomOf="@+id/car_speedometer"
                     app:layout_constraintEnd_toEndOf="@+id/car_speedometer"
-                    app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+                    app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+                    android:contentDescription="@string/todo" />
 
                 <Button
                     android:id="@+id/continuebtn"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/btnshape"
-                    android:text="@string/continuebtn"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/poppins"
-                    android:textColor="@color/white"
                     android:layout_marginTop="30dp"
+                    android:background="@drawable/btnshape"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/continuebtn"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/car_speedometer"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_speedometer" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
