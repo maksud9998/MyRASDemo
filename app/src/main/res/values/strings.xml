@@ -45,15 +45,8 @@
     <string name="todo1">TODO</string>
     <string name="todo">TODO</string>
     <string name="back_side">Back Side</string>
-    <string name="todo">TODO</string>
-    <string name="todo">TODO</string>
     <string name="right_side">Right Side</string>
-    <string name="todo">TODO</string>
-    <string name="todo">TODO</string>
     <string name="left_side">Left Side</string>
-    <string name="todo">TODO</string>
-    <string name="todo">TODO</string>
-    <string name="todo">TODO</string>
     <string name="speedometer">Speedometer</string>
-    <string name="todo">TODO</string>
+
 </resources>
