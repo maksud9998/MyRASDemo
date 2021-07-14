@@ -13,17 +13,33 @@
         android:src="@drawable/img"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".27"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/contact_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="CONTACT US "
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.943" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="411dp"
-        android:layout_height="579dp"
-        android:background="@drawable/contct_bg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg"
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,10 +52,9 @@
 
         <EditText
             android:id="@+id/Contact_FirstName"
-            android:layout_width="178dp"
-            android:layout_height="51dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="108dp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="60dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:textSize="16sp"
@@ -47,18 +62,18 @@
             android:hint="First Name"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/Reg_Bdate"
-            app:layout_constraintEnd_toStartOf="@+id/Reg_Last_Name"
+            app:layout_constraintBottom_toTopOf="@+id/Contact_Email"
+            app:layout_constraintEnd_toStartOf="@+id/Contact_LastName"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/Contact_LastName"
-            android:layout_width="190dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginTop="108dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginTop="60dp"
+
             android:background="@drawable/edit_text"
             android:ems="10"
             android:textSize="16sp"
@@ -66,30 +81,18 @@
             android:hint="Last Name"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/Reg_Bdate"
+            app:layout_constraintBottom_toTopOf="@+id/Contact_Email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/Reg_First_Name"
+            app:layout_constraintStart_toEndOf="@+id/Contact_FirstName"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/contact_text"
-            android:layout_width="267dp"
-            android:layout_height="57dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="CONTACT US "
-            android:textSize="34sp"
-            android:fontFamily="@font/poppins_semibold"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
 
         <EditText
             android:id="@+id/Contact_Email"
-            android:layout_width="373dp"
-            android:layout_height="62dp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:textSize="16sp"
@@ -97,15 +100,15 @@
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/contact_Message"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Contact_FirstName"
             app:layout_constraintVertical_bias="0.384" />
 
         <EditText
             android:id="@+id/contact_Message"
-            android:layout_width="376dp"
+            android:layout_width="0dp"
             android:layout_height="175dp"
             android:background="@drawable/edit_text"
             android:ems="10"
@@ -114,15 +117,15 @@
             android:hint="Message"
             android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/Send_Message"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.485"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Contact_Email"
             app:layout_constraintVertical_bias="0.712" />
 
         <Button
-            android:id="@+id/Contact_Message"
+            android:id="@+id/Send_Message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"

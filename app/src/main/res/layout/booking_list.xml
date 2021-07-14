@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/layout_border">
+    android:background="@drawable/layout_border"
+    android:padding="15dp"
+    >
 
 
     <ImageView
@@ -115,14 +117,14 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
         android:padding="2dp"
         android:text="123456"
-        android:fontFamily="@font/poppins"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/textView7"
+        app:layout_constraintBottom_toTopOf="@id/textView3"
         app:layout_constraintStart_toEndOf="@+id/textView23"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        />
 
     <TextView
         android:id="@+id/textView25"
@@ -132,10 +134,10 @@
         android:fontFamily="@font/poppins"
         android:text="GJ 01 UF 9998"
         android:textColor="@color/black"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/cancelbookingbtn"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@id/textView5"
+
+        />
 
     <TextView
         android:id="@+id/textView28"

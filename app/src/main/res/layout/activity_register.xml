@@ -34,21 +34,6 @@
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingClass">
 
-        <EditText
-            android:id="@+id/Reg_IDDetail"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:background="@drawable/edit_text"
-            android:fontFamily="@font/poppins"
-            android:hint="Enter Aadhar card detail"
-            android:inputType="number"
-            android:paddingLeft="20dp"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/Register"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Reg_Licence_Number" />
 
         <EditText
             android:id="@+id/Reg_Mobile"
@@ -112,7 +97,7 @@
             android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/Reg_IDDetail"
+            app:layout_constraintBottom_toTopOf="@+id/Register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +150,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Reg_IDDetail" />
+            app:layout_constraintTop_toBottomOf="@+id/Reg_Licence_Number" />
 
         <TextView
             android:id="@+id/loginlink"
@@ -197,6 +182,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.732" />
+        app:layout_constraintVertical_bias="0.9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
