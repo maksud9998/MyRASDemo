@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyRASDemo</string>
+    <string name="app_name">Rent-A-Savari</string>
     <string name="carname">Mahindra KUV 100</string>
     <string name="carseat">5 Seater</string>
     <string name="smallpackage">Rs 2250</string>
@@ -43,10 +43,18 @@
     <string name="select_booking_id">Select Booking ID</string>
     <string name="front_side">Front Side</string>
     <string name="todo1">TODO</string>
-    <string name="todo">TODO</string>
+    <string name="todo2">TODO</string>
     <string name="back_side">Back Side</string>
+    <string name="todo3">TODO</string>
+    <string name="todo4">TODO</string>
     <string name="right_side">Right Side</string>
+    <string name="todo5">TODO</string>
+    <string name="todo6">TODO</string>
     <string name="left_side">Left Side</string>
+    <string name="todo7">TODO</string>
+    <string name="todo8">TODO</string>
+    <string name="todo9">TODO</string>
     <string name="speedometer">Speedometer</string>
+    <string name="todo10">TODO</string>
 
 </resources>

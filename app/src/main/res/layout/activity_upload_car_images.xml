@@ -98,7 +98,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/car_front"
                     app:layout_constraintEnd_toEndOf="@+id/car_front"
                     app:srcCompat="@drawable/ic_baseline_camera_alt_24"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo1" />
 
                 <TextView
                     android:id="@+id/car_back_txt"
@@ -129,7 +129,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/car_back_txt"
                     app:srcCompat="@drawable/capture_image"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo2" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/capture_car_back"
@@ -142,7 +142,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/car_back"
                     app:layout_constraintEnd_toEndOf="@+id/car_back"
                     app:srcCompat="@drawable/ic_baseline_camera_alt_24"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo3" />
 
                 <TextView
                     android:id="@+id/car_right_txt"
@@ -173,7 +173,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/car_right_txt"
                     app:srcCompat="@drawable/capture_image"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo4" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/capture_car_right"
@@ -186,7 +186,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/car_right"
                     app:layout_constraintEnd_toEndOf="@+id/car_right"
                     app:srcCompat="@drawable/ic_baseline_camera_alt_24"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo5" />
 
                 <TextView
                     android:id="@+id/car_left_txt"
@@ -217,7 +217,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/car_left_txt"
                     app:srcCompat="@drawable/capture_image"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo6" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/capture_car_left"
@@ -230,7 +230,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/car_left"
                     app:layout_constraintEnd_toEndOf="@+id/car_left"
                     app:srcCompat="@drawable/ic_baseline_camera_alt_24"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo7" />
 
                 <TextView
                     android:id="@+id/car_speedometer_txt"
@@ -259,7 +259,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/car_speedometer_txt"
                     app:srcCompat="@drawable/capture_image"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo8" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/capture_car_speedometer"
@@ -272,7 +272,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/car_speedometer"
                     app:layout_constraintEnd_toEndOf="@+id/car_speedometer"
                     app:srcCompat="@drawable/ic_baseline_camera_alt_24"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo9" />
 
                 <Button
                     android:id="@+id/continuebtn"
