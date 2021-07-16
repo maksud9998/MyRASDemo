@@ -12,6 +12,7 @@ import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -19,8 +20,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -28,9 +43,10 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout startLayout, endLayout;
     Button findcarbtn;
     RecyclerView carlistrecyclerView;
+    List<Car> cars;
+    private static  String JSON_URL = "http://192.168.1.222/LoginRegister/CarDetails.php";
+    CarListAdapter carListAdapter;
     boolean startCheck = false,endCheck=false;
-    String []arr={"5 Seater","5 Seater","5 Seater","5 Seater","5 Seater","5 Seater","5 Seater","5 Seater","5 Seater","5 Seater"};
-    CarListAdapter clAdapter = new CarListAdapter(arr);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         findcarbtn = findViewById(R.id.findcarbtn);
         drawerLayout = findViewById(R.id.drawer_layout);
         carlistrecyclerView = findViewById(R.id.carlistrecyclerView);
+        cars = new ArrayList<>();
         carlistrecyclerView.setLayoutManager(new LinearLayoutManager(this));
         startLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +143,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showCarList() {
-        carlistrecyclerView.setAdapter(clAdapter);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET,JSON_URL,null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for (int i = 0; i <= response.length(); i++)
+                {
+                    try {
+                        JSONObject carObject = response.getJSONObject(i);
+                        Car car = new Car();
+                        car.setCar_name(carObject.getString("car_name").toString());
+                        car.setSeat_capacity(carObject.getString("seat_capacity").toString());
+                        car.setRent_price(carObject.getInt("rent_price"));
+                        car.setCar_image(carObject.getString("car_image").toString());
+
+                        cars.add(car);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                carlistrecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                carListAdapter = new CarListAdapter(MainActivity.this,cars);
+                carlistrecyclerView.setAdapter(carListAdapter);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("tag","onErrorResponse: " + error.getMessage());
+            }
+        });
+        queue.add(jsonArrayRequest);
     }
 
     public void onClickSmallPackage(View view) {
