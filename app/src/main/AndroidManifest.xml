@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MyRASDemo">
-        <activity android:name=".ForgetPassword"></activity>
+        <activity android:name=".ForgetPassword"/>
         <activity android:name=".EmailVerify" />
         <activity android:name=".UploadCarImages" />
         <activity android:name=".ContactUs" />
@@ -22,13 +22,12 @@
         <activity android:name=".PreviousBooking" />
         <activity android:name=".UploadDocs" />
         <activity android:name=".PrivacyPolicies" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashScreenActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MainActivity" ><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+        <activity android:name=".SplashScreenActivity">
         </activity>
 
         <meta-data

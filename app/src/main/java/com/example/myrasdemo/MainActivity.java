@@ -154,9 +154,8 @@ public class MainActivity extends AppCompatActivity {
                         Car car = new Car();
                         car.setCar_name(carObject.getString("car_name").toString());
                         car.setSeat_capacity(carObject.getString("seat_capacity").toString());
-                        car.setRent_price(carObject.getInt("rent_price"));
+                        car.setRent_price(carObject.getString("rent_price").toString());
                         car.setCar_image(carObject.getString("car_image").toString());
-
                         cars.add(car);
                     } catch (JSONException e) {
                         e.printStackTrace();
