@@ -56,5 +56,10 @@
     <string name="todo9">TODO</string>
     <string name="speedometer">Speedometer</string>
     <string name="todo10">TODO</string>
+    <string name="carseattxt">Seater</string>
+    <string name="smallpackagetxt">150 KMs</string>
+    <string name="mediumpackagetxt">350 KMs</string>
+    <string name="highpackagetxt">600 KMs</string>
+    <string name="carfueltypetxt">Petrol</string>
 
 </resources>

@@ -17,12 +17,12 @@
         <activity android:name=".Register" />
         <activity android:name=".Payment" />
         <activity android:name=".Login" />
-        <activity android:name=".EditProfile" />
+        <activity android:name=".EditProfile"/>
         <activity android:name=".BookingDetails" />
         <activity android:name=".PreviousBooking" />
         <activity android:name=".UploadDocs" />
         <activity android:name=".PrivacyPolicies" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"/>
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

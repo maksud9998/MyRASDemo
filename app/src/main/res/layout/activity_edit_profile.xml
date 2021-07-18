@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".EditProfile">
 
     <ScrollView
@@ -33,7 +34,7 @@
                 app:layout_constraintBottom_toTopOf="@id/submit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/male"
+                app:layout_constraintTop_toBottomOf="@+id/pincode"
                  />
 
             <Button
@@ -59,6 +60,7 @@
                 android:ems="10"
                 android:maxLength="10"
                 android:fontFamily="@font/poppins"
+                android:singleLine="true"
                 android:hint="Mobile Number"
                 android:inputType="number"
                 android:paddingLeft="20dp"
@@ -67,7 +69,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.291"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Prof_DOB" />
+                app:layout_constraintTop_toBottomOf="@+id/Prof_LastName" />
 
             <EditText
                 android:id="@+id/Prof_MobileNumber2"
@@ -78,32 +80,16 @@
                 android:maxLength="10"
                 android:fontFamily="@font/poppins"
                 android:hint="Mobile Number 2"
+                android:singleLine="true"
                 android:inputType="number"
                 android:paddingLeft="20dp"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/Prof_Email"
+                app:layout_constraintBottom_toTopOf="@id/Password"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.291"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Prof_MobileNumber"
                 tools:ignore="DuplicateIds" />
-
-            <EditText
-                android:id="@+id/Prof_DOB"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:background="@drawable/edit_text"
-                android:ems="10"
-                android:fontFamily="@font/poppins"
-                android:hint="Date Of Birth"
-                android:inputType="date"
-                android:paddingLeft="20dp"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/Prof_MobileNumber"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.355"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Prof_LastName" />
 
             <EditText
                 android:id="@+id/Prof_LastName"
@@ -115,8 +101,9 @@
                 android:hint="Last Name"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
+                android:singleLine="true"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/Prof_DOB"
+                app:layout_constraintBottom_toTopOf="@id/Prof_MobileNumber"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.848"
                 app:layout_constraintStart_toEndOf="@+id/Profile_Image"
@@ -126,10 +113,10 @@
                 android:id="@+id/Prof_FirstName"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="16dp"
                 android:background="@drawable/edit_text"
                 android:ems="10"
                 android:fontFamily="@font/poppins"
+                android:singleLine="true"
                 android:hint="First Name"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
@@ -147,12 +134,11 @@
                 android:layout_height="153dp"
                 android:layout_marginLeft="3dp"
                 android:src="@drawable/ic_baseline_account_circle_24"
-                app:layout_constraintBottom_toTopOf="@+id/Prof_DOB"
+                app:layout_constraintBottom_toTopOf="@+id/Prof_MobileNumber"
                 app:layout_constraintEnd_toStartOf="@+id/Prof_FirstName"
                 app:layout_constraintHorizontal_bias="0.056"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.026"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -168,50 +154,33 @@
                 app:layout_constraintEnd_toEndOf="@id/Profile_Image"
                 app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
 
-            <CheckBox
-                android:id="@+id/male"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:fontFamily="@font/poppins"
-                android:text="Male"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/verify_link"
-                app:layout_constraintEnd_toStartOf="@id/female"
-                app:layout_constraintHorizontal_bias="0.053"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pincode"
-                 />
+<!--            <CheckBox-->
+<!--                android:id="@+id/male"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:text="Male"-->
+<!--                android:textSize="16sp"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/verify_link"-->
+<!--                app:layout_constraintEnd_toStartOf="@id/female"-->
+<!--                app:layout_constraintHorizontal_bias="0.053"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/pincode"-->
+<!--                 />-->
 
-            <CheckBox
-                android:id="@+id/female"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:fontFamily="@font/poppins"
-                android:text="Female"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/verify_link"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.888"
-                app:layout_constraintStart_toEndOf="@id/male"
-                app:layout_constraintTop_toBottomOf="@id/pincode"
-                 />
-
-            <EditText
-                android:id="@+id/Prof_Email"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:background="@drawable/edit_text"
-                android:ems="10"
-                android:fontFamily="@font/poppins"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:paddingLeft="20dp"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/Password"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.32"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Prof_MobileNumber2" />
+<!--            <CheckBox-->
+<!--                android:id="@+id/female"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:text="Female"-->
+<!--                android:textSize="16sp"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/verify_link"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.888"-->
+<!--                app:layout_constraintStart_toEndOf="@id/male"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/pincode"-->
+<!--                 />-->
 
             <EditText
                 android:id="@+id/Password"
@@ -221,6 +190,7 @@
                 android:ems="10"
                 android:fontFamily="@font/poppins"
                 android:hint="Password"
+                android:singleLine="true"
                 android:paddingLeft="20dp"
                 android:inputType="textPassword"
                 android:textSize="16sp"
@@ -228,7 +198,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.32"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Prof_Email" />
+                app:layout_constraintTop_toBottomOf="@id/Prof_MobileNumber2" />
 
             <EditText
                 android:id="@+id/Address"
@@ -253,6 +223,7 @@
                 android:background="@drawable/edit_text"
                 android:ems="10"
                 android:fontFamily="@font/poppins"
+                android:singleLine="true"
                 android:hint="Area"
                 android:paddingLeft="20dp"
                 android:textSize="16sp"
@@ -271,6 +242,7 @@
                 android:fontFamily="@font/poppins"
                 android:hint="City"
                 android:paddingLeft="20dp"
+                android:singleLine="true"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/state"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -287,6 +259,7 @@
                 android:fontFamily="@font/poppins"
                 android:hint="State"
                 android:paddingLeft="20dp"
+                android:singleLine="true"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/pincode"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -304,9 +277,10 @@
                 android:hint="Pincode"
                 android:paddingLeft="20dp"
                 android:textSize="16sp"
+                android:singleLine="true"
                 android:inputType="number"
                 android:maxLength="6"
-                app:layout_constraintBottom_toTopOf="@id/male"
+                app:layout_constraintBottom_toTopOf="@id/verify_link"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.32"
                 app:layout_constraintStart_toStartOf="parent"
@@ -321,6 +295,7 @@
                 android:fontFamily="@font/poppins"
                 android:hint="Licence Number"
                 android:paddingLeft="20dp"
+                android:singleLine="true"
                 android:inputType="number"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/Address"

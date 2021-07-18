@@ -1,11 +1,12 @@
 package com.example.myrasdemo;
 
 public class Car {
-    String id,rent_price, car_name,car_image, car_no_plate, body_type, transmission_type, seat_capacity, fuel_type, booking_status, car_status;
+    String id, car_name,car_image, car_no_plate, body_type, transmission_type, seat_capacity, fuel_type, booking_status, car_status;
+    Integer rent_price;
     public Car() {
     }
 
-    public Car(String id, String rent_price, String car_name, String car_image, String car_no_plate, String body_type, String transmission_type, String seat_capacity, String fuel_type, String booking_status, String car_status) {
+    public Car(String id, Integer rent_price, String car_name, String car_image, String car_no_plate, String body_type, String transmission_type, String seat_capacity, String fuel_type, String booking_status, String car_status) {
         this.id = id;
         this.rent_price = rent_price;
         this.car_name = car_name;
@@ -27,11 +28,11 @@ public class Car {
         this.id = id;
     }
 
-    public String getRent_price() {
+    public Integer getRent_price() {
         return rent_price;
     }
 
-    public void setRent_price(String rent_price) {
+    public void setRent_price(Integer rent_price) {
         this.rent_price = rent_price;
     }
 

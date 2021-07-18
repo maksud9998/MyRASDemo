@@ -39,12 +39,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    TextView startDate, startTime,startAM_PM, endDate, endDay, endTime,endAM_PM;
+    TextView startDate, startTime, endDate, endTime;
     RelativeLayout startLayout, endLayout;
     Button findcarbtn;
     RecyclerView carlistrecyclerView;
     List<Car> cars;
-    private static  String JSON_URL = "http://192.168.1.222/LoginRegister/CarDetails.php";
+    private static  String JSON_URL = "http://192.168.1.223/LoginRegister/CarDetails.php";
     CarListAdapter carListAdapter;
     boolean startCheck = false,endCheck=false;
     @Override
@@ -154,7 +154,8 @@ public class MainActivity extends AppCompatActivity {
                         Car car = new Car();
                         car.setCar_name(carObject.getString("car_name").toString());
                         car.setSeat_capacity(carObject.getString("seat_capacity").toString());
-                        car.setRent_price(carObject.getString("rent_price").toString());
+                        car.setRent_price(carObject.getInt("rent_price"));
+                        car.setFuel_type(carObject.getString("fuel_type").toString());
                         car.setCar_image(carObject.getString("car_image").toString());
                         cars.add(car);
                     } catch (JSONException e) {

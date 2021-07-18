@@ -18,6 +18,7 @@ public class Login extends AppCompatActivity {
     EditText email, password;
     Button loginbtn;
     TextView registerlink;
+    protected static String loginemail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String str_email, str_password;
+                loginemail = email.getText().toString();
                 str_email = email.getText().toString();
                 str_password = password.getText().toString();
                 if (!str_email.equals("") && !str_password.equals(""))
@@ -54,7 +56,7 @@ public class Login extends AppCompatActivity {
                             data[1] = str_password;
                             //Repelace The IP Address In The Following url With Your PC IP Address
                             //Find Your PC IP Address By Writing ipconfig In CMD
-                            PutData putData = new PutData("http://192.168.1.222/LoginRegister/login.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.1.223/LoginRegister/login.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();
