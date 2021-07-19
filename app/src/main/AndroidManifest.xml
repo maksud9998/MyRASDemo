@@ -10,12 +10,9 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MyRASDemo">
-        <activity android:name=".ForgetPassword"/>
-        <activity android:name=".EmailVerify" />
         <activity android:name=".UploadCarImages" />
         <activity android:name=".ContactUs" />
         <activity android:name=".Register" />
-        <activity android:name=".Payment" />
         <activity android:name=".Login" />
         <activity android:name=".EditProfile"/>
         <activity android:name=".BookingDetails" />

@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity {
                             data[1] = str_password;
                             //Repelace The IP Address In The Following url With Your PC IP Address
                             //Find Your PC IP Address By Writing ipconfig In CMD
-                            PutData putData = new PutData("http://192.168.1.223/LoginRegister/login.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.1.223/MySQL/login.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();

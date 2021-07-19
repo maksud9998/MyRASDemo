@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     tools:context=".EditProfile">
 
     <ScrollView
@@ -20,22 +19,34 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-            >
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/verify_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:text="Verify Your Documents Here"
+                android:text="Verify Your Documents From Here"
                 android:textColor="#DC4433"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/submit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pincode"
-                 />
+                app:layout_constraintTop_toBottomOf="@+id/pincode"/>
+
+            <TextView
+                android:id="@+id/delete_profile_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Deactivate Your Account From Here"
+                android:textColor="#DC4433"
+                android:textSize="16sp"
+                android:onClick="onClickDeactivate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/submit"/>
 
             <Button
                 android:id="@+id/submit"
@@ -46,7 +57,7 @@
                 android:text="Confirm Changes"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/delete_profile_link"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/verify_link"
@@ -133,16 +144,18 @@
                 android:layout_width="132dp"
                 android:layout_height="153dp"
                 android:layout_marginLeft="3dp"
+                style=""
                 android:src="@drawable/ic_baseline_account_circle_24"
                 app:layout_constraintBottom_toTopOf="@+id/Prof_MobileNumber"
                 app:layout_constraintEnd_toStartOf="@+id/Prof_FirstName"
                 app:layout_constraintHorizontal_bias="0.056"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/capture_licence_front"
+                android:id="@+id/capture_profile_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
@@ -304,9 +317,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Password" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

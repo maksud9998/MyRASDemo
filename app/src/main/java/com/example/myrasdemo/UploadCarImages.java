@@ -35,6 +35,14 @@ public class UploadCarImages extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_car_images);
+        continuebtn = findViewById(R.id.continuebtn);
+        continuebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(UploadCarImages.this,MainActivity.class);
+                startActivity(i);
+            }
+        });
         bookingid_dropdown = findViewById(R.id.booking_id_dropdown);
         arrayList = new ArrayList<>();
         arrayList.add("1");

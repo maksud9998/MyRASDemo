@@ -50,7 +50,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
         viewHolder.car_name.setText(cars.get(position).getCar_name());
         viewHolder.seat_capacity.setText(cars.get(position).getSeat_capacity());
         viewHolder.fuel_type.setText(cars.get(position).getFuel_type());
-        Glide.with(viewHolder.car_name.getContext()).load("http://192.168.1.223/LoginRegister/Images/"+cars.get(position).getCar_image()).into(viewHolder.car_image);
+        Glide.with(viewHolder.car_name.getContext()).load("http://192.168.1.223/MySQL/Images/"+cars.get(position).getCar_image()).into(viewHolder.car_image);
         intcar_rent_price = cars.get(position).getRent_price();
         intcar_rent_price = intcar_rent_price*150;
         viewHolder.smallPackage.setText(intcar_rent_price.toString());

@@ -27,6 +27,14 @@ public class UploadDocs extends AppCompatActivity {
         capture_licence_back = findViewById(R.id.capture_licence_back);
         capture_address_proof_front = findViewById(R.id.capture_address_proof_front);
         capture_address_proof_back = findViewById(R.id.capture_address_proof_back);
+        continuebtn = findViewById(R.id.continuebtn);
+        continuebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(UploadDocs.this,MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         capture_licence_front.setOnClickListener(new View.OnClickListener() {
             @Override

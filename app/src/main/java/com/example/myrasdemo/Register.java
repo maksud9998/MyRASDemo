@@ -71,7 +71,7 @@ public class Register extends AppCompatActivity {
                             data[5] = str_licence_no;
                             //Repelace The IP Address In The Following url With Your PC IP Address
                             //Find Your PC IP Address By Writing ipconfig In CMD
-                            PutData putData = new PutData("http://192.168.1.223/LoginRegister/signup.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.1.223/MySQL/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();

@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 public class PreviousBooking extends AppCompatActivity {
     RecyclerView bookinglistrecyclerView;
-    String []arrb={"Item1","Item2","Item3","Item4","Item5","Item6","Item7","Item8","Item9","Item10","Item2","Item3","Item4","Item5","Item6","Item7","Item8","Item9","Item10"};
+    String []arrb={"Hundai Creta","Hundai Creta","Hundai Creta","Hundai Creta","Hundai Creta","Hundai Creta","Hundai Creta","Hundai Creta","Hundai Creta","Hundai Creta"};
     BookingListAdapter blAdapter = new BookingListAdapter(arrb);
     @Override
     protected void onCreate(Bundle savedInstanceState) {

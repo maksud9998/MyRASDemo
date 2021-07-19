@@ -1,22 +1,42 @@
 package com.example.myrasdemo;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -27,6 +47,8 @@ public class EditProfile extends AppCompatActivity {
     TextView verify_link;
     EditText phone_no1, phone_no2, last_name, first_name, password, address, area, city, state,pincode, license_no;
     Button updatebtn;
+    ImageView profile_image;
+    FloatingActionButton capture_profile_image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +65,16 @@ public class EditProfile extends AppCompatActivity {
         state = findViewById(R.id.state);
         pincode = findViewById(R.id.pincode);
         license_no = findViewById(R.id.Licence_number);
+        profile_image = findViewById(R.id.Profile_Image);
+
+        capture_profile_image = findViewById(R.id.capture_profile_image);
+        capture_profile_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImagePicker.with(EditProfile.this).crop().compress(1024).maxResultSize(1080, 1080).start(3);
+            }
+        });
+
         verify_link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +82,7 @@ public class EditProfile extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         updatebtn = findViewById(R.id.submit);
         updatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +133,7 @@ public class EditProfile extends AppCompatActivity {
                         data[11] = strpassword;
                         //Repelace The IP Address In The Following url With Your PC IP Address
                         //Find Your PC IP Address By Writing ipconfig In CMD
-                        PutData putData = new PutData("http://192.168.1.223/LoginRegister/UpdateUserDetails.php", "POST", field, data);
+                        PutData putData = new PutData("http://192.168.1.223/MySQL/UpdateUserDetails.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
                                 String result = putData.getResult();
@@ -121,5 +154,67 @@ public class EditProfile extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Uri uri = data.getData();
+        profile_image.setImageURI(uri);
+    }
+
+    public void onClickDeactivate(View view) {
+        deactivate(this);
+    }
+
+    public void deactivate(Activity activity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle("Deactivate Account");
+        builder.setMessage("Are You Sure You Want To Deactivate Your Account?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String stremail;
+                stremail = loginemail;
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] field = new String[1];
+                        field[0] = "email";
+                        //Creating array for data
+                        String[] data = new String[1];
+                        data[0] = stremail;
+                        //Repelace The IP Address In The Following url With Your PC IP Address
+                        //Find Your PC IP Address By Writing ipconfig In CMD
+                        PutData putData = new PutData("http://192.168.1.223/MySQL/DeleteUser.php", "POST", field, data);
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                String result = putData.getResult();
+                                if (result.equals("Profile Deleted"))
+                                {
+                                    Toast.makeText(activity.getApplicationContext(), "Profile Deactivated Successfully",Toast.LENGTH_SHORT).show();
+                                    Intent i = new Intent(EditProfile.this,Login.class);
+                                    startActivity(i);
+                                    finish();
+                                }
+                                else
+                                {
+                                    Toast.makeText(EditProfile.this,result,Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 }

@@ -12,6 +12,8 @@ import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +40,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import static com.example.myrasdemo.Login.loginemail;
+
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     TextView startDate, startTime, endDate, endTime;
@@ -44,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     Button findcarbtn;
     RecyclerView carlistrecyclerView;
     List<Car> cars;
-    private static  String JSON_URL = "http://192.168.1.223/LoginRegister/CarDetails.php";
+    private static  String JSON_URL = "http://192.168.1.223/MySQL/CarDetails.php";
     CarListAdapter carListAdapter;
     boolean startCheck = false,endCheck=false;
     @Override
@@ -252,6 +257,64 @@ public class MainActivity extends AppCompatActivity {
     public void onClickPrivacyPolicy(View view) {
         Intent i = new Intent(MainActivity.this,PrivacyPolicies.class);
         startActivity(i);
+    }
+
+    public void onClickDeactivate(View view) {
+        deactivate(this);
+    }
+
+    private void deactivate(Activity activity) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle("Deactivate Account");
+        builder.setMessage("Are You Sure You Want To Deactivate Your Account?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String stremail;
+                stremail = loginemail;
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] field = new String[1];
+                        field[0] = "email";
+                        //Creating array for data
+                        String[] data = new String[1];
+                        data[0] = stremail;
+                        //Repelace The IP Address In The Following url With Your PC IP Address
+                        //Find Your PC IP Address By Writing ipconfig In CMD
+                        PutData putData = new PutData("http://192.168.1.223/MySQL/DeleteUser.php", "POST", field, data);
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                String result = putData.getResult();
+                                if (result.equals("Profile Deleted"))
+                                {
+                                    Toast.makeText(activity.getApplicationContext(), "Profile Deactivated Successfully",Toast.LENGTH_SHORT).show();
+                                    Intent i = new Intent(MainActivity.this,Login.class);
+                                    startActivity(i);
+                                    finish();
+                                }
+                                else
+                                {
+                                    Toast.makeText(MainActivity.this,result,Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+
+
     }
 
     public void onClickContactUs(View view) {
