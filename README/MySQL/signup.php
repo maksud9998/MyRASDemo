@@ -5,7 +5,7 @@ if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['e
     if ($db->dbConnect()) {
         if ($db->signUp("users", $_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['phone_no1'], $_POST['password'], $_POST['license_no'])) {
             echo "Sign Up Success";
-        } else echo "Sign up Failed";
+        } else echo "E-Mail Already Exist";
     } else echo "Error: Database connection";
 } else echo "All fields are required";
 ?>

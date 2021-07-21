@@ -120,25 +120,11 @@
                 android:text="GJ 01 UF 9998"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                app:layout_constraintBottom_toTopOf="@id/details_link_txt"
+                app:layout_constraintBottom_toTopOf="@id/line1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-            <TextView
-                android:id="@+id/details_link_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:text="More Info"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@+id/line1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/noplatetxt" />
 
             <ImageView
                 android:id="@+id/fueltype_img"
@@ -197,7 +183,7 @@
                 app:layout_constraintBottom_toTopOf="@id/kms_txt"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/details_link_txt" />
+                app:layout_constraintTop_toBottomOf="@id/noplatetxt" />
 
             <TextView
                 android:id="@+id/range_txt"

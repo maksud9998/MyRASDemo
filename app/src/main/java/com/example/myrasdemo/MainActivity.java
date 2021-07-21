@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     Button findcarbtn;
     RecyclerView carlistrecyclerView;
     List<Car> cars;
-    private static  String JSON_URL = "http://192.168.1.223/MySQL/CarDetails.php";
+    private static  String JSON_URL = "http://192.168.1.228/MySQL/CarDetails.php";
     CarListAdapter carListAdapter;
     boolean startCheck = false,endCheck=false;
     @Override
@@ -284,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
                         data[0] = stremail;
                         //Repelace The IP Address In The Following url With Your PC IP Address
                         //Find Your PC IP Address By Writing ipconfig In CMD
-                        PutData putData = new PutData("http://192.168.1.223/MySQL/DeleteUser.php", "POST", field, data);
+                        PutData putData = new PutData("http://192.168.1.228/MySQL/DeleteUser.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
                                 String result = putData.getResult();
@@ -337,6 +337,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickLogout(View view) {
+        Intent i = new Intent(MainActivity.this,Login.class);
+        startActivity(i);
         finish();
     }
 }

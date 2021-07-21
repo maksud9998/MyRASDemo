@@ -49,6 +49,7 @@ public class EditProfile extends AppCompatActivity {
     Button updatebtn;
     ImageView profile_image;
     FloatingActionButton capture_profile_image;
+    private static  String USER_URL = "http://192.168.1.228/MySQL/UserDetails.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +67,61 @@ public class EditProfile extends AppCompatActivity {
         pincode = findViewById(R.id.pincode);
         license_no = findViewById(R.id.Licence_number);
         profile_image = findViewById(R.id.Profile_Image);
+        String stremail;
+        stremail = loginemail;
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                String[] field = new String[1];
+                field[0] = "email";
+                //Creating array for data
+                String[] data = new String[1];
+                data[0] = stremail;
+                //Repelace The IP Address In The Following url With Your PC IP Address
+                //Find Your PC IP Address By Writing ipconfig In CMD
+                PutData putData = new PutData("http://192.168.1.228/MySQL/UserDetails.php", "POST", field, data);
+                if (putData.startPut()) {
+                    if (putData.onComplete()) {
+                        String result = putData.getResult();
+                        if (result.equals("Details Fetched"))
+                        {
+                            RequestQueue queue = Volley.newRequestQueue(EditProfile.this);
+                            JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET,USER_URL,null, new Response.Listener<JSONArray>() {
+                                @Override
+                                public void onResponse(JSONArray response) {
+                                    Toast.makeText(EditProfile.this, response.length(),Toast.LENGTH_SHORT).show();
+                                    for (int i = 0; i <= response.length(); i++)
+                                    {
+                                        try {
+                                            JSONObject userObject = response.getJSONObject(i);
+                                            User user = new User();
+                                            user.setFirst_name(userObject.getString("first_name").toString());
+                                            first_name.setText(user.getFirst_name());
+                                            user.setLast_name(userObject.getString("last_name").toString());
+                                            last_name.setText(user.getLast_name());
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.d("tag","onErrorResponse: " + error.getMessage());
+                                }
+                            });
+                            queue.add(jsonArrayRequest);
+                            Toast.makeText(EditProfile.this, "Details Fetched Successfully",Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(EditProfile.this,result,Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            }
+        });
 
         capture_profile_image = findViewById(R.id.capture_profile_image);
         capture_profile_image.setOnClickListener(new View.OnClickListener() {
@@ -133,7 +189,7 @@ public class EditProfile extends AppCompatActivity {
                         data[11] = strpassword;
                         //Repelace The IP Address In The Following url With Your PC IP Address
                         //Find Your PC IP Address By Writing ipconfig In CMD
-                        PutData putData = new PutData("http://192.168.1.223/MySQL/UpdateUserDetails.php", "POST", field, data);
+                        PutData putData = new PutData("http://192.168.1.228/MySQL/UpdateUserDetails.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
                                 String result = putData.getResult();
@@ -187,7 +243,7 @@ public class EditProfile extends AppCompatActivity {
                         data[0] = stremail;
                         //Repelace The IP Address In The Following url With Your PC IP Address
                         //Find Your PC IP Address By Writing ipconfig In CMD
-                        PutData putData = new PutData("http://192.168.1.223/MySQL/DeleteUser.php", "POST", field, data);
+                        PutData putData = new PutData("http://192.168.1.228/MySQL/DeleteUser.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
                                 String result = putData.getResult();
