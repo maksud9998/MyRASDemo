@@ -1,15 +1,17 @@
 package com.example.myrasdemo;
 
 public class UserHelperClass {
-    String first_name, last_name, email, phoneno1, password, licence_no;
+    String first_name, last_name, email, phoneno1, password, licence_no, utype, status;
 
-    public UserHelperClass(String first_name, String last_name, String email, String phoneno1, String password, String licence_no) {
+    public UserHelperClass(String first_name, String last_name, String email, String phoneno1, String password, String licence_no, String utype, String status) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.phoneno1 = phoneno1;
         this.password = password;
         this.licence_no = licence_no;
+        this.utype = utype;
+        this.status = status;
     }
 
     public UserHelperClass() {
@@ -61,5 +63,21 @@ public class UserHelperClass {
 
     public void setLicence_no(String licence_no) {
         this.licence_no = licence_no;
+    }
+
+    public String getUtype() {
+        return utype;
+    }
+
+    public void setUtype(String utype) {
+        this.utype = utype;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

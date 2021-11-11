@@ -30,6 +30,9 @@ public class EditProfile extends AppCompatActivity {
     Button updatebtn;
     ImageView profile_image;
     FloatingActionButton capture_profile_image;
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_M");
+
+    String str_first_name, str_last_name, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address, str_area, str_city, str_state, str_pincode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,18 +53,18 @@ public class EditProfile extends AppCompatActivity {
         profile_image = findViewById(R.id.Profile_Image);
         capture_profile_image = findViewById(R.id.capture_profile_image);
         Intent i = getIntent();
-        String str_first_name = i.getStringExtra("first_name");
-        String str_last_name = i.getStringExtra("last_name");
-        String str_phone_no1 = i.getStringExtra("phoneno1");
-        String str_phone_no2 = i.getStringExtra("phoneno2");
-        String str_email = i.getStringExtra("email");
-        String str_password = i.getStringExtra("password");
-        String str_licence_no = i.getStringExtra("licence_no");
-        String str_address = i.getStringExtra("address");
-        String str_area = i.getStringExtra("area");
-        String str_city = i.getStringExtra("city");
-        String str_state = i.getStringExtra("state");
-        String str_pincode = i.getStringExtra("pincode");
+        str_first_name = i.getStringExtra("first_name");
+        str_last_name = i.getStringExtra("last_name");
+        str_phone_no1 = i.getStringExtra("phoneno1");
+        str_phone_no2 = i.getStringExtra("phoneno2");
+        str_email = i.getStringExtra("email");
+        str_password = i.getStringExtra("password");
+        str_licence_no = i.getStringExtra("licence_no");
+        str_address = i.getStringExtra("address");
+        str_area = i.getStringExtra("area");
+        str_city = i.getStringExtra("city");
+        str_state = i.getStringExtra("state");
+        str_pincode = i.getStringExtra("pincode");
         first_name.setText(str_first_name);
         last_name.setText(str_last_name);
         phone_no1.setText(str_phone_no1);
@@ -94,10 +97,58 @@ public class EditProfile extends AppCompatActivity {
         updatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(EditProfile.this,"Profile Successfully Updated",Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(EditProfile.this,MainActivity.class);
-                startActivity(i);
-                finish();
+                reference.child(str_phone_no1).child("first_name").setValue(first_name.getText().toString());
+                reference.child(str_phone_no1).child("last_name").setValue(last_name.getText().toString());
+                reference.child(str_phone_no1).child("phoneno1").setValue(phone_no1.getText().toString());
+                reference.child(str_phone_no1).child("phoneno2").setValue(phone_no2.getText().toString());
+                reference.child(str_phone_no1).child("email").setValue(email.getText().toString());
+                reference.child(str_phone_no1).child("password").setValue(password.getText().toString());
+                reference.child(str_phone_no1).child("licence_no").setValue(license_no.getText().toString());
+                reference.child(str_phone_no1).child("address").setValue(address.getText().toString());
+                reference.child(str_phone_no1).child("area").setValue(area.getText().toString());
+                reference.child(str_phone_no1).child("city").setValue(city.getText().toString());
+                reference.child(str_phone_no1).child("state").setValue(state.getText().toString());
+                reference.child(str_phone_no1).child("pincode").setValue(pincode.getText().toString());
+                Query checkUser = reference.orderByChild("phoneno1").equalTo(str_phone_no1);
+                checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists())
+                        {
+                            String str_password = snapshot.child(str_phone_no1).child("password").getValue(String.class);
+                            String str_first_name = snapshot.child(str_phone_no1).child("first_name").getValue(String.class);
+                            String str_last_name = snapshot.child(str_phone_no1).child("last_name").getValue(String.class);
+                            String str_phone_no2 = snapshot.child(str_phone_no1).child("phoneno2").getValue(String.class);
+                            String str_email = snapshot.child(str_phone_no1).child("email").getValue(String.class);
+                            String str_licence_no = snapshot.child(str_phone_no1).child("licence_no").getValue(String.class);
+                            String str_address = snapshot.child(str_phone_no1).child("address").getValue(String.class);
+                            String str_area = snapshot.child(str_phone_no1).child("area").getValue(String.class);
+                            String str_city = snapshot.child(str_phone_no1).child("city").getValue(String.class);
+                            String str_state = snapshot.child(str_phone_no1).child("state").getValue(String.class);
+                            String str_pincode = snapshot.child(str_phone_no1).child("pincode").getValue(String.class);
+                            Toast.makeText(EditProfile.this,"Profile Successfully Updated",Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(EditProfile.this,MainActivity.class);
+                            i.putExtra("first_name",str_first_name);
+                            i.putExtra("last_name",str_last_name);
+                            i.putExtra("phoneno1",str_phone_no1);
+                            i.putExtra("phoneno2",str_phone_no2);
+                            i.putExtra("email",str_email);
+                            i.putExtra("password",str_password);
+                            i.putExtra("licence_no",str_licence_no);
+                            i.putExtra("address",str_address);
+                            i.putExtra("area",str_area);
+                            i.putExtra("city",str_city);
+                            i.putExtra("state",str_state);
+                            i.putExtra("pincode",str_pincode);
+                            startActivity(i);
+                            finish();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
             }
         });
     }

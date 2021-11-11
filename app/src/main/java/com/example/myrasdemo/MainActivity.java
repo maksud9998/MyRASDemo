@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView carlistrecyclerView;
     List<Car> cars;
     CarListAdapter carListAdapter;
+    private String str_first_name, str_last_name, str_full_name, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address, str_area, str_city, str_state, str_pincode;
     boolean startCheck = false,endCheck=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +51,21 @@ public class MainActivity extends AppCompatActivity {
         cars = new ArrayList<>();
         carlistrecyclerView.setLayoutManager(new LinearLayoutManager(this));
         Intent i = getIntent();
-        String str_first_name = i.getStringExtra("first_name");
-        String str_last_name = i.getStringExtra("last_name");
-        String str_full_name = str_first_name + " "+ str_last_name;
+        str_first_name = i.getStringExtra("first_name");
+        str_last_name = i.getStringExtra("last_name");
+        str_full_name = str_first_name + " "+ str_last_name;
         first_name.setText(str_full_name);
+        str_phone_no1 = i.getStringExtra("phoneno1");
+        str_phone_no2 = i.getStringExtra("phoneno2");
+        str_email = i.getStringExtra("email");
+        str_password = i.getStringExtra("password");
+        str_licence_no = i.getStringExtra("licence_no");
+        str_address = i.getStringExtra("address");
+        str_area = i.getStringExtra("area");
+        str_city = i.getStringExtra("city");
+        str_state = i.getStringExtra("state");
+        str_pincode = i.getStringExtra("pincode");
+
         startLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -254,33 +266,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickEditProfile(View view) {
-        Intent i = getIntent();
-        String str_first_name = i.getStringExtra("first_name");
-        String str_last_name = i.getStringExtra("last_name");
-        String str_phone_no1 = i.getStringExtra("phoneno1");
-        String str_phone_no2 = i.getStringExtra("phoneno2");
-        String str_email = i.getStringExtra("email");
-        String str_password = i.getStringExtra("password");
-        String str_licence_no = i.getStringExtra("licence_no");
-        String str_address = i.getStringExtra("address");
-        String str_area = i.getStringExtra("area");
-        String str_city = i.getStringExtra("city");
-        String str_state = i.getStringExtra("state");
-        String str_pincode = i.getStringExtra("pincode");
-        Intent i2 = new Intent(MainActivity.this,EditProfile.class);
-        i2.putExtra("first_name",str_first_name);
-        i2.putExtra("last_name",str_last_name);
-        i2.putExtra("phoneno1",str_phone_no1);
-        i2.putExtra("phoneno2",str_phone_no2);
-        i2.putExtra("email",str_email);
-        i2.putExtra("password",str_password);
-        i2.putExtra("licence_no",str_licence_no);
-        i2.putExtra("address",str_address);
-        i2.putExtra("area",str_area);
-        i2.putExtra("city",str_city);
-        i2.putExtra("state",str_state);
-        i2.putExtra("pincode",str_pincode);
-        startActivity(i2);
+        Intent i = new Intent(MainActivity.this,EditProfile.class);
+        i.putExtra("first_name",str_first_name);
+        i.putExtra("last_name",str_last_name);
+        i.putExtra("phoneno1",str_phone_no1);
+        i.putExtra("phoneno2",str_phone_no2);
+        i.putExtra("email",str_email);
+        i.putExtra("password",str_password);
+        i.putExtra("licence_no",str_licence_no);
+        i.putExtra("address",str_address);
+        i.putExtra("area",str_area);
+        i.putExtra("city",str_city);
+        i.putExtra("state",str_state);
+        i.putExtra("pincode",str_pincode);
+        startActivity(i);
     }
 
     public void onClickCarImages(View view) {
