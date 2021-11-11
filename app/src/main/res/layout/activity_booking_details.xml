@@ -44,7 +44,7 @@
                 android:text="@string/carname"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@id/imageView3"
+                app:layout_constraintBottom_toTopOf="@id/carImage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +100,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/carImage"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
@@ -124,7 +124,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                app:layout_constraintTop_toBottomOf="@+id/carImage" />
 
             <ImageView
                 android:id="@+id/fueltype_img"
@@ -147,7 +147,7 @@
                 android:text="Petrol"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@id/imageView3"
+                app:layout_constraintStart_toEndOf="@id/carImage"
                 app:layout_constraintTop_toBottomOf="@id/carName" />
 
             <ImageView
@@ -171,7 +171,7 @@
                 android:text="5 Seater"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@id/imageView3"
+                app:layout_constraintStart_toEndOf="@id/carImage"
                 app:layout_constraintTop_toBottomOf="@id/fueltype_txt" />
 
             <View

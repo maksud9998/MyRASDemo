@@ -11,10 +11,8 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -78,7 +76,6 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/Prof_MobileNumber2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.291"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Prof_LastName" />
 
@@ -95,12 +92,10 @@
                 android:inputType="number"
                 android:paddingLeft="20dp"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/Password"
+                app:layout_constraintBottom_toTopOf="@id/Email"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.291"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Prof_MobileNumber"
-                tools:ignore="DuplicateIds" />
+                app:layout_constraintTop_toBottomOf="@id/Prof_MobileNumber"/>
 
             <EditText
                 android:id="@+id/Prof_LastName"
@@ -116,7 +111,6 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/Prof_MobileNumber"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.848"
                 app:layout_constraintStart_toEndOf="@+id/Profile_Image"
                 app:layout_constraintTop_toBottomOf="@id/Prof_FirstName" />
 
@@ -134,10 +128,10 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/Prof_LastName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.85"
                 app:layout_constraintStart_toEndOf="@+id/Profile_Image"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.511" />
+
 
             <ImageView
                 android:id="@+id/Profile_Image"
@@ -148,10 +142,8 @@
                 android:src="@drawable/ic_baseline_account_circle_24"
                 app:layout_constraintBottom_toTopOf="@+id/Prof_MobileNumber"
                 app:layout_constraintEnd_toStartOf="@+id/Prof_FirstName"
-                app:layout_constraintHorizontal_bias="0.056"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -208,6 +200,21 @@
                 android:inputType="textPassword"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/Licence_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Email" />
+
+            <EditText
+                android:id="@+id/Email"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="E-Mail"
+                android:paddingLeft="20dp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/Password"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.32"
                 app:layout_constraintStart_toStartOf="parent"

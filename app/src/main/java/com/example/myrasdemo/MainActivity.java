@@ -12,9 +12,6 @@ import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -22,34 +19,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
-import com.vishnusivadas.advanced_httpurlconnection.PutData;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import static com.example.myrasdemo.Login.loginemail;
-
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    TextView startDate, startTime, endDate, endTime;
+    TextView startDate, startTime, endDate, endTime, first_name;
     RelativeLayout startLayout, endLayout;
     Button findcarbtn;
     RecyclerView carlistrecyclerView;
     List<Car> cars;
-    private static  String JSON_URL = "http://192.168.1.228/MySQL/CarDetails.php";
     CarListAdapter carListAdapter;
     boolean startCheck = false,endCheck=false;
     @Override
@@ -64,9 +45,15 @@ public class MainActivity extends AppCompatActivity {
         endLayout = findViewById(R.id.endLayout);
         findcarbtn = findViewById(R.id.findcarbtn);
         drawerLayout = findViewById(R.id.drawer_layout);
+        first_name = findViewById(R.id.user_name);
         carlistrecyclerView = findViewById(R.id.carlistrecyclerView);
         cars = new ArrayList<>();
         carlistrecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Intent i = getIntent();
+        String str_first_name = i.getStringExtra("first_name");
+        String str_last_name = i.getStringExtra("last_name");
+        String str_full_name = str_first_name + " "+ str_last_name;
+        first_name.setText(str_full_name);
         startLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,36 +135,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showCarList() {
-        RequestQueue queue = Volley.newRequestQueue(this);
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET,JSON_URL,null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                for (int i = 0; i <= response.length(); i++)
-                {
-                    try {
-                        JSONObject carObject = response.getJSONObject(i);
-                        Car car = new Car();
-                        car.setCar_name(carObject.getString("car_name").toString());
-                        car.setSeat_capacity(carObject.getString("seat_capacity").toString());
-                        car.setRent_price(carObject.getInt("rent_price"));
-                        car.setFuel_type(carObject.getString("fuel_type").toString());
-                        car.setCar_image(carObject.getString("car_image").toString());
-                        cars.add(car);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                carlistrecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-                carListAdapter = new CarListAdapter(MainActivity.this,cars);
-                carlistrecyclerView.setAdapter(carListAdapter);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("tag","onErrorResponse: " + error.getMessage());
-            }
-        });
-        queue.add(jsonArrayRequest);
+        Toast.makeText(MainActivity.this,"Cars Displayed",Toast.LENGTH_SHORT).show();
     }
 
     public void onClickSmallPackage(View view) {
@@ -263,46 +221,17 @@ public class MainActivity extends AppCompatActivity {
         deactivate(this);
     }
 
-    private void deactivate(Activity activity) {
-
+    public void deactivate(Activity activity) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle("Deactivate Account");
         builder.setMessage("Are You Sure You Want To Deactivate Your Account?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String stremail;
-                stremail = loginemail;
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        String[] field = new String[1];
-                        field[0] = "email";
-                        //Creating array for data
-                        String[] data = new String[1];
-                        data[0] = stremail;
-                        //Repelace The IP Address In The Following url With Your PC IP Address
-                        //Find Your PC IP Address By Writing ipconfig In CMD
-                        PutData putData = new PutData("http://192.168.1.228/MySQL/DeleteUser.php", "POST", field, data);
-                        if (putData.startPut()) {
-                            if (putData.onComplete()) {
-                                String result = putData.getResult();
-                                if (result.equals("Profile Deleted"))
-                                {
-                                    Toast.makeText(activity.getApplicationContext(), "Profile Deactivated Successfully",Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(MainActivity.this,Login.class);
-                                    startActivity(i);
-                                    finish();
-                                }
-                                else
-                                {
-                                    Toast.makeText(MainActivity.this,result,Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        }
-                    }
-                });
+                Toast.makeText(activity.getApplicationContext(), "Profile Deactivated Successfully",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this,Login.class);
+                startActivity(i);
+                finish();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -313,8 +242,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         builder.show();
-
-
     }
 
     public void onClickContactUs(View view) {
@@ -327,8 +254,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickEditProfile(View view) {
-        Intent i = new Intent(MainActivity.this,EditProfile.class);
-        startActivity(i);
+        Intent i = getIntent();
+        String str_first_name = i.getStringExtra("first_name");
+        String str_last_name = i.getStringExtra("last_name");
+        String str_phone_no1 = i.getStringExtra("phoneno1");
+        String str_phone_no2 = i.getStringExtra("phoneno2");
+        String str_email = i.getStringExtra("email");
+        String str_password = i.getStringExtra("password");
+        String str_licence_no = i.getStringExtra("licence_no");
+        String str_address = i.getStringExtra("address");
+        String str_area = i.getStringExtra("area");
+        String str_city = i.getStringExtra("city");
+        String str_state = i.getStringExtra("state");
+        String str_pincode = i.getStringExtra("pincode");
+        Intent i2 = new Intent(MainActivity.this,EditProfile.class);
+        i2.putExtra("first_name",str_first_name);
+        i2.putExtra("last_name",str_last_name);
+        i2.putExtra("phoneno1",str_phone_no1);
+        i2.putExtra("phoneno2",str_phone_no2);
+        i2.putExtra("email",str_email);
+        i2.putExtra("password",str_password);
+        i2.putExtra("licence_no",str_licence_no);
+        i2.putExtra("address",str_address);
+        i2.putExtra("area",str_area);
+        i2.putExtra("city",str_city);
+        i2.putExtra("state",str_state);
+        i2.putExtra("pincode",str_pincode);
+        startActivity(i2);
     }
 
     public void onClickCarImages(View view) {

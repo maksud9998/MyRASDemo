@@ -11,7 +11,7 @@ public class BookingListAdapter extends RecyclerView.Adapter<BookingListAdapter.
         private final TextView textView;
         public ViewHolder(View view) {
             super(view);
-            textView = (TextView) view.findViewById(R.id.textView5);
+            textView = (TextView) view.findViewById(R.id.carNotxt);
         }
         public TextView getTextView() {
             return textView;

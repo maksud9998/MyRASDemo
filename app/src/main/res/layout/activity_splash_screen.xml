@@ -23,7 +23,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
         android:text="Rent-A-Savari"
-
         android:textColor="#DF1111"
         android:textSize="48dp"
         app:layout_constraintBottom_toBottomOf="parent"

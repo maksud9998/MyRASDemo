@@ -7,7 +7,7 @@
     tools:context=".Login">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/topImage"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -41,7 +41,7 @@
             android:background="@drawable/edit_text"
             android:ems="10"
             android:fontFamily="@font/poppins"
-            android:hint="Enter Your Password"
+            android:hint="Password"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
             android:layout_marginTop="50dp"
@@ -54,15 +54,18 @@
             app:layout_constraintVertical_bias="0.398" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/phone_no1"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:background="@drawable/edit_text"
             android:fontFamily="@font/poppins"
             android:layout_marginBottom="30dp"
-            android:hint="Enter Your E-Mail Here"
+            android:hint="Mobile Number"
             android:paddingLeft="20dp"
             android:textSize="16sp"
+            android:inputType="number"
+            android:maxLength="10"
+            android:singleLine="true"
             app:layout_constraintBottom_toTopOf="@+id/passwd_otp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -99,7 +102,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/logintxt"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -111,7 +114,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/topImage"
         app:layout_constraintVertical_bias="0.938" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
