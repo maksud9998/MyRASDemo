@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:id="@+id/li2"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="130dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -22,31 +22,60 @@
             android:gravity="center">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                app:cardCornerRadius="30dp"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
                 android:layout_margin="10dp"
                 app:cardBackgroundColor="#DC4433"
-                >
+                app:cardCornerRadius="30dp">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:background="@drawable/newuser" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="  Add User"
-                        android:textColor="@color/white"
-                        android:textSize="28dp"
                         android:fontFamily="@font/poppins"
+                        android:text=" Add User"
+                        android:textColor="@color/white"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="#DC4433"
+                app:cardCornerRadius="30dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/search" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="View User"
+                        android:textColor="@color/white"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -73,8 +102,8 @@
             android:gravity="center">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
                 app:cardCornerRadius="30dp"
                 android:layout_margin="10dp"
                 app:cardBackgroundColor="#DC4433"
@@ -86,18 +115,18 @@
                     android:layout_gravity="center">
 
                     <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:background="@drawable/removeuser" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
                         android:text="Restrict User"
                         android:textColor="@color/white"
-                        android:textSize="24sp"
-                        android:fontFamily="@font/poppins"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
