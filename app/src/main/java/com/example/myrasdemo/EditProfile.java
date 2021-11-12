@@ -1,5 +1,8 @@
 package com.example.myrasdemo;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +27,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 public class EditProfile extends AppCompatActivity {
     TextView verify_link;
@@ -30,9 +38,10 @@ public class EditProfile extends AppCompatActivity {
     Button updatebtn;
     ImageView profile_image;
     FloatingActionButton capture_profile_image;
+    ActivityResultLauncher<String> launcher;
+    FirebaseStorage storage;
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_M");
-
-    String str_first_name, str_last_name, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address, str_area, str_city, str_state, str_pincode;
+    String str_first_name, str_last_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address, str_area, str_city, str_state, str_pincode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +64,7 @@ public class EditProfile extends AppCompatActivity {
         Intent i = getIntent();
         str_first_name = i.getStringExtra("first_name");
         str_last_name = i.getStringExtra("last_name");
+        str_profile_image = i.getStringExtra("profile_image");
         str_phone_no1 = i.getStringExtra("phoneno1");
         str_phone_no2 = i.getStringExtra("phoneno2");
         str_email = i.getStringExtra("email");
@@ -77,11 +87,46 @@ public class EditProfile extends AppCompatActivity {
         city.setText(str_city);
         state.setText(str_state);
         pincode.setText(str_pincode);
+        storage = FirebaseStorage.getInstance();
+        reference.child(str_phone_no1).child("profile_image").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String image = snapshot.getValue(String.class);
+                Picasso.get().load(image).into(profile_image);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            @Override
+            public void onActivityResult(Uri uri) {
+                profile_image.setImageURI(uri);
+                final StorageReference reference_strg = storage.getReference().child(str_phone_no1).child("profile_image");
+                reference_strg.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        reference_strg.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                reference.child(str_phone_no1).child("profile_image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        });
 
         capture_profile_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImagePicker.with(EditProfile.this).crop().compress(1024).maxResultSize(1080, 1080).start(3);
+                launcher.launch("image/*");
             }
         });
 
@@ -118,6 +163,7 @@ public class EditProfile extends AppCompatActivity {
                             String str_password = snapshot.child(str_phone_no1).child("password").getValue(String.class);
                             String str_first_name = snapshot.child(str_phone_no1).child("first_name").getValue(String.class);
                             String str_last_name = snapshot.child(str_phone_no1).child("last_name").getValue(String.class);
+                            String str_profile_image = snapshot.child(str_phone_no1).child("profile_image").getValue(String.class);
                             String str_phone_no2 = snapshot.child(str_phone_no1).child("phoneno2").getValue(String.class);
                             String str_email = snapshot.child(str_phone_no1).child("email").getValue(String.class);
                             String str_licence_no = snapshot.child(str_phone_no1).child("licence_no").getValue(String.class);
@@ -130,6 +176,7 @@ public class EditProfile extends AppCompatActivity {
                             Intent i = new Intent(EditProfile.this,MainActivity.class);
                             i.putExtra("first_name",str_first_name);
                             i.putExtra("last_name",str_last_name);
+                            i.putExtra("profile_image",str_profile_image);
                             i.putExtra("phoneno1",str_phone_no1);
                             i.putExtra("phoneno2",str_phone_no2);
                             i.putExtra("email",str_email);
@@ -151,13 +198,6 @@ public class EditProfile extends AppCompatActivity {
                 });
             }
         });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Uri uri = data.getData();
-        profile_image.setImageURI(uri);
     }
 
     public void onClickDeactivate(View view) {

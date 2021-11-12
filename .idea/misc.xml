@@ -3,16 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/MCA/SEM 3/PROJECT/app/src/main/res/drawable/admin.xml" value="0.2203125" />
-        <entry key="..\:/MCA/SEM 3/PROJECT/app/src/main/res/drawable/admindash.xml" value="0.2203125" />
-        <entry key="..\:/MCA/SEM 3/PROJECT/app/src/main/res/drawable/contct_bg.xml" value="0.2203125" />
-        <entry key="..\:/MCA/SEM 3/PROJECT/app/src/main/res/drawable/view_border.xml" value="0.2203125" />
-        <entry key="..\:/MCA/SEM 3/PROJECT/app/src/main/res/layout/activity_booking_details.xml" value="0.20416666666666666" />
-        <entry key="..\:/MCA/SEM 3/PROJECT/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/MCA/SEM 3/PROJECT/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
-        <entry key="..\:/MCA/SEM 3/PROJECT/app/src/main/res/layout/admindashboard.xml" value="0.20416666666666666" />
-        <entry key="..\:/MCA/SEM 3/PROJECT/app/src/main/res/layout/managecars.xml" value="0.20416666666666666" />
-        <entry key="..\:/MCA/SEM 3/PROJECT/app/src/main/res/layout/manageuser.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_booking_details.xml" value="0.1334853090172239" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_contact_us.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_edit_profile.xml" value="0.176" />
@@ -25,11 +15,14 @@
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_upload_car_images.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_upload_docs.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_verify_phone_no.xml" value="0.2708333333333333" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/admindashboard.xml" value="0.26721014492753625" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/booking_list.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/cars_list.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/dialog_searchable_spinner.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/main_nav_drawer.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/main_toolbar.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/managecars.xml" value="0.26721014492753625" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/manageuser.xml" value="0.26721014492753625" />
       </map>
     </option>
   </component>

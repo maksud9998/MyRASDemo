@@ -70,6 +70,7 @@ public class Login extends AppCompatActivity {
                                 {
                                     String str_first_name = snapshot.child(str_phone_no1).child("first_name").getValue(String.class);
                                     String str_last_name = snapshot.child(str_phone_no1).child("last_name").getValue(String.class);
+                                    String str_profile_image = snapshot.child(str_phone_no1).child("profile_image").getValue(String.class);
                                     String str_phone_no2 = snapshot.child(str_phone_no1).child("phoneno2").getValue(String.class);
                                     String str_email = snapshot.child(str_phone_no1).child("email").getValue(String.class);
                                     String str_licence_no = snapshot.child(str_phone_no1).child("licence_no").getValue(String.class);
@@ -82,6 +83,7 @@ public class Login extends AppCompatActivity {
                                     Intent i = new Intent(Login.this,MainActivity.class);
                                     i.putExtra("first_name",str_first_name);
                                     i.putExtra("last_name",str_last_name);
+                                    i.putExtra("profile_image",str_profile_image);
                                     i.putExtra("phoneno1",str_phone_no1);
                                     i.putExtra("phoneno2",str_phone_no2);
                                     i.putExtra("email",str_email);

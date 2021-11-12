@@ -197,7 +197,7 @@
                     android:background="@drawable/layoutbg"
                     android:padding="5dp"
                     android:scaleType="fitCenter"
-                    app:layout_constraintBottom_toTopOf="@id/continuebtn"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -217,22 +217,6 @@
                     app:srcCompat="@drawable/ic_baseline_camera_alt_24"
                     android:contentDescription="@string/capture_address_proof_back"
                     android:focusable="true" />
-
-                <Button
-                    android:id="@+id/continuebtn"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btnshape"
-                    android:text="@string/continuebtn"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/poppins"
-                    android:layout_marginTop="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/address_proof_back"/>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

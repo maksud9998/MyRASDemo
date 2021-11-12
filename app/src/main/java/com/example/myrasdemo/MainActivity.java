@@ -15,10 +15,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,13 +30,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    TextView startDate, startTime, endDate, endTime, first_name;
+    ImageView profile_image;
+    TextView startDate, startTime, endDate, endTime, full_name;
     RelativeLayout startLayout, endLayout;
     Button findcarbtn;
     RecyclerView carlistrecyclerView;
     List<Car> cars;
     CarListAdapter carListAdapter;
-    private String str_first_name, str_last_name, str_full_name, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address, str_area, str_city, str_state, str_pincode;
+    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address, str_area, str_city, str_state, str_pincode;
     boolean startCheck = false,endCheck=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         endLayout = findViewById(R.id.endLayout);
         findcarbtn = findViewById(R.id.findcarbtn);
         drawerLayout = findViewById(R.id.drawer_layout);
-        first_name = findViewById(R.id.user_name);
+        full_name = findViewById(R.id.user_name);
+        profile_image = findViewById(R.id.profile_image);
         carlistrecyclerView = findViewById(R.id.carlistrecyclerView);
         cars = new ArrayList<>();
         carlistrecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -54,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
         str_first_name = i.getStringExtra("first_name");
         str_last_name = i.getStringExtra("last_name");
         str_full_name = str_first_name + " "+ str_last_name;
-        first_name.setText(str_full_name);
+        full_name.setText(str_full_name);
+        str_profile_image = i.getStringExtra("profile_image");
+        Picasso.get().load(str_profile_image).into(profile_image);
         str_phone_no1 = i.getStringExtra("phoneno1");
         str_phone_no2 = i.getStringExtra("phoneno2");
         str_email = i.getStringExtra("email");
@@ -221,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickDocuments(View view) {
         Intent i = new Intent(MainActivity.this,UploadDocs.class);
+        i.putExtra("phoneno1",str_phone_no1);
         startActivity(i);
     }
 
@@ -269,6 +278,7 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this,EditProfile.class);
         i.putExtra("first_name",str_first_name);
         i.putExtra("last_name",str_last_name);
+        i.putExtra("profile_image",str_profile_image);
         i.putExtra("phoneno1",str_phone_no1);
         i.putExtra("phoneno2",str_phone_no2);
         i.putExtra("email",str_email);
