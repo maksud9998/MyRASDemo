@@ -34,14 +34,14 @@ import com.squareup.picasso.Picasso;
 
 public class EditProfile extends AppCompatActivity {
     TextView verify_link;
-    EditText phone_no1, phone_no2, email, last_name, first_name, password, address, area, city, state,pincode, license_no;
+    EditText phone_no1, phone_no2, email, last_name, first_name, password, address, area, city, state,pincode, license_no, address_proof_no;
     Button updatebtn;
     ImageView profile_image;
     FloatingActionButton capture_profile_image;
     ActivityResultLauncher<String> launcher;
     FirebaseStorage storage;
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_M");
-    String str_first_name, str_last_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address, str_area, str_city, str_state, str_pincode;
+    String str_first_name, str_last_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +59,7 @@ public class EditProfile extends AppCompatActivity {
         state = findViewById(R.id.state);
         pincode = findViewById(R.id.pincode);
         license_no = findViewById(R.id.Licence_number);
+        address_proof_no = findViewById(R.id.address_proof_no);
         profile_image = findViewById(R.id.Profile_Image);
         capture_profile_image = findViewById(R.id.capture_profile_image);
         Intent i = getIntent();
@@ -70,6 +71,7 @@ public class EditProfile extends AppCompatActivity {
         str_email = i.getStringExtra("email");
         str_password = i.getStringExtra("password");
         str_licence_no = i.getStringExtra("licence_no");
+        str_address_proof_no = i.getStringExtra("address_proof_no");
         str_address = i.getStringExtra("address");
         str_area = i.getStringExtra("area");
         str_city = i.getStringExtra("city");
@@ -82,6 +84,7 @@ public class EditProfile extends AppCompatActivity {
         email.setText(str_email);
         password.setText(str_password);
         license_no.setText(str_licence_no);
+        address_proof_no.setText(str_address_proof_no);
         address.setText(str_address);
         area.setText(str_area);
         city.setText(str_city);
@@ -134,6 +137,7 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(EditProfile.this,UploadDocs.class);
+                i.putExtra("phoneno1",str_phone_no1);
                 startActivity(i);
             }
         });
@@ -149,6 +153,7 @@ public class EditProfile extends AppCompatActivity {
                 reference.child(str_phone_no1).child("email").setValue(email.getText().toString());
                 reference.child(str_phone_no1).child("password").setValue(password.getText().toString());
                 reference.child(str_phone_no1).child("licence_no").setValue(license_no.getText().toString());
+                reference.child(str_phone_no1).child("address_proof_no").setValue(address_proof_no.getText().toString());
                 reference.child(str_phone_no1).child("address").setValue(address.getText().toString());
                 reference.child(str_phone_no1).child("area").setValue(area.getText().toString());
                 reference.child(str_phone_no1).child("city").setValue(city.getText().toString());
@@ -167,6 +172,7 @@ public class EditProfile extends AppCompatActivity {
                             String str_phone_no2 = snapshot.child(str_phone_no1).child("phoneno2").getValue(String.class);
                             String str_email = snapshot.child(str_phone_no1).child("email").getValue(String.class);
                             String str_licence_no = snapshot.child(str_phone_no1).child("licence_no").getValue(String.class);
+                            String str_address_proof_no = snapshot.child(str_phone_no1).child("address_proof_no").getValue(String.class);
                             String str_address = snapshot.child(str_phone_no1).child("address").getValue(String.class);
                             String str_area = snapshot.child(str_phone_no1).child("area").getValue(String.class);
                             String str_city = snapshot.child(str_phone_no1).child("city").getValue(String.class);
@@ -182,6 +188,7 @@ public class EditProfile extends AppCompatActivity {
                             i.putExtra("email",str_email);
                             i.putExtra("password",str_password);
                             i.putExtra("licence_no",str_licence_no);
+                            i.putExtra("address_proof_no",str_address_proof_no);
                             i.putExtra("address",str_address);
                             i.putExtra("area",str_area);
                             i.putExtra("city",str_city);

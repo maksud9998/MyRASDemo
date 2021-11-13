@@ -11,6 +11,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView carlistrecyclerView;
     List<Car> cars;
     CarListAdapter carListAdapter;
-    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address, str_area, str_city, str_state, str_pincode;
+    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode;
     boolean startCheck = false,endCheck=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         str_email = i.getStringExtra("email");
         str_password = i.getStringExtra("password");
         str_licence_no = i.getStringExtra("licence_no");
+        str_address_proof_no = i.getStringExtra("address_proof_no");
         str_address = i.getStringExtra("address");
         str_area = i.getStringExtra("area");
         str_city = i.getStringExtra("city");
@@ -249,6 +251,10 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.apply();
                 Toast.makeText(activity.getApplicationContext(), "Profile Deactivated Successfully",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(MainActivity.this,Login.class);
                 startActivity(i);
@@ -284,6 +290,7 @@ public class MainActivity extends AppCompatActivity {
         i.putExtra("email",str_email);
         i.putExtra("password",str_password);
         i.putExtra("licence_no",str_licence_no);
+        i.putExtra("address_proof_no",str_address_proof_no);
         i.putExtra("address",str_address);
         i.putExtra("area",str_area);
         i.putExtra("city",str_city);
@@ -298,8 +305,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickLogout(View view) {
-        Intent i = new Intent(MainActivity.this,Login.class);
-        startActivity(i);
-        finish();
+        logout(this);
+    }
+
+    private void logout(Activity activity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle("Log Out");
+        builder.setMessage("Are You Sure You Want To Log Out?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.apply();
+                Intent i = new Intent(MainActivity.this,Login.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 }

@@ -234,7 +234,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.32"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Licence_number" />
+                app:layout_constraintTop_toBottomOf="@id/address_proof_no" />
 
             <EditText
                 android:id="@+id/area"
@@ -318,11 +318,28 @@
                 android:singleLine="true"
                 android:inputType="number"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/Address"
+                app:layout_constraintBottom_toTopOf="@id/address_proof_no"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.32"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Password" />
+
+            <EditText
+                android:id="@+id/address_proof_no"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Address Proof Number"
+                android:paddingLeft="20dp"
+                android:singleLine="true"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/Address"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Licence_number" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkInfo;
@@ -59,6 +60,11 @@ public class Login extends AppCompatActivity {
                 str_password = password.getText().toString();
                 if (!str_phone_no1.equals("") && !str_password.equals(""))
                 {
+                    SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("phoneno1",phone_no1.getText().toString());
+                    editor.putString("password",password.getText().toString());
+                    editor.apply();
                     Query checkUser = reference.orderByChild("phoneno1").equalTo(str_phone_no1);
                     checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -74,6 +80,7 @@ public class Login extends AppCompatActivity {
                                     String str_phone_no2 = snapshot.child(str_phone_no1).child("phoneno2").getValue(String.class);
                                     String str_email = snapshot.child(str_phone_no1).child("email").getValue(String.class);
                                     String str_licence_no = snapshot.child(str_phone_no1).child("licence_no").getValue(String.class);
+                                    String str_address_proof_no = snapshot.child(str_phone_no1).child("address_proof_no").getValue(String.class);
                                     String str_address = snapshot.child(str_phone_no1).child("address").getValue(String.class);
                                     String str_area = snapshot.child(str_phone_no1).child("area").getValue(String.class);
                                     String str_city = snapshot.child(str_phone_no1).child("city").getValue(String.class);
@@ -89,6 +96,7 @@ public class Login extends AppCompatActivity {
                                     i.putExtra("email",str_email);
                                     i.putExtra("password",str_password);
                                     i.putExtra("licence_no",str_licence_no);
+                                    i.putExtra("address_proof_no",str_address_proof_no);
                                     i.putExtra("address",str_address);
                                     i.putExtra("area",str_area);
                                     i.putExtra("city",str_city);
