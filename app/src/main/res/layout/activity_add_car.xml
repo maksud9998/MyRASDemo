@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditProfile">
-
+    tools:context=".Add_Car">
 
     <ScrollView
         android:id="@+id/scroll"
@@ -115,7 +114,7 @@
                 app:layout_constraintHorizontal_bias="0.526"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Add_Bodytype"
-                app:layout_constraintVertical_bias="0.166" />
+                app:layout_constraintVertical_bias="0.166"/>
 
             <EditText
                 android:id="@+id/Add_FuelType"
@@ -131,12 +130,10 @@
                 android:paddingLeft="20dp"
                 android:singleLine="true"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf=""
+                app:layout_constraintBottom_toTopOf="@id/Add_Rent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.526"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Add_TransmissionType"
-                app:layout_constraintVertical_bias="0.166" />
+                app:layout_constraintTop_toBottomOf="@id/Add_TransmissionType"/>
 
             <EditText
                 android:id="@+id/Add_TransmissionType"
@@ -210,7 +207,7 @@
                 android:text="Add Car"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf=""
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.471"
                 app:layout_constraintStart_toStartOf="parent"

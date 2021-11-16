@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyRASDemo"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Add_Car"
+            android:exported="false" />
         <activity android:name=".UploadCarImages" />
         <activity android:name=".ContactUs" />
         <activity android:name=".Register" />
