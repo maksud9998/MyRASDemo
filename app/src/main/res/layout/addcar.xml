@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfile">
+
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/addcar"
+                android:layout_width="130dp"
+                android:layout_height="184dp"
+                android:src="@drawable/addcar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/capture_profile_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:contentDescription="@string/capture_licence_front"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="@id/addcar"
+                app:layout_constraintEnd_toEndOf="@id/addcar"
+                app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+                tools:ignore="NotSibling" />
+
+            <EditText
+                android:id="@+id/Add_Name"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Add Car Name"
+                android:paddingLeft="20dp"
+                android:singleLine="true"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/Add_CarNumberPlate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.111"
+                app:layout_constraintStart_toEndOf="@+id/addcar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.511" />
+
+            <EditText
+                android:id="@+id/Add_CarNumberPlate"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Add Car Number Plate"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:singleLine="true"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/Add_Bodytype"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/addcar"
+                app:layout_constraintTop_toBottomOf="@id/Add_Name" />
+
+            <EditText
+                android:id="@+id/Add_Bodytype"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Add Car Bodytype"
+                android:paddingLeft="20dp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/Add_CarSeatCap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.526"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addcar"
+                app:layout_constraintVertical_bias="0.04" />
+
+            <EditText
+                android:id="@+id/Add_CarSeatCap"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Add Car Seat Capacity"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingLeft="20dp"
+                android:singleLine="true"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/Add_TransmissionType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.526"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Add_Bodytype"
+                app:layout_constraintVertical_bias="0.166" />
+
+            <EditText
+                android:id="@+id/Add_FuelType"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Add Car Fuel Type"
+                android:inputType="text"
+                android:maxLength="10"
+                android:paddingLeft="20dp"
+                android:singleLine="true"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.526"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Add_TransmissionType"
+                app:layout_constraintVertical_bias="0.166" />
+
+            <EditText
+                android:id="@+id/Add_TransmissionType"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Add Car Transmission Type"
+                android:inputType="text"
+                android:maxLength="10"
+                android:paddingLeft="20dp"
+                android:singleLine="true"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/Add_FuelType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.526"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Add_CarSeatCap"
+                app:layout_constraintVertical_bias="0.166" />
+
+            <EditText
+                android:id="@+id/Add_Rent"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Add Car Rent price"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingLeft="20dp"
+                android:singleLine="true"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/Add_BookingStatus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.526"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Add_FuelType"
+                app:layout_constraintVertical_bias="0.166" />
+
+            <Spinner
+                android:id="@+id/Add_BookingStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/Add_CarStatus"
+                app:layout_constraintTop_toBottomOf="@id/Add_Rent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="10dp" />
+
+            <Spinner
+                android:id="@+id/Add_CarStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/Add_Car"
+                app:layout_constraintTop_toBottomOf="@id/Add_BookingStatus"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="9dp" />
+
+            <Button
+                android:id="@+id/Add_Car"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/btnshape"
+                android:fontFamily="@font/poppins"
+                android:text="Add Car"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.471"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Add_CarStatus" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
