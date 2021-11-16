@@ -1,10 +1,12 @@
 package com.example.myrasdemo;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 public class BookingListAdapter extends RecyclerView.Adapter<BookingListAdapter.ViewHolder> {
     private String[] localDataSet;
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -22,10 +24,10 @@ public class BookingListAdapter extends RecyclerView.Adapter<BookingListAdapter.
         localDataSet = dataSet;
     }
     @Override
-    public BookingListAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.booking_list, viewGroup, false);
-        return new BookingListAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override

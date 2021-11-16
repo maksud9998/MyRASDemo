@@ -1,7 +1,5 @@
 package com.example.myrasdemo;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +10,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,8 +33,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        topanim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
-        bottomanim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        topanim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        bottomanim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
         splash_screen_image = findViewById(R.id.splash_screen_image);
         splash_screen_text = findViewById(R.id.splash_screen_text);
         splash_screen_image.setAnimation(topanim);

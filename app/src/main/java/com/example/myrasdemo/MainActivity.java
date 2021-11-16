@@ -1,10 +1,5 @@
 package com.example.myrasdemo;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -16,30 +11,44 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    ImageView profile_image;
+    CircleImageView profile_image;
     TextView startDate, startTime, endDate, endTime, full_name;
     RelativeLayout startLayout, endLayout;
     Button findcarbtn;
     RecyclerView carlistrecyclerView;
-    List<Car> cars;
+    DatabaseReference database;
     CarListAdapter carListAdapter;
+    ArrayList<CarHelperClass> list;
     private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode;
     boolean startCheck = false,endCheck=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
         full_name = findViewById(R.id.user_name);
         profile_image = findViewById(R.id.profile_image);
         carlistrecyclerView = findViewById(R.id.carlistrecyclerView);
-        cars = new ArrayList<>();
-        carlistrecyclerView.setLayoutManager(new LinearLayoutManager(this));
         Intent i = getIntent();
         str_first_name = i.getStringExtra("first_name");
         str_last_name = i.getStringExtra("last_name");
@@ -157,7 +164,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showCarList() {
-        Toast.makeText(MainActivity.this,"Cars Displayed",Toast.LENGTH_SHORT).show();
+        database = FirebaseDatabase.getInstance().getReference().child("car_M");
+        carlistrecyclerView.setHasFixedSize(true);
+        carlistrecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        list = new ArrayList<>();
+        carListAdapter = new CarListAdapter(MainActivity.this,list);
+        carlistrecyclerView.setAdapter(carListAdapter);
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
+                    CarHelperClass carHelperClass = dataSnapshot.getValue(CarHelperClass.class);
+                    list.add(carHelperClass);
+                }
+                carListAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     public void onClickSmallPackage(View view) {

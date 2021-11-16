@@ -15,67 +15,84 @@
         app:layout_constraintTop_toTopOf="parent"
         android:padding="10dp">
 
-          <ImageView
+        <ImageView
             android:id="@+id/carImage"
-            android:layout_width="150dp"
+            android:layout_width="130dp"
             android:layout_height="100dp"
-            android:src="@drawable/democar"
             android:background="@color/white"
+            android:contentDescription="@string/carimage"
             android:padding="10dp"
-            android:contentDescription="@string/carimage" />
+            android:src="@drawable/democar" />
+
         <TextView
             android:id="@+id/carName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/carname"
             android:layout_toEndOf="@+id/carImage"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:paddingTop="20dp"
-            android:paddingStart="5dp"
             android:fontFamily="@font/poppins"
+            android:paddingStart="5dp"
+            android:paddingTop="20dp"
             android:paddingEnd="5dp"
-            android:textColor="@color/black"/>
+            android:text="@string/carname"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/carSeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/carseat"
-            android:layout_toEndOf="@+id/carImage"
             android:layout_below="@+id/carName"
-            android:textSize="16sp"
+            android:layout_toEndOf="@+id/carImage"
             android:fontFamily="@font/poppins"
-            android:paddingTop="15dp"
             android:paddingStart="5dp"
+            android:paddingTop="15dp"
             android:paddingEnd="5dp"
-            android:textColor="@color/black"/>
+            android:text="@string/carseat"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/carSeattxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/carseattxt"
-            android:layout_toEndOf="@+id/carSeat"
             android:layout_below="@+id/carName"
-            android:textSize="16sp"
+            android:layout_toEndOf="@+id/carSeat"
             android:fontFamily="@font/poppins"
-            android:paddingTop="15dp"
             android:paddingStart="5dp"
+            android:paddingTop="15dp"
             android:paddingEnd="5dp"
-            android:textColor="@color/black"/>
+            android:text="@string/carseattxt"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
         <TextView
             android:id="@+id/carFueltype"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/carfueltypetxt"
-            android:layout_toEndOf="@+id/carSeattxt"
             android:layout_below="@+id/carName"
-            android:textSize="16sp"
+            android:layout_toEndOf="@+id/carSeattxt"
             android:fontFamily="@font/poppins"
-            android:paddingTop="15dp"
             android:paddingStart="5dp"
+            android:paddingTop="15dp"
             android:paddingEnd="5dp"
-            android:textColor="@color/black"/>
+            android:text="@string/carfueltypetxt"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/carTransmissiontype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/carName"
+            android:layout_toEndOf="@+id/carFueltype"
+            android:fontFamily="@font/poppins"
+            android:paddingStart="5dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="5dp"
+            android:text="@string/cartransmissiontype"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
