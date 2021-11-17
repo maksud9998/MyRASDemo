@@ -1,7 +1,9 @@
 package com.example.myrasdemo;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +36,8 @@ public class Register extends AppCompatActivity {
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     DatabaseReference referenceCheck = FirebaseDatabase.getInstance().getReference("user_M");
-
+    ProgressDialog progressDialog;
+    private static int timeOut=500;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,87 +62,62 @@ public class Register extends AppCompatActivity {
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String str_first_name, str_last_name, str_email, str_phoneno1, str_password, str_licence_no, str_utype, str_status;
-                str_first_name = first_name.getText().toString();
-                str_last_name = last_name.getText().toString();
-                str_email = email.getText().toString();
-                str_phoneno1 = phone_no1.getText().toString();
-                str_password = password.getText().toString();
-                str_licence_no = license_no.getText().toString();
-                str_utype = "Customer";
-                str_status = "Active";
-                if (!str_first_name.equals("") && !str_last_name.equals("") && !str_email.equals("") && !str_phoneno1.equals("") && !str_password.equals("") && !str_licence_no.equals(""))
-                {
-                    Query checkUser = referenceCheck.orderByChild("phoneno1").equalTo(str_phoneno1);
-                    checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists())
-                            {
-                                String phoneno1DB = snapshot.child(str_phoneno1).child("phoneno1").getValue(String.class);
-                                if (phoneno1DB.equals(str_phoneno1))
-                                {
-                                    Toast.makeText(Register.this,"Mobile Number Already Registered",Toast.LENGTH_SHORT).show();
+                progressDialog = new ProgressDialog(Register.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.progress_dialog);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        String str_first_name, str_last_name, str_email, str_phoneno1, str_password, str_licence_no, str_utype, str_status;
+                        str_first_name = first_name.getText().toString();
+                        str_last_name = last_name.getText().toString();
+                        str_email = email.getText().toString();
+                        str_phoneno1 = phone_no1.getText().toString();
+                        str_password = password.getText().toString();
+                        str_licence_no = license_no.getText().toString();
+                        str_utype = "Customer";
+                        str_status = "Active";
+                        if (!str_first_name.equals("") && !str_last_name.equals("") && !str_email.equals("") && !str_phoneno1.equals("") && !str_password.equals("") && !str_licence_no.equals(""))
+                        {
+                            Query checkUser = referenceCheck.orderByChild("phoneno1").equalTo(str_phoneno1);
+                            checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if (snapshot.exists())
+                                    {
+                                        String phoneno1DB = snapshot.child(str_phoneno1).child("phoneno1").getValue(String.class);
+                                        if (phoneno1DB.equals(str_phoneno1))
+                                        {
+                                            Toast.makeText(Register.this,"Mobile Number Already Registered",Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        rootNode = FirebaseDatabase.getInstance();
+                                        reference = rootNode.getReference("user_M");
+                                        UserHelperClass helperClass = new UserHelperClass(str_first_name,str_last_name,str_email,str_phoneno1,str_password,str_licence_no,str_utype,str_status);
+                                        reference.child(str_phoneno1).setValue(helperClass);
+                                        Toast.makeText(Register.this,"Successfully Registered To Rent-A-Savari",Toast.LENGTH_SHORT).show();
+                                        Intent i = new Intent(Register.this,Login.class);
+                                        startActivity(i);
+                                        finish();
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                otpSend();
-                                rootNode = FirebaseDatabase.getInstance();
-                                reference = rootNode.getReference("user_M");
-                                UserHelperClass helperClass = new UserHelperClass(str_first_name,str_last_name,str_email,str_phoneno1,str_password,str_licence_no,str_utype,str_status);
-                                reference.child(str_phoneno1).setValue(helperClass);
-                                Toast.makeText(Register.this,"Successfully Registered To Rent-A-Savari",Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(Register.this,Login.class);
-                                startActivity(i);
-                                finish();
-                            }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
                         }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
+                        else
+                        {
+                            Toast.makeText(Register.this,"All Fields Are Required",Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
-                else
-                {
-                    Toast.makeText(Register.this,"All Fields Are Required",Toast.LENGTH_SHORT).show();
-                }
-
+                    }
+                },timeOut);
             }
         });
-    }
-
-    private void otpSend() {
-        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
-            @Override
-            public void onVerificationCompleted(PhoneAuthCredential credential) {
-
-            }
-
-            @Override
-            public void onVerificationFailed(FirebaseException e) {
-                Toast.makeText(Register.this,e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken token) {
-                Toast.makeText(Register.this,"OTP Sent Successfully",Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(Register.this,VerifyPhoneNo.class);
-                i.putExtra("phoneno1",phone_no1.getText().toString());
-                i.putExtra("verificationId",verificationId);
-                startActivity(i);
-            }
-        };
-        PhoneAuthOptions options =
-                PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber("+91" + phone_no1.getText().toString())       // Phone number to verify
-                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                        .setActivity(this)                 // Activity (for callback binding)
-                        .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
-                        .build();
-        PhoneAuthProvider.verifyPhoneNumber(options);
     }
 }

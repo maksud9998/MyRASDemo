@@ -3,11 +3,13 @@ package com.example.myrasdemo;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -23,6 +25,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference database;
     CarListAdapter carListAdapter;
     ArrayList<CarHelperClass> list;
+    private static int timeOut=500;
+    ProgressDialog progressDialog;
     private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode;
     boolean startCheck = false,endCheck=false;
 
@@ -106,7 +111,16 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    showCarList();
+                    progressDialog = new ProgressDialog(MainActivity.this);
+                    progressDialog.show();
+                    progressDialog.setContentView(R.layout.progress_dialog);
+                    progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            showCarList();
+                        }
+                    },timeOut);
                 }
             }
         });
@@ -186,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        progressDialog.dismiss();
     }
 
     public void onClickSmallPackage(View view) {
@@ -283,6 +298,8 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sp.edit();
                 editor.clear();
                 editor.apply();
+                Task<Void> reference;
+                reference = FirebaseDatabase.getInstance().getReference().child("user_M").child(str_phone_no1).setValue(null);
                 Toast.makeText(activity.getApplicationContext(), "Profile Deactivated Successfully",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(MainActivity.this,Login.class);
                 startActivity(i);

@@ -1,8 +1,10 @@
 package com.example.myrasdemo;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -31,6 +33,8 @@ public class UploadDocs extends AppCompatActivity {
     ActivityResultLauncher<String> launcher1, launcher2, launcher3, launcher4;
     String str_phoneon1;
     FirebaseStorage storage;
+    ProgressDialog progressDialog;
+    private static int timeOut=500;
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_M");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +50,18 @@ public class UploadDocs extends AppCompatActivity {
         capture_licence_back = findViewById(R.id.capture_licence_back);
         capture_address_proof_front = findViewById(R.id.capture_address_proof_front);
         capture_address_proof_back = findViewById(R.id.capture_address_proof_back);
+        progressBar();
         storage = FirebaseStorage.getInstance();
         reference.child(str_phoneon1).child("licence_front_image").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String image = snapshot.getValue(String.class);
-                Picasso.get().load(image).into(licence_front);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Picasso.get().load(image).into(licence_front);
+                    }
+                },timeOut);
             }
 
             @Override
@@ -73,6 +83,7 @@ public class UploadDocs extends AppCompatActivity {
                                 reference.child(str_phoneon1).child("licence_front_image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
+                                        progressDialog.dismiss();
                                         Toast.makeText(UploadDocs.this,"Licence Front Image Uploaded", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -86,7 +97,12 @@ public class UploadDocs extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String image = snapshot.getValue(String.class);
-                Picasso.get().load(image).into(licence_back);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Picasso.get().load(image).into(licence_back);
+                    }
+                },timeOut);
             }
 
             @Override
@@ -108,6 +124,7 @@ public class UploadDocs extends AppCompatActivity {
                                 reference.child(str_phoneon1).child("licence_back_image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
+                                        progressDialog.dismiss();
                                         Toast.makeText(UploadDocs.this,"Licence Back Image Uploaded", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -121,7 +138,12 @@ public class UploadDocs extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String image = snapshot.getValue(String.class);
-                Picasso.get().load(image).into(address_proof_front);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Picasso.get().load(image).into(address_proof_front);
+                    }
+                },timeOut);
             }
 
             @Override
@@ -143,6 +165,7 @@ public class UploadDocs extends AppCompatActivity {
                                 reference.child(str_phoneon1).child("address_proof_front_image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
+                                        progressDialog.dismiss();
                                         Toast.makeText(UploadDocs.this,"Address Proof Front Image Uploaded", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -156,7 +179,14 @@ public class UploadDocs extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String image = snapshot.getValue(String.class);
-                Picasso.get().load(image).into(address_proof_back);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Picasso.get().load(image).into(address_proof_back);
+                        progressDialog.dismiss();
+
+                    }
+                },timeOut);
             }
 
             @Override
@@ -178,6 +208,7 @@ public class UploadDocs extends AppCompatActivity {
                                 reference.child(str_phoneon1).child("address_proof_back_image").setValue(uri.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
+                                        progressDialog.dismiss();
                                         Toast.makeText(UploadDocs.this,"Address Proof Back Image Uploaded", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -192,25 +223,36 @@ public class UploadDocs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 launcher1.launch("image/*");
+                progressBar();
             }
         });
         capture_licence_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 launcher2.launch("image/*");
+                progressBar();
             }
         });
         capture_address_proof_front.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 launcher3.launch("image/*");
+                progressBar();
             }
         });
         capture_address_proof_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 launcher4.launch("image/*");
+                progressBar();
             }
         });
+    }
+
+    private void progressBar() {
+        progressDialog = new ProgressDialog(UploadDocs.this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
     }
 }
