@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:padding="2dp"
         android:fontFamily="@font/poppins"
-        android:text="End : "
+        android:text="End   : "
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/carName"
         app:layout_constraintStart_toEndOf="@+id/carImage"
@@ -43,14 +43,14 @@
 
     <TextView
         android:id="@+id/carName"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
         android:text="Mahindra KUV 100"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/carNotxt"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/packagetxt"
+        app:layout_constraintEnd_toStartOf="@id/carNotxt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carImage" />
@@ -134,9 +134,10 @@
         android:fontFamily="@font/poppins"
         android:text="GJ 01 UF 9998"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/carName"
-
+        app:layout_constraintStart_toEndOf="@id/carName"
+        app:layout_constraintTop_toBottomOf="@id/carImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/packagetxt"
         />
 
     <TextView
@@ -147,7 +148,19 @@
         android:text="Package"
         android:fontFamily="@font/poppins"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@id/carNotxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/carName"
+        app:layout_constraintBottom_toTopOf="@id/cancelbookingbtn"/>
+
+    <TextView
+        android:id="@+id/kms_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="150"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/packagetxt"
         app:layout_constraintTop_toBottomOf="@id/carName"
         app:layout_constraintBottom_toTopOf="@id/cancelbookingbtn"/>
 
@@ -159,7 +172,8 @@
         android:text="Status-"
         android:fontFamily="@font/poppins"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@id/packagetxt"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintStart_toEndOf="@id/kms_txt"
         app:layout_constraintTop_toBottomOf="@id/carName"
         app:layout_constraintBottom_toTopOf="@id/cancelbookingbtn"/>
 
