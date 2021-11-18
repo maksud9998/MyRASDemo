@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -22,7 +23,7 @@ import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Admin_DashBoard extends AppCompatActivity {
-
+    CardView ManageUserCardview,ManageCarCardview,ManageviewBooking,ManageRegister;
     DrawerLayout drawerLayout;
     CircleImageView profile_image;
     TextView full_name;
@@ -32,9 +33,21 @@ public class Admin_DashBoard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dash_board);
+        ManageUserCardview=findViewById(R.id.Manage_User_card);
+        ManageCarCardview=findViewById(R.id.Manage_Car_Card);
+        ManageviewBooking=findViewById(R.id.Manage_View_Booking);
+        ManageRegister=findViewById(R.id.Manage_Reg);
         drawerLayout = findViewById(R.id.drawer_layout);
         full_name = findViewById(R.id.user_name);
         profile_image = findViewById(R.id.profile_image);
+        Intent Intent_Usercard = new Intent(Admin_DashBoard.this,Add_Car.class);
+        startActivity(Intent_Usercard);
+        Intent Intent_Carcard = new Intent(Admin_DashBoard.this,UserList.class);
+        startActivity(Intent_Carcard);
+        Intent Intent_Bookingcard = new Intent(Admin_DashBoard.this,PreviousBooking.class);
+        startActivity(Intent_Bookingcard);
+        Intent Intent_Regcard = new Intent(Admin_DashBoard.this,Register.class);
+        startActivity(Intent_Regcard);
         Intent i = getIntent();
         str_first_name = i.getStringExtra("first_name");
         str_last_name = i.getStringExtra("last_name");
