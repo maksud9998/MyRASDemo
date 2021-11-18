@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/layout_border"
+    android:padding="15dp">
+
+
+    <ImageView
+        android:id="@+id/UserImage"
+        android:layout_width="89dp"
+        android:layout_height="91dp"
+        android:background="@drawable/edit_text"
+        android:contentDescription="userimg"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user" />
+
+    <TextView
+        android:id="@+id/cl_firtsname"
+        android:layout_width="271dp"
+        android:layout_height="30dp"
+        android:background="@drawable/edit_text"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:text="  Umang"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/UserImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cl_last"
+        android:layout_width="271dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text"
+        android:text="  Panchal"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/UserImage"
+        app:layout_constraintTop_toBottomOf="@+id/cl_firtsname" />
+
+    <TextView
+        android:id="@+id/cl_Email"
+        android:layout_width="378dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text"
+        android:text="  panchalumang267@gmail.com"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_last" />
+
+    <TextView
+        android:id="@+id/cl_mobile1"
+        android:layout_width="177dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="  6355497076"
+        android:textSize="20dp"
+        android:background="@drawable/edit_text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_Email" />
+
+    <TextView
+        android:id="@+id/cl_licencenumber"
+        android:layout_width="177dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text"
+        android:text="  Licence Number"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_mobile1" />
+
+    <TextView
+        android:id="@+id/cl_mobile2"
+        android:layout_width="182dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="  6355497076"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:background="@drawable/edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.771"
+        app:layout_constraintStart_toEndOf="@+id/cl_mobile1"
+        app:layout_constraintTop_toBottomOf="@+id/cl_Email" />
+
+    <TextView
+        android:id="@+id/cl_mobile5"
+        android:layout_width="182dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text"
+        android:text="  Add. proof No."
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.621"
+        app:layout_constraintStart_toEndOf="@+id/cl_licencenumber"
+        app:layout_constraintTop_toBottomOf="@+id/cl_mobile2" />
+
+    <Button
+        android:id="@+id/deleteuserbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btnshape"
+        android:enabled="true"
+        android:fontFamily="@font/poppins"
+        android:text="Delete User"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.306"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_licencenumber"
+        app:layout_constraintVertical_bias="1.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>
