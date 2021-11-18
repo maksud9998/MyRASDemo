@@ -80,39 +80,49 @@ public class Register extends AppCompatActivity {
                         str_status = "Active";
                         if (!str_first_name.equals("") && !str_last_name.equals("") && !str_email.equals("") && !str_phoneno1.equals("") && !str_password.equals("") && !str_licence_no.equals(""))
                         {
-                            Query checkUser = referenceCheck.orderByChild("phoneno1").equalTo(str_phoneno1);
-                            checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    if (snapshot.exists())
-                                    {
-                                        String phoneno1DB = snapshot.child(str_phoneno1).child("phoneno1").getValue(String.class);
-                                        if (phoneno1DB.equals(str_phoneno1))
+                            if ((str_phoneno1.length() <10))
+                            {
+                                progressDialog.dismiss();
+                                Toast.makeText(Register.this,"Enter Valid Mobile Number",Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                            {
+                                Query checkUser = referenceCheck.orderByChild("phoneno1").equalTo(str_phoneno1);
+                                checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if (snapshot.exists())
                                         {
-                                            Toast.makeText(Register.this,"Mobile Number Already Registered",Toast.LENGTH_SHORT).show();
+                                            String phoneno1DB = snapshot.child(str_phoneno1).child("phoneno1").getValue(String.class);
+                                            if (phoneno1DB.equals(str_phoneno1))
+                                            {
+                                                progressDialog.dismiss();
+                                                Toast.makeText(Register.this,"Mobile Number Already Registered",Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            rootNode = FirebaseDatabase.getInstance();
+                                            reference = rootNode.getReference("user_M");
+                                            UserHelperClass helperClass = new UserHelperClass(str_first_name,str_last_name,str_email,str_phoneno1,str_password,str_licence_no,str_utype,str_status);
+                                            reference.child(str_phoneno1).setValue(helperClass);
+                                            Toast.makeText(Register.this,"Successfully Registered To Rent-A-Savari",Toast.LENGTH_SHORT).show();
+                                            Intent i = new Intent(Register.this,Login.class);
+                                            startActivity(i);
+                                            finish();
                                         }
                                     }
-                                    else
-                                    {
-                                        rootNode = FirebaseDatabase.getInstance();
-                                        reference = rootNode.getReference("user_M");
-                                        UserHelperClass helperClass = new UserHelperClass(str_first_name,str_last_name,str_email,str_phoneno1,str_password,str_licence_no,str_utype,str_status);
-                                        reference.child(str_phoneno1).setValue(helperClass);
-                                        Toast.makeText(Register.this,"Successfully Registered To Rent-A-Savari",Toast.LENGTH_SHORT).show();
-                                        Intent i = new Intent(Register.this,Login.class);
-                                        startActivity(i);
-                                        finish();
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
                                     }
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                }
-                            });
+                                });
+                            }
                         }
                         else
                         {
+                            progressDialog.dismiss();
                             Toast.makeText(Register.this,"All Fields Are Required",Toast.LENGTH_SHORT).show();
                         }
                     }

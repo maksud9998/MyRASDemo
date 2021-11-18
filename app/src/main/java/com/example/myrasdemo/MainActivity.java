@@ -30,6 +30,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference database;
     CarListAdapter carListAdapter;
     ArrayList<CarHelperClass> list;
+    private String str_start_date, str_start_time, str_end_date, str_end_time;
     private static int timeOut=500;
     ProgressDialog progressDialog;
     private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode;
@@ -141,8 +143,10 @@ public class MainActivity extends AppCompatActivity {
                         calendar.set(Calendar.MINUTE,minute);
                         SimpleDateFormat startDateFormat = new SimpleDateFormat("MMMM  dd  yyyy");
                         startDate.setText(startDateFormat.format(calendar.getTime()));
+                        str_start_date = startDateFormat.format(calendar.getTime());
                         SimpleDateFormat starttimeFormat = new SimpleDateFormat("EEEE HH:mm");
                         startTime.setText(starttimeFormat.format(calendar.getTime()));
+                        str_start_time = starttimeFormat.format(calendar.getTime());
                     }
                 };
                 new TimePickerDialog(MainActivity.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
@@ -167,8 +171,10 @@ public class MainActivity extends AppCompatActivity {
                         calendar.set(Calendar.MINUTE,minute);
                         SimpleDateFormat endDateFormat = new SimpleDateFormat("MMMM  dd  yyyy");
                         endDate.setText(endDateFormat.format(calendar.getTime()));
+                        str_end_date = endDateFormat.format(calendar.getTime());
                         SimpleDateFormat endtimeFormat = new SimpleDateFormat("EEEE HH:mm");
                         endTime.setText(endtimeFormat.format(calendar.getTime()));
+                        str_end_time = endtimeFormat.format(calendar.getTime());
                     }
                 };
                 new TimePickerDialog(MainActivity.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
@@ -178,26 +184,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showCarList() {
+
         database = FirebaseDatabase.getInstance().getReference().child("car_M");
         carlistrecyclerView.setHasFixedSize(true);
         carlistrecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         list = new ArrayList<>();
-        carListAdapter = new CarListAdapter(MainActivity.this,list);
+        carListAdapter = new CarListAdapter(MainActivity.this,list,getApplicationContext(),str_start_date,str_start_time,str_end_date,str_end_time, str_phone_no1);
         carlistrecyclerView.setAdapter(carListAdapter);
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren())
-                {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     CarHelperClass carHelperClass = dataSnapshot.getValue(CarHelperClass.class);
                     list.add(carHelperClass);
                 }
                 carListAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
         progressDialog.dismiss();
