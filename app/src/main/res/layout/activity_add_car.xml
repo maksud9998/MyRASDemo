@@ -170,35 +170,15 @@
                 android:paddingLeft="20dp"
                 android:singleLine="true"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/Add_BookingStatus"
+                app:layout_constraintBottom_toTopOf="@+id/Add_Car_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.526"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Add_FuelType"
                 app:layout_constraintVertical_bias="0.166" />
 
-            <Spinner
-                android:id="@+id/Add_BookingStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/Add_CarStatus"
-                app:layout_constraintTop_toBottomOf="@id/Add_Rent"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="10dp" />
-
-            <Spinner
-                android:id="@+id/Add_CarStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/Add_Car"
-                app:layout_constraintTop_toBottomOf="@id/Add_BookingStatus"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="9dp" />
-
             <Button
-                android:id="@+id/Add_Car"
+                android:id="@+id/Add_Car_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -211,7 +191,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.471"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Add_CarStatus" />
+                app:layout_constraintTop_toBottomOf="@+id/Add_Rent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
