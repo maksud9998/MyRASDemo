@@ -82,23 +82,47 @@ public class SplashScreenActivity extends AppCompatActivity {
                             str_state = snapshot.child(str_phone_no1).child("state").getValue(String.class);
                             str_pincode = snapshot.child(str_phone_no1).child("pincode").getValue(String.class);
                             Toast.makeText(SplashScreenActivity.this,"Welcome To Rent-A-Savari "+str_first_name,Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(SplashScreenActivity.this,MainActivity.class);
-                            i.putExtra("first_name",str_first_name);
-                            i.putExtra("last_name",str_last_name);
-                            i.putExtra("profile_image",str_profile_image);
-                            i.putExtra("phoneno1",str_phone_no1);
-                            i.putExtra("phoneno2",str_phone_no2);
-                            i.putExtra("email",str_email);
-                            i.putExtra("password",str_password);
-                            i.putExtra("licence_no",str_licence_no);
-                            i.putExtra("address_proof_no",str_address_proof_no);
-                            i.putExtra("address",str_address);
-                            i.putExtra("area",str_area);
-                            i.putExtra("city",str_city);
-                            i.putExtra("state",str_state);
-                            i.putExtra("pincode",str_pincode);
-                            startActivity(i);
-                            finish();
+                            String str_utype = snapshot.child(str_phone_no1).child("utype").getValue(String.class);
+                            if(str_utype.equals("Admin"))
+                            {
+                                Intent i = new Intent(SplashScreenActivity.this,Admin_DashBoard.class);
+                                i.putExtra("first_name",str_first_name);
+                                i.putExtra("last_name",str_last_name);
+                                i.putExtra("profile_image",str_profile_image);
+                                i.putExtra("phoneno1",str_phone_no1);
+                                i.putExtra("phoneno2",str_phone_no2);
+                                i.putExtra("email",str_email);
+                                i.putExtra("password",str_password);
+                                i.putExtra("licence_no",str_licence_no);
+                                i.putExtra("address_proof_no",str_address_proof_no);
+                                i.putExtra("address",str_address);
+                                i.putExtra("area",str_area);
+                                i.putExtra("city",str_city);
+                                i.putExtra("state",str_state);
+                                i.putExtra("pincode",str_pincode);
+                                startActivity(i);
+                                finish();
+                            }
+                            else
+                            {
+                                Intent i = new Intent(SplashScreenActivity.this,MainActivity.class);
+                                i.putExtra("first_name",str_first_name);
+                                i.putExtra("last_name",str_last_name);
+                                i.putExtra("profile_image",str_profile_image);
+                                i.putExtra("phoneno1",str_phone_no1);
+                                i.putExtra("phoneno2",str_phone_no2);
+                                i.putExtra("email",str_email);
+                                i.putExtra("password",str_password);
+                                i.putExtra("licence_no",str_licence_no);
+                                i.putExtra("address_proof_no",str_address_proof_no);
+                                i.putExtra("address",str_address);
+                                i.putExtra("area",str_area);
+                                i.putExtra("city",str_city);
+                                i.putExtra("state",str_state);
+                                i.putExtra("pincode",str_pincode);
+                                startActivity(i);
+                                finish();
+                            }
                         }
 
                         @Override
