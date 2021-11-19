@@ -26,7 +26,6 @@ public class PreviousBooking extends AppCompatActivity {
     ArrayList<PreviousBookingHelperClass> list;
     PreviousBookingListAdapter previousBookingListAdapter;
     DatabaseReference database;
-    Button cancelbookingbtn, uploadCarPhotosbtn;
     private static int timeOut=500;
     ProgressDialog progressDialog;
     private static  PreviousBooking instance;
@@ -34,9 +33,6 @@ public class PreviousBooking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_previous_booking);
         instance = this;
-        cancelbookingbtn = findViewById(R.id.cancelbookingbtn);
-//        list.clear();
-        MainActivity.getInstance().showCarList();
         content();
     }
 
@@ -46,7 +42,10 @@ public class PreviousBooking extends AppCompatActivity {
     }
 
     public void content() {
-
+        if (MainActivity.getInstance().startCheck || MainActivity.getInstance().endCheck)
+        {
+            MainActivity.getInstance().showCarList();
+        }
         progressDialog = new ProgressDialog(PreviousBooking.this);
         progressDialog.show();
         progressDialog.setContentView(R.layout.progress_dialog);

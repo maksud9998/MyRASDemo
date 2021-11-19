@@ -33,8 +33,12 @@ public class SplashScreenActivity extends AppCompatActivity {
     Animation topanim,bottomanim;
     ImageView splash_screen_image;
     TextView splash_screen_text;
-    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode, str_utype;
+    String encryptedPassword = "", decryptedPassword = "";
+    private String str_first_name, str_last_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode, str_utype;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_M");
+    Integer key=1;
+    Character ch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +65,6 @@ public class SplashScreenActivity extends AppCompatActivity {
         if (sp.contains("phoneno1"))
         {
             str_phone_no1 = sp.getString("phoneno1","");
-            str_password = sp.getString("password","");
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -73,6 +76,29 @@ public class SplashScreenActivity extends AppCompatActivity {
                             str_last_name = snapshot.child(str_phone_no1).child("last_name").getValue(String.class);
                             str_profile_image = snapshot.child(str_phone_no1).child("profile_image").getValue(String.class);
                             str_phone_no2 = snapshot.child(str_phone_no1).child("phoneno2").getValue(String.class);
+                            str_password = snapshot.child(str_phone_no1).child("password").getValue(String.class);
+                            for (Integer i = 0; i < str_password.length(); ++i) {
+                                ch = str_password.charAt(i);
+                                if (ch >= 'a' && ch <= 'z') {
+                                    ch = (char) (ch - key);
+
+                                    if (ch < 'a') {
+                                        ch = (char) (ch + 'z' - 'a' + 1);
+                                    }
+
+                                    decryptedPassword += ch;
+                                } else if (ch >= 'A' && ch <= 'Z') {
+                                    ch = (char) (ch - key);
+
+                                    if (ch < 'A') {
+                                        ch = (char) (ch + 'Z' - 'A' + 1);
+                                    }
+
+                                    decryptedPassword += ch;
+                                } else {
+                                    decryptedPassword += ch;
+                                }
+                            }
                             str_email = snapshot.child(str_phone_no1).child("email").getValue(String.class);
                             str_licence_no = snapshot.child(str_phone_no1).child("licence_no").getValue(String.class);
                             str_address_proof_no = snapshot.child(str_phone_no1).child("address_proof_no").getValue(String.class);
@@ -92,7 +118,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                                 i.putExtra("phoneno1",str_phone_no1);
                                 i.putExtra("phoneno2",str_phone_no2);
                                 i.putExtra("email",str_email);
-                                i.putExtra("password",str_password);
+                                i.putExtra("password",decryptedPassword);
                                 i.putExtra("licence_no",str_licence_no);
                                 i.putExtra("address_proof_no",str_address_proof_no);
                                 i.putExtra("address",str_address);
@@ -112,7 +138,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                                 i.putExtra("phoneno1",str_phone_no1);
                                 i.putExtra("phoneno2",str_phone_no2);
                                 i.putExtra("email",str_email);
-                                i.putExtra("password",str_password);
+                                i.putExtra("password",decryptedPassword);
                                 i.putExtra("licence_no",str_licence_no);
                                 i.putExtra("address_proof_no",str_address_proof_no);
                                 i.putExtra("address",str_address);

@@ -31,11 +31,15 @@ public class Register extends AppCompatActivity {
     EditText first_name, last_name,email,phone_no1, password, license_no;
     Button registerbtn;
     TextView loginlink;
+    String encryptedPassword = "";
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     DatabaseReference referenceCheck = FirebaseDatabase.getInstance().getReference("user_M");
     ProgressDialog progressDialog;
     private static int timeOut=500;
+    Integer key=1;
+    Character ch;
+    Integer i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +79,28 @@ public class Register extends AppCompatActivity {
                         str_licence_no = license_no.getText().toString();
                         str_utype = "Customer";
                         str_status = "Active";
+
+                        for(i = 0; i < str_password.length(); ++i){
+                            ch = str_password.charAt(i);
+                            if(ch >= 'a' && ch <= 'z'){
+                                ch = (char)(ch + key);
+                                if(ch > 'z'){
+                                    ch = (char)(ch - 'z' + 'a' - 1);
+                                }
+                                encryptedPassword += ch;
+                            }
+                            else if(ch >= 'A' && ch <= 'Z'){
+                                ch = (char)(ch + key);
+                                if(ch > 'Z'){
+                                    ch = (char)(ch - 'Z' + 'A' - 1);
+                                }
+                                encryptedPassword += ch;
+                            }
+                            else {
+                                encryptedPassword += ch;
+                            }
+                        }
+
                         if (!str_first_name.equals("") && !str_last_name.equals("") && !str_email.equals("") && !str_phoneno1.equals("") && !str_password.equals("") && !str_licence_no.equals(""))
                         {
                             if ((str_phoneno1.length() <10))
@@ -85,6 +111,7 @@ public class Register extends AppCompatActivity {
                             else
                             {
                                 Query checkUser = referenceCheck.orderByChild("phoneno1").equalTo(str_phoneno1);
+                                String finalEncryptedPassword = encryptedPassword;
                                 checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -101,7 +128,7 @@ public class Register extends AppCompatActivity {
                                         {
                                             rootNode = FirebaseDatabase.getInstance();
                                             reference = rootNode.getReference("user_M");
-                                            UserHelperClass helperClass = new UserHelperClass(str_first_name,str_last_name,str_email,str_phoneno1,str_password,str_licence_no,str_utype,str_status);
+                                            UserHelperClass helperClass = new UserHelperClass(str_first_name,str_last_name,str_email,str_phoneno1, finalEncryptedPassword,str_licence_no,str_utype,str_status);
                                             reference.child(str_phoneno1).setValue(helperClass);
                                             Toast.makeText(Register.this,"Successfully Registered To Rent-A-Savari",Toast.LENGTH_SHORT).show();
                                             Intent i = new Intent(Register.this,Login.class);

@@ -19,7 +19,12 @@
         <entry key="..\:/MCA/SEM 3/MyRASDemo/app/src/main/res/layout/manageuser.xml" value="0.2" />
         <entry key="..\:/MCA/SEM 3/MyRASDemo/app/src/main/res/layout/updatecar.xml" value="0.20416666666666666" />
         <entry key="..\:/MCA/SEM 3/MyRASDemo/app/src/main/res/layout/viewbooking.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_booking_details.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/drawable/bg.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/drawable/btn.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/drawable/btnshape.xml" value="0.290625" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_add_car.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_admin_dash_board.xml" value="0.4" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_booking_details.xml" value="0.2" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_contact_us.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_edit_profile.xml" value="0.176" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_login.xml" value="0.21316033364226136" />
@@ -30,15 +35,20 @@
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_splash_screen.xml" value="0.1334853090172239" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_upload_car_images.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_upload_docs.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_user_list.xml" value="0.2509057971014493" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_verify_phone_no.xml" value="0.2708333333333333" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/activity_view_car.xml" value="0.2509057971014493" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/admindashboard.xml" value="0.26721014492753625" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/booking_list.xml" value="0.4" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/cars_list.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/customer_list.xml" value="0.2509057971014493" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/dialog_searchable_spinner.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/main_nav_drawer.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/main_nav_drawer.xml" value="0.2" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/main_toolbar.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/managecars.xml" value="0.26721014492753625" />
         <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/manageuser.xml" value="0.26721014492753625" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/progress_dialog.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/bmaks/StudioProjects/MyRASDemo/app/src/main/res/layout/updatecar.xml" value="0.1334853090172239" />
       </map>
     </option>
   </component>

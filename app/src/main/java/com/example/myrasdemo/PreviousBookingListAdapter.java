@@ -51,7 +51,7 @@ public class PreviousBookingListAdapter extends RecyclerView.Adapter<PreviousBoo
         holder.start_time.setText(previousBookingHelperClass.getStart_time());
         holder.end_date.setText(previousBookingHelperClass.getEnd_date());
         holder.end_time.setText(previousBookingHelperClass.getEnd_time());
-        holder.kms.setText(previousBookingHelperClass.getKms());
+        holder.kms.setText(previousBookingHelperClass.getKms()+" KMs");
         holder.status.setText(previousBookingHelperClass.getStatus());
         holder.total_fair_price.setText(previousBookingHelperClass.getTrip_fare_price());
         String booking_id = previousBookingHelperClass.getBooking_id();
@@ -61,17 +61,18 @@ public class PreviousBookingListAdapter extends RecyclerView.Adapter<PreviousBoo
         holder.upload_car_photos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                list.clear();
-                MainActivity.getInstance().showCarList();
+
                 if (status.equals("Cancelled"))
                 {
                     Toast.makeText(context, "This Booking Is Already Cancelled", Toast.LENGTH_SHORT).show();
                 }
+                else if(status.equals("Trip Ended"))
+                {
+                    Toast.makeText(context, "This Booking Is Already Ended", Toast.LENGTH_SHORT).show();
+                }
                 else
                 {
                     PreviousBooking.getInstance().content();
-                    Task<Void> referenceBooking;
-                    referenceBooking = FirebaseDatabase.getInstance().getReference().child("booking_M").child(booking_id).child("status").setValue("Trip Started");
                     Intent intent = new Intent(context,UploadCarImages.class);
                     intent.putExtra("booking_id",booking_id);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -86,6 +87,10 @@ public class PreviousBookingListAdapter extends RecyclerView.Adapter<PreviousBoo
                 {
                     Toast.makeText(context, "This Booking Is Already Cancelled", Toast.LENGTH_SHORT).show();
                 }
+                else if(status.equals("Trip Ended"))
+                {
+                    Toast.makeText(context, "This Booking Is Already Ended", Toast.LENGTH_SHORT).show();
+                }
                 else
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -95,7 +100,6 @@ public class PreviousBookingListAdapter extends RecyclerView.Adapter<PreviousBoo
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             list.clear();
-                            MainActivity.getInstance().showCarList();
                             Task<Void> referenceBooking,referenceCarStatus;
                             referenceBooking = FirebaseDatabase.getInstance().getReference().child("booking_M").child(booking_id).child("status").setValue("Cancelled");
                             referenceCarStatus = FirebaseDatabase.getInstance().getReference().child("car_M").child(car_no_plate).child("status").setValue("Available");
@@ -114,6 +118,37 @@ public class PreviousBookingListAdapter extends RecyclerView.Adapter<PreviousBoo
                 }
             }
         });
+        holder.endTripbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (status.equals("Cancelled"))
+                {
+                    Toast.makeText(context, "This Booking Is Already Cancelled", Toast.LENGTH_SHORT).show();
+                }
+                else if(status.equals("Trip Ended"))
+                {
+                    Toast.makeText(context, "This Booking Is Already Ended", Toast.LENGTH_SHORT).show();
+                }
+                else if (status.equals("Booked"))
+                {
+                    list.clear();
+                    Task<Void> referenceBooking,referenceCarStatus;
+                    referenceBooking = FirebaseDatabase.getInstance().getReference().child("booking_M").child(booking_id).child("status").setValue("Cancelled");
+                    referenceCarStatus = FirebaseDatabase.getInstance().getReference().child("car_M").child(car_no_plate).child("status").setValue("Available");
+                    Toast.makeText(context.getApplicationContext(), "Trip Ended",Toast.LENGTH_SHORT).show();
+                    PreviousBooking.getInstance().content();
+                }
+                else
+                {
+                    list.clear();
+                    Task<Void> referenceBooking,referenceCarStatus;
+                    referenceBooking = FirebaseDatabase.getInstance().getReference().child("booking_M").child(booking_id).child("status").setValue("Trip Ended");
+                    referenceCarStatus = FirebaseDatabase.getInstance().getReference().child("car_M").child(car_no_plate).child("status").setValue("Available");
+                    Toast.makeText(context.getApplicationContext(), "Trip Ended",Toast.LENGTH_SHORT).show();
+                    PreviousBooking.getInstance().content();
+                }
+            }
+        });
     }
 
     @Override
@@ -125,7 +160,7 @@ public class PreviousBookingListAdapter extends RecyclerView.Adapter<PreviousBoo
 
         TextView car_name, car_no_plate, phone_no1, start_date, start_time, end_date, end_time, kms, status, total_fair_price;
         ImageView car_image;
-        Button upload_car_photos, cancel_booking_btn;
+        Button upload_car_photos, cancel_booking_btn, endTripbtn;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -142,6 +177,7 @@ public class PreviousBookingListAdapter extends RecyclerView.Adapter<PreviousBoo
             total_fair_price = itemView.findViewById(R.id.total);
             upload_car_photos = itemView.findViewById(R.id.uploadCarPhotosbtn);
             cancel_booking_btn = itemView.findViewById(R.id.cancelbookingbtn);
+            endTripbtn = itemView.findViewById(R.id.endTripbtn);
         }
     }
 }

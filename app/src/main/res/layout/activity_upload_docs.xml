@@ -60,7 +60,7 @@
                     android:id="@+id/licence_front"
                     android:layout_width="match_parent"
                     android:layout_height="200sp"
-                    android:background="@drawable/layoutbg"
+                    android:background="@drawable/capture_image"
                     android:padding="5dp"
                     android:scaleType="fitCenter"
                     app:layout_constraintBottom_toTopOf="@id/licence_back_txt"
@@ -68,7 +68,6 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/licence_front_txt"
-                    app:srcCompat="@drawable/capture_image"
                     android:contentDescription="@string/licence_front" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -105,14 +104,13 @@
                     android:id="@+id/licence_back"
                     android:layout_width="match_parent"
                     android:layout_height="200sp"
-                    android:background="@drawable/layoutbg"
+                    android:background="@drawable/capture_image"
                     android:padding="5dp"
                     android:scaleType="fitCenter"
                     app:layout_constraintBottom_toTopOf="@id/address_proof_front_txt"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/licence_back_txt"
-                    app:srcCompat="@drawable/capture_image"
                     android:contentDescription="@string/licence_back" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -149,7 +147,7 @@
                     android:id="@+id/address_proof_front"
                     android:layout_width="match_parent"
                     android:layout_height="200sp"
-                    android:background="@drawable/layoutbg"
+                    android:background="@drawable/capture_image"
                     android:padding="5dp"
                     android:scaleType="fitCenter"
                     app:layout_constraintBottom_toTopOf="@id/address_proof_back_txt"
@@ -157,7 +155,6 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/address_proof_front_txt"
-                    app:srcCompat="@drawable/capture_image"
                     android:contentDescription="@string/address_proof_front" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -194,7 +191,7 @@
                     android:id="@+id/address_proof_back"
                     android:layout_width="match_parent"
                     android:layout_height="200sp"
-                    android:background="@drawable/layoutbg"
+                    android:background="@drawable/capture_image"
                     android:padding="5dp"
                     android:scaleType="fitCenter"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -202,7 +199,6 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/address_proof_back_txt"
-                    app:srcCompat="@drawable/capture_image"
                     android:contentDescription="@string/address_proof_back" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -51,19 +51,20 @@
                 android:layout_marginBottom="12dp"
                 android:text="Rent-A-Savari takes pride in being completely transparent with our members. Here is a comprehensive list of terms and conditions for certain scenarios after you have created your reservation."
                 android:textSize="16dp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
                 />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black" />
+                android:background="#DC4433"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="No Alteration In Booking Scheduled"
-                android:textColor="@color/black"
+                android:textColor="#DC4433"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold" />
@@ -74,19 +75,20 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
                 android:text="Customers will not be able to change booking start time or shorten the booking end time. No refunds will be applicable." />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black" />
+                android:background="#DC4433"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Late Return"
-                android:textColor="@color/black"
+                android:textColor="#DC4433"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold" />
@@ -97,19 +99,20 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
                 android:text="Late return would be charged at ₹300/hour in addition to the hourly fee for use of the vehicle." />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black" />
+                android:background="#DC4433"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="No Return"
-                android:textColor="@color/black"
+                android:textColor="#DC4433"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold" />
@@ -118,6 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:textColor="@color/black"
                 android:layout_marginBottom="12dp"
                 android:text="If car is not returned back within 4 hours of booking end time, then an FIR will be filed against customer.
             Customer can be charged under Indian Penal Code, 1860 for the offence of theft." />
@@ -125,13 +129,13 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black" />
+                android:background="#DC4433"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Minimum Duration"
-                android:textColor="@color/black"
+                android:textColor="#DC4433"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold" />
@@ -142,19 +146,20 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
                 android:text="The minimum booking duration for which the prices will be charged is 4 hours." />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black" />
+                android:background="#DC4433"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Breakdown of vehicle"
-                android:textColor="@color/black"
+                android:textColor="#DC4433"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold" />
@@ -165,19 +170,20 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
                 android:text="The Member shall be responsible for the costs related to the repair, recovery, and loss of use of any Rent-A-Savari vehicle." />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black" />
+                android:background="#DC4433"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Traffic and Parking violations"
-                android:textColor="@color/black"
+                android:textColor="#DC4433"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold" />
@@ -188,19 +194,20 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
                 android:text="Full payment of fines + ₹500 per 30 days late in payment." />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black" />
+                android:background="#DC4433"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="No Show"
-                android:textColor="@color/black"
+                android:textColor="#DC4433"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold" />
@@ -211,19 +218,20 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
                 android:text="Bookings would stand cancelled if after 4 hours of booking start time the customer still doesn’t show up.\nNo refunds would be applicable." />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black" />
+                android:background="#DC4433"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Towing And Impounding"
-                android:textColor="@color/black"
+                android:textColor="#DC4433"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold" />
@@ -234,19 +242,20 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
                 android:text="No cost if caused by vehicle failure\nFull cost if caused by user negligence." />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black" />
+                android:background="#DC4433"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cleaning Required"
-                android:textColor="@color/black"
+                android:textColor="#DC4433"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold" />
@@ -257,19 +266,20 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/poppins"
                 android:text="Washing of removables (for footmats etc) would be charged at ₹500. Interior Washing / Drycleaning (for seat covers, door panels) would be charged at ₹1,500." />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black" />
+                android:background="#DC4433"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Bad Reviews"
-                android:textColor="@color/black"
+                android:textColor="#DC4433"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold" />
@@ -279,6 +289,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:text="If multiple bad reviews are submitted by station manager, cusotmer's licence can be blacklisted from Rent-A-Savari." />

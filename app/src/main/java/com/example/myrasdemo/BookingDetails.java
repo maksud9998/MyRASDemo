@@ -65,14 +65,14 @@ public class BookingDetails extends AppCompatActivity {
         car_name.setText(str_car_name);
         transmission_type.setText(str_transmission_type);
         body_type.setText(str_body_type);
-        car_no_plate.setText(str_car_no_plate);//
+        car_no_plate.setText(str_car_no_plate);
         fuel_type.setText(str_fuel_type);
         seat_capacity.setText(str_seat_capacity+" Seater");
-        kms.setText(str_kms);//
-        start_date.setText(str_start_date);//
-        start_time.setText(str_start_time);//
-        end_date.setText(str_end_date);//
-        end_time.setText(str_end_time);//
+        kms.setText(str_kms + " KMs");
+        start_date.setText(str_start_date);
+        start_time.setText(str_start_time);
+        end_date.setText(str_end_date);
+        end_time.setText(str_end_time);
         int_kms = Integer.parseInt(str_kms);
         int_rent_price = Integer.parseInt(str_rent_price);
         int_trip_fare_price = int_kms*int_rent_price;
@@ -94,6 +94,7 @@ public class BookingDetails extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        MainActivity.getInstance().onClickHome(v);
                         String str_status = "Booked";
                         rootNode = FirebaseDatabase.getInstance();
                         reference = rootNode.getReference("booking_M");

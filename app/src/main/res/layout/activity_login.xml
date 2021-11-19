@@ -34,6 +34,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
+        <TextView
+            android:id="@+id/logintxt"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Login"
+            android:textSize="32sp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="#DC4433"
+            app:layout_constraintTop_toTopOf="@id/constraintLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
         <EditText
             android:id="@+id/passwd_otp"
             android:layout_width="0dp"
@@ -101,20 +116,5 @@
             app:layout_constraintTop_toBottomOf="@id/loginbtn"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/logintxt"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Login"
-        android:textSize="32sp"
-        android:fontFamily="@font/poppins_semibold"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topImage"
-        app:layout_constraintVertical_bias="0.938" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

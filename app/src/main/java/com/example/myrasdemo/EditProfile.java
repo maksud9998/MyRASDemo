@@ -45,9 +45,12 @@ public class EditProfile extends AppCompatActivity {
     FloatingActionButton capture_profile_image;
     ActivityResultLauncher<String> launcher;
     FirebaseStorage storage;
+    String encryptedPassword = "", decryptedPassword = "";
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_M");
     String str_first_name, str_last_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode;
     ProgressDialog progressDialog;
+    Integer key=1;
+    Character ch;
     private static int timeOut=500;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,21 +72,21 @@ public class EditProfile extends AppCompatActivity {
         address_proof_no = findViewById(R.id.address_proof_no);
         profile_image = findViewById(R.id.Profile_Image);
         capture_profile_image = findViewById(R.id.capture_profile_image);
-        Intent i = getIntent();
-        str_first_name = i.getStringExtra("first_name");
-        str_last_name = i.getStringExtra("last_name");
-        str_profile_image = i.getStringExtra("profile_image");
-        str_phone_no1 = i.getStringExtra("phoneno1");
-        str_phone_no2 = i.getStringExtra("phoneno2");
-        str_email = i.getStringExtra("email");
-        str_password = i.getStringExtra("password");
-        str_licence_no = i.getStringExtra("licence_no");
-        str_address_proof_no = i.getStringExtra("address_proof_no");
-        str_address = i.getStringExtra("address");
-        str_area = i.getStringExtra("area");
-        str_city = i.getStringExtra("city");
-        str_state = i.getStringExtra("state");
-        str_pincode = i.getStringExtra("pincode");
+        Intent intent = getIntent();
+        str_first_name = intent.getStringExtra("first_name");
+        str_last_name = intent.getStringExtra("last_name");
+        str_profile_image = intent.getStringExtra("profile_image");
+        str_phone_no1 = intent.getStringExtra("phoneno1");
+        str_phone_no2 = intent.getStringExtra("phoneno2");
+        str_email = intent.getStringExtra("email");
+        str_password = intent.getStringExtra("password");
+        str_licence_no = intent.getStringExtra("licence_no");
+        str_address_proof_no = intent.getStringExtra("address_proof_no");
+        str_address = intent.getStringExtra("address");
+        str_area = intent.getStringExtra("area");
+        str_city = intent.getStringExtra("city");
+        str_state = intent.getStringExtra("state");
+        str_pincode = intent.getStringExtra("pincode");
         first_name.setText(str_first_name);
         last_name.setText(str_last_name);
         phone_no1.setText(str_phone_no1);
@@ -165,12 +168,34 @@ public class EditProfile extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        String str_Newpassword = password.getText().toString();
+                        for(Integer i = 0; i < str_Newpassword.length(); ++i){
+                            ch = str_Newpassword.charAt(i);
+                            if(ch >= 'a' && ch <= 'z'){
+                                ch = (char)(ch + key);
+                                if(ch > 'z'){
+                                    ch = (char)(ch - 'z' + 'a' - 1);
+                                }
+                                encryptedPassword += ch;
+                            }
+                            else if(ch >= 'A' && ch <= 'Z'){
+                                ch = (char)(ch + key);
+                                if(ch > 'Z'){
+                                    ch = (char)(ch - 'Z' + 'A' - 1);
+                                }
+                                encryptedPassword += ch;
+                            }
+                            else {
+                                encryptedPassword += ch;
+                            }
+                        }
+
                         reference.child(str_phone_no1).child("first_name").setValue(first_name.getText().toString());
                         reference.child(str_phone_no1).child("last_name").setValue(last_name.getText().toString());
                         reference.child(str_phone_no1).child("phoneno1").setValue(phone_no1.getText().toString());
                         reference.child(str_phone_no1).child("phoneno2").setValue(phone_no2.getText().toString());
                         reference.child(str_phone_no1).child("email").setValue(email.getText().toString());
-                        reference.child(str_phone_no1).child("password").setValue(password.getText().toString());
+                        reference.child(str_phone_no1).child("password").setValue(encryptedPassword);
                         reference.child(str_phone_no1).child("licence_no").setValue(license_no.getText().toString());
                         reference.child(str_phone_no1).child("address_proof_no").setValue(address_proof_no.getText().toString());
                         reference.child(str_phone_no1).child("address").setValue(address.getText().toString());
@@ -205,7 +230,29 @@ public class EditProfile extends AppCompatActivity {
                                     i.putExtra("phoneno1",str_phone_no1);
                                     i.putExtra("phoneno2",str_phone_no2);
                                     i.putExtra("email",str_email);
-                                    i.putExtra("password",str_password);
+                                    for (Integer iD = 0; iD < str_password.length(); ++iD) {
+                                        ch = str_password.charAt(iD);
+                                        if (ch >= 'a' && ch <= 'z') {
+                                            ch = (char) (ch - key);
+
+                                            if (ch < 'a') {
+                                                ch = (char) (ch + 'z' - 'a' + 1);
+                                            }
+
+                                            decryptedPassword += ch;
+                                        } else if (ch >= 'A' && ch <= 'Z') {
+                                            ch = (char) (ch - key);
+
+                                            if (ch < 'A') {
+                                                ch = (char) (ch + 'Z' - 'A' + 1);
+                                            }
+
+                                            decryptedPassword += ch;
+                                        } else {
+                                            decryptedPassword += ch;
+                                        }
+                                    }
+                                    i.putExtra("password",decryptedPassword);
                                     i.putExtra("licence_no",str_licence_no);
                                     i.putExtra("address_proof_no",str_address_proof_no);
                                     i.putExtra("address",str_address);
