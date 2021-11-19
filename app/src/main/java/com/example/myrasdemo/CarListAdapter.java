@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.logging.Handler;
 
 public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.MyViewHolder>{
 
@@ -51,13 +52,11 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.MyViewHo
         Integer int_small_package_kms=150, int_medium_package_kms=350, int_high_package_kms=600, int_rent_price, int_small_trip_fare_price, int_medium_trip_fare_price, int_high_trip_fare_price;
         CarHelperClass carHelperClass = list.get(position);
         String str_statusDB = carHelperClass.getStatus();
-        if (str_statusDB.equals("Available")) {
-            holder.car_name.setText(carHelperClass.getCar_name());
-        }
-        else
+        if (!str_statusDB.equals("Available"))
         {
             holder.unavailable.setText("*Unavailable*");
         }
+        holder.car_name.setText(carHelperClass.getCar_name());
         holder.seat_capacity.setText(carHelperClass.getSeat_capacity());
         holder.fuel_type.setText(carHelperClass.getFuel_type());
         holder.transmission_type.setText(carHelperClass.getTransmission_type());
@@ -70,6 +69,8 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.MyViewHo
         holder.smallpackagebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                list.clear();
+                MainActivity.getInstance().showCarList();
                 String str_statusDB = carHelperClass.getStatus();
                 if (str_statusDB.equals("Available")) {
                     String str_kms = "150";
@@ -105,6 +106,8 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.MyViewHo
         holder.mediumpackagebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                list.clear();
+                MainActivity.getInstance().showCarList();
                 String str_statusDB = carHelperClass.getStatus();
                 if (str_statusDB.equals("Available")) {
                     String str_kms = "350";
@@ -139,6 +142,8 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.MyViewHo
         holder.highpackagebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                list.clear();
+                MainActivity.getInstance().showCarList();
                 String str_statusDB = carHelperClass.getStatus();
                 if (str_statusDB.equals("Available")) {
                     String str_kms = "600";

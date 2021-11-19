@@ -11,12 +11,35 @@
 
     <ImageView
         android:id="@+id/carImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/democar" />
+
+    <TextView
+        android:id="@+id/phone_no1txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="Mobile No : "
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins"
+        app:layout_constraintStart_toEndOf="@+id/carImage"
+        app:layout_constraintTop_toBottomOf="@+id/carNotxt"/>
+
+    <TextView
+        android:id="@+id/phone_no1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="1234567890"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/phone_no1txt"
+        app:layout_constraintTop_toBottomOf="@id/carNotxt" />
+
 
     <TextView
         android:id="@+id/starttxt"
@@ -26,9 +49,8 @@
         android:text="Start : "
         android:fontFamily="@font/poppins"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/endtxt"
-        app:layout_constraintStart_toEndOf="@+id/carImage"
-        app:layout_constraintTop_toBottomOf="@id/bookingIdtxt" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/carImage"/>
 
     <TextView
         android:id="@+id/endtxt"
@@ -38,23 +60,21 @@
         android:fontFamily="@font/poppins"
         android:text="End   : "
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/carName"
-        app:layout_constraintStart_toEndOf="@+id/carImage"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/starttxt" />
 
     <TextView
         android:id="@+id/carName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="2dp"
         android:fontFamily="@font/poppins"
         android:text="Mahindra KUV 100"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/packagetxt"
-        app:layout_constraintEnd_toStartOf="@id/carNotxt"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carImage" />
+        app:layout_constraintStart_toEndOf="@+id/carImage"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/start_date_txt"
@@ -62,33 +82,32 @@
         android:layout_height="wrap_content"
         android:padding="2dp"
         android:fontFamily="@font/poppins"
-        android:text="June 26 2021"
+        android:text="September 29 2021"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/end_date_txt"
         app:layout_constraintStart_toEndOf="@+id/starttxt"
-        app:layout_constraintTop_toBottomOf="@id/bookingIdtxt" />
+        app:layout_constraintTop_toBottomOf="@id/carImage"/>
     <TextView
         android:id="@+id/start_time_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:text="10:20 AM"
+        android:layout_marginLeft="200dp"
+        android:text="Thursday 19:24"
         android:fontFamily="@font/poppins"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/end_date_txt"
-        app:layout_constraintStart_toEndOf="@+id/start_date_txt"
-        app:layout_constraintTop_toBottomOf="@id/bookingIdtxt" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/carImage" />
     <TextView
         android:id="@+id/end_time_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:text="10:20 AM"
+        android:layout_marginLeft="200dp"
+        android:text="Thursday 19:24"
         android:fontFamily="@font/poppins"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/carName"
-        app:layout_constraintStart_toEndOf="@+id/end_date_txt"
-        app:layout_constraintTop_toBottomOf="@id/start_date_txt" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/start_time_txt" />
 
     <TextView
         android:id="@+id/end_date_txt"
@@ -96,36 +115,11 @@
         android:layout_height="wrap_content"
         android:padding="2dp"
         android:fontFamily="@font/poppins"
-        android:text="June 27 2021"
+        android:text="September 30 2021"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/carName"
         app:layout_constraintStart_toEndOf="@+id/endtxt"
         app:layout_constraintTop_toBottomOf="@+id/start_date_txt" />
 
-    <TextView
-        android:id="@+id/bookingIdtxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:fontFamily="@font/poppins"
-        android:text="Booking ID -"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/starttxt"
-        app:layout_constraintStart_toEndOf="@+id/carImage"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/bookingId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins"
-        android:padding="2dp"
-        android:text="123456"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/starttxt"
-        app:layout_constraintStart_toEndOf="@+id/bookingIdtxt"
-        app:layout_constraintTop_toTopOf="parent"
-        />
 
     <TextView
         android:id="@+id/carNotxt"
@@ -135,10 +129,8 @@
         android:fontFamily="@font/poppins"
         android:text="GJ 01 UF 9998"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@id/carName"
-        app:layout_constraintTop_toBottomOf="@id/carImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/packagetxt"
+        app:layout_constraintStart_toEndOf="@id/carImage"
+        app:layout_constraintTop_toBottomOf="@id/carName"
         />
 
     <TextView
@@ -146,12 +138,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:text="Package"
+        android:text="Package : "
         android:fontFamily="@font/poppins"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/carName"
-        app:layout_constraintBottom_toTopOf="@id/cancelbookingbtn"/>
+        app:layout_constraintTop_toBottomOf="@id/endtxt"/>
 
     <TextView
         android:id="@+id/kms_txt"
@@ -162,21 +153,18 @@
         android:fontFamily="@font/poppins"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@id/packagetxt"
-        app:layout_constraintTop_toBottomOf="@id/carName"
-        app:layout_constraintBottom_toTopOf="@id/cancelbookingbtn"/>
+        app:layout_constraintTop_toBottomOf="@id/endtxt"/>
 
     <TextView
         android:id="@+id/statustxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:text="Status-"
+        android:text="Status : "
         android:fontFamily="@font/poppins"
         android:textColor="@color/black"
-        android:layout_marginLeft="30dp"
         app:layout_constraintStart_toEndOf="@id/kms_txt"
-        app:layout_constraintTop_toBottomOf="@id/carName"
-        app:layout_constraintBottom_toTopOf="@id/cancelbookingbtn"/>
+        app:layout_constraintTop_toBottomOf="@id/endtxt"/>
 
     <TextView
         android:id="@+id/status"
@@ -187,24 +175,59 @@
         android:fontFamily="@font/poppins"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/statustxt"
-        app:layout_constraintTop_toBottomOf="@id/carName"
-        app:layout_constraintBottom_toTopOf="@id/cancelbookingbtn"/>
+        app:layout_constraintTop_toBottomOf="@id/endtxt"/>
+
+    <TextView
+        android:id="@+id/total_price_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="Total : Rs"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/status"
+        app:layout_constraintTop_toBottomOf="@id/endtxt"/>
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="12000"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/total_price_txt"
+        app:layout_constraintTop_toBottomOf="@id/endtxt"/>
+
+    <Button
+        android:id="@+id/uploadCarPhotosbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btnshape"
+        android:enabled="true"
+        android:textSize="12sp"
+        android:fontFamily="@font/poppins"
+        android:text="Upload Car Images"
+        app:layout_constraintEnd_toStartOf="@id/cancelbookingbtn"
+        app:layout_constraintTop_toBottomOf="@id/statustxt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <Button
         android:id="@+id/cancelbookingbtn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/btnshape"
         android:enabled="true"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:fontFamily="@font/poppins"
         android:text="Cancel Booking"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/uploadCarPhotosbtn"
         app:layout_constraintTop_toBottomOf="@id/statustxt" />
 </androidx.constraintlayout.widget.ConstraintLayout>

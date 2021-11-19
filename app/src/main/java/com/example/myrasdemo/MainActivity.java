@@ -47,15 +47,14 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout startLayout, endLayout;
     Button findcarbtn;
     RecyclerView carlistrecyclerView;
-    DatabaseReference database;
+    DatabaseReference referenceCar;
     CarListAdapter carListAdapter;
     ArrayList<CarHelperClass> list;
-    private String str_start_date, str_start_time, str_end_date, str_end_time;
     private static int timeOut=500;
     ProgressDialog progressDialog;
-    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode;
+    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode, str_start_date, str_start_time, str_end_date, str_end_time;
     boolean startCheck = false,endCheck=false;
-
+    private static MainActivity instance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,14 +70,15 @@ public class MainActivity extends AppCompatActivity {
         full_name = findViewById(R.id.user_name);
         profile_image = findViewById(R.id.profile_image);
         carlistrecyclerView = findViewById(R.id.carlistrecyclerView);
+        instance = this;
         Intent i = getIntent();
+        str_phone_no1 = i.getStringExtra("phoneno1");
         str_first_name = i.getStringExtra("first_name");
         str_last_name = i.getStringExtra("last_name");
         str_full_name = str_first_name + " "+ str_last_name;
         full_name.setText(str_full_name);
         str_profile_image = i.getStringExtra("profile_image");
         Picasso.get().load(str_profile_image).into(profile_image);
-        str_phone_no1 = i.getStringExtra("phoneno1");
         str_phone_no2 = i.getStringExtra("phoneno2");
         str_email = i.getStringExtra("email");
         str_password = i.getStringExtra("password");
@@ -113,19 +113,15 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    progressDialog = new ProgressDialog(MainActivity.this);
-                    progressDialog.show();
-                    progressDialog.setContentView(R.layout.progress_dialog);
-                    progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            showCarList();
-                        }
-                    },timeOut);
+                    showCarList();
                 }
             }
         });
+    }
+
+    public static MainActivity getInstance()
+    {
+        return instance;
     }
 
     private void startDateTimeDialog() {
@@ -144,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                         SimpleDateFormat startDateFormat = new SimpleDateFormat("MMMM  dd  yyyy");
                         startDate.setText(startDateFormat.format(calendar.getTime()));
                         str_start_date = startDateFormat.format(calendar.getTime());
-                        SimpleDateFormat starttimeFormat = new SimpleDateFormat("EEEE HH:mm");
+                        SimpleDateFormat starttimeFormat = new SimpleDateFormat("EEEE hh:mm aa");
                         startTime.setText(starttimeFormat.format(calendar.getTime()));
                         str_start_time = starttimeFormat.format(calendar.getTime());
                     }
@@ -172,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                         SimpleDateFormat endDateFormat = new SimpleDateFormat("MMMM  dd  yyyy");
                         endDate.setText(endDateFormat.format(calendar.getTime()));
                         str_end_date = endDateFormat.format(calendar.getTime());
-                        SimpleDateFormat endtimeFormat = new SimpleDateFormat("EEEE HH:mm");
+                        SimpleDateFormat endtimeFormat = new SimpleDateFormat("EEEE hh:mm aa");
                         endTime.setText(endtimeFormat.format(calendar.getTime()));
                         str_end_time = endtimeFormat.format(calendar.getTime());
                     }
@@ -183,43 +179,36 @@ public class MainActivity extends AppCompatActivity {
         new DatePickerDialog(MainActivity.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
-    private void showCarList() {
-
-        database = FirebaseDatabase.getInstance().getReference().child("car_M");
-        carlistrecyclerView.setHasFixedSize(true);
-        carlistrecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        list = new ArrayList<>();
-        carListAdapter = new CarListAdapter(MainActivity.this,list,getApplicationContext(),str_start_date,str_start_time,str_end_date,str_end_time, str_phone_no1);
-        carlistrecyclerView.setAdapter(carListAdapter);
-        database.addValueEventListener(new ValueEventListener() {
+    public void showCarList() {
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    CarHelperClass carHelperClass = dataSnapshot.getValue(CarHelperClass.class);
-                    list.add(carHelperClass);
-                }
-                carListAdapter.notifyDataSetChanged();
+            public void run() {
+                referenceCar = FirebaseDatabase.getInstance().getReference().child("car_M");
+                carlistrecyclerView.setHasFixedSize(true);
+                carlistrecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                list = new ArrayList<>();
+                carListAdapter = new CarListAdapter(MainActivity.this,list,getApplicationContext(),str_start_date,str_start_time,str_end_date,str_end_time, str_phone_no1);
+                carlistrecyclerView.setAdapter(carListAdapter);
+                referenceCar.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            CarHelperClass carHelperClass = dataSnapshot.getValue(CarHelperClass.class);
+                            list.add(carHelperClass);
+                        }
+                        carListAdapter.notifyDataSetChanged();
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+                progressDialog.dismiss();
             }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-        progressDialog.dismiss();
-    }
-
-    public void onClickSmallPackage(View view) {
-        Intent i = new Intent(MainActivity.this,BookingDetails.class);
-        startActivity(i);
-    }
-
-    public void onClickMediumPackage(View view) {
-        Intent i = new Intent(MainActivity.this,BookingDetails.class);
-        startActivity(i);
-    }
-
-    public void onClickHighPackage(View view) {
-        Intent i = new Intent(MainActivity.this,BookingDetails.class);
-        startActivity(i);
+        },timeOut);
     }
 
     public static void openDrawer(DrawerLayout drawerLayout)
@@ -302,8 +291,8 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sp.edit();
                 editor.clear();
                 editor.apply();
-                Task<Void> reference;
-                reference = FirebaseDatabase.getInstance().getReference().child("user_M").child(str_phone_no1).setValue(null);
+                Task<Void> referenceUser;
+                referenceUser = FirebaseDatabase.getInstance().getReference().child("user_M").child(str_phone_no1).child("status").setValue("Deactivated");
                 Toast.makeText(activity.getApplicationContext(), "Profile Deactivated Successfully",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(MainActivity.this,Login.class);
                 startActivity(i);
@@ -345,11 +334,6 @@ public class MainActivity extends AppCompatActivity {
         i.putExtra("city",str_city);
         i.putExtra("state",str_state);
         i.putExtra("pincode",str_pincode);
-        startActivity(i);
-    }
-
-    public void onClickCarImages(View view) {
-        Intent i = new Intent(MainActivity.this,UploadCarImages.class);
         startActivity(i);
     }
 

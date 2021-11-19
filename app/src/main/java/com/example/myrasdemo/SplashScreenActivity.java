@@ -33,7 +33,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     Animation topanim,bottomanim;
     ImageView splash_screen_image;
     TextView splash_screen_text;
-    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode;
+    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode, str_utype;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_M");
     @Override
     protected void onCreate(Bundle savedInstanceState) {

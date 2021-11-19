@@ -31,8 +31,6 @@ public class Register extends AppCompatActivity {
     EditText first_name, last_name,email,phone_no1, password, license_no;
     Button registerbtn;
     TextView loginlink;
-    private FirebaseAuth mAuth;
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     DatabaseReference referenceCheck = FirebaseDatabase.getInstance().getReference("user_M");
@@ -42,7 +40,6 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        mAuth = FirebaseAuth.getInstance();
         first_name = findViewById(R.id.Reg_First_Name);
         last_name = findViewById(R.id.Reg_Last_Name);
         email = findViewById(R.id.Reg_Email);

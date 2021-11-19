@@ -85,6 +85,8 @@ public class BookingDetails extends AppCompatActivity {
         checkoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity.getInstance().list.clear();
+                MainActivity.getInstance().showCarList();
                 progressDialog = new ProgressDialog(BookingDetails.this);
                 progressDialog.show();
                 progressDialog.setContentView(R.layout.progress_dialog);

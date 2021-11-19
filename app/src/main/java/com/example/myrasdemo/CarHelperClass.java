@@ -3,9 +3,6 @@ package com.example.myrasdemo;
 public class CarHelperClass {
     String body_type, car_image, car_name, car_no_plate, fuel_type, is_active, rent_price, seat_capacity, status, transmission_type;
 
-    public CarHelperClass() {
-    }
-
     public CarHelperClass(String body_type, String car_image, String car_name, String car_no_plate, String fuel_type, String is_active, String rent_price, String seat_capacity, String status, String transmission_type) {
         this.body_type = body_type;
         this.car_image = car_image;
@@ -17,6 +14,9 @@ public class CarHelperClass {
         this.seat_capacity = seat_capacity;
         this.status = status;
         this.transmission_type = transmission_type;
+    }
+
+    public CarHelperClass() {
     }
 
     public String getBody_type() {

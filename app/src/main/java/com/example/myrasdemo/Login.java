@@ -66,11 +66,6 @@ public class Login extends AppCompatActivity {
                         str_password = password.getText().toString();
                         if (!str_phone_no1.equals("") && !str_password.equals(""))
                         {
-                            SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sp.edit();
-                            editor.putString("phoneno1",phone_no1.getText().toString());
-                            editor.putString("password",password.getText().toString());
-                            editor.apply();
                             Query checkUser = reference.orderByChild("phoneno1").equalTo(str_phone_no1);
                             checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
@@ -80,18 +75,24 @@ public class Login extends AppCompatActivity {
                                         String passwordDB = snapshot.child(str_phone_no1).child("password").getValue(String.class);
                                         if (passwordDB.equals((str_password)))
                                         {
-                                            String str_first_name = snapshot.child(str_phone_no1).child("first_name").getValue(String.class);
-                                            String str_last_name = snapshot.child(str_phone_no1).child("last_name").getValue(String.class);
-                                            String str_profile_image = snapshot.child(str_phone_no1).child("profile_image").getValue(String.class);
-                                            String str_phone_no2 = snapshot.child(str_phone_no1).child("phoneno2").getValue(String.class);
-                                            String str_email = snapshot.child(str_phone_no1).child("email").getValue(String.class);
-                                            String str_licence_no = snapshot.child(str_phone_no1).child("licence_no").getValue(String.class);
-                                            String str_address_proof_no = snapshot.child(str_phone_no1).child("address_proof_no").getValue(String.class);
-                                            String str_address = snapshot.child(str_phone_no1).child("address").getValue(String.class);
-                                            String str_area = snapshot.child(str_phone_no1).child("area").getValue(String.class);
-                                            String str_city = snapshot.child(str_phone_no1).child("city").getValue(String.class);
-                                            String str_state = snapshot.child(str_phone_no1).child("state").getValue(String.class);
-                                            String str_pincode = snapshot.child(str_phone_no1).child("pincode").getValue(String.class);
+                                            SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = sp.edit();
+                                            editor.putString("phoneno1",phone_no1.getText().toString());
+                                            editor.putString("password",password.getText().toString());
+                                            editor.apply();
+                                            String str_first_name, str_last_name, str_profile_image, str_phone_no2, str_email, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode;
+                                            str_first_name = snapshot.child(str_phone_no1).child("first_name").getValue(String.class);
+                                            str_last_name = snapshot.child(str_phone_no1).child("last_name").getValue(String.class);
+                                            str_profile_image = snapshot.child(str_phone_no1).child("profile_image").getValue(String.class);
+                                            str_phone_no2 = snapshot.child(str_phone_no1).child("phoneno2").getValue(String.class);
+                                            str_email = snapshot.child(str_phone_no1).child("email").getValue(String.class);
+                                            str_licence_no = snapshot.child(str_phone_no1).child("licence_no").getValue(String.class);
+                                            str_address_proof_no = snapshot.child(str_phone_no1).child("address_proof_no").getValue(String.class);
+                                            str_address = snapshot.child(str_phone_no1).child("address").getValue(String.class);
+                                            str_area = snapshot.child(str_phone_no1).child("area").getValue(String.class);
+                                            str_city = snapshot.child(str_phone_no1).child("city").getValue(String.class);
+                                            str_state = snapshot.child(str_phone_no1).child("state").getValue(String.class);
+                                            str_pincode = snapshot.child(str_phone_no1).child("pincode").getValue(String.class);
                                             Toast.makeText(Login.this,"Welcome To Rent-A-Savari "+str_first_name,Toast.LENGTH_SHORT).show();
                                             String str_utype = snapshot.child(str_phone_no1).child("utype").getValue(String.class);
                                             if(str_utype.equals("Admin"))
