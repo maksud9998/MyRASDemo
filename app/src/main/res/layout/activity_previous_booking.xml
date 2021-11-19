@@ -10,7 +10,7 @@
     tools:context=".PreviousBooking">
 
     <TextView
-        android:id="@+id/privacypolicytxt"
+        android:id="@+id/previousbookingtxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#DC4433"

@@ -24,10 +24,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Admin_DashBoard extends AppCompatActivity {
     CardView ManageUserCardview,ManageCarCardview,ManageviewBooking,ManageRegister;
-    DrawerLayout drawerLayout;
     CircleImageView admin_profile_image;
     TextView full_name;
-    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode;
+    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode, str_utype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,6 @@ public class Admin_DashBoard extends AppCompatActivity {
         ManageCarCardview=findViewById(R.id.Manage_Car_Card);
         ManageviewBooking=findViewById(R.id.Manage_View_Booking);
         ManageRegister=findViewById(R.id.Manage_Reg);
-        drawerLayout = findViewById(R.id.drawer_layout);
         full_name = findViewById(R.id.admin_name);
         admin_profile_image = findViewById(R.id.admin_profile_image);
         Intent i = getIntent();
@@ -58,6 +56,7 @@ public class Admin_DashBoard extends AppCompatActivity {
         str_city = i.getStringExtra("city");
         str_state = i.getStringExtra("state");
         str_pincode = i.getStringExtra("pincode");
+        str_utype = i.getStringExtra("utype");
         ManageUserCardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,6 +77,7 @@ public class Admin_DashBoard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent Intent_Bookingcard = new Intent(Admin_DashBoard.this,PreviousBooking.class);
+                Intent_Bookingcard.putExtra("utype",str_utype);
                 startActivity(Intent_Bookingcard);
 
             }
@@ -91,113 +91,6 @@ public class Admin_DashBoard extends AppCompatActivity {
             }
         });
 
-    }
-
-    public static void openDrawer(DrawerLayout drawerLayout)
-    {
-        drawerLayout.openDrawer(GravityCompat.START);
-    }
-    public static void closeDrawer(DrawerLayout drawerLayout)
-    {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START))
-        {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-    }
-
-    public static void exit(Activity activity)
-    {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setTitle("Exit");
-        builder.setMessage("Are You Sure You Want To Exit?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                activity.finishAffinity();
-                System.exit(0);
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                dialog.dismiss();
-            }
-        });
-        builder.show();
-    }
-
-    @Override
-    protected void onPause()
-    {
-        super.onPause();
-        closeDrawer(drawerLayout);
-    }
-
-    public void onClickMenu(View view) {
-        openDrawer(drawerLayout);
-    }
-
-    public void onClickHome(View view) {
-        recreate();
-    }
-
-    public void onClickMyTrip(View view) {
-        Intent i = new Intent(Admin_DashBoard.this,PreviousBooking.class);
-        startActivity(i);
-    }
-
-    public void onClickDocuments(View view) {
-        Intent i = new Intent(Admin_DashBoard.this,UploadDocs.class);
-        i.putExtra("phoneno1",str_phone_no1);
-        startActivity(i);
-    }
-
-    public void onClickPrivacyPolicy(View view) {
-        Intent i = new Intent(Admin_DashBoard.this,PrivacyPolicies.class);
-        startActivity(i);
-    }
-
-    public void onClickDeactivate(View view) {
-        deactivate(this);
-    }
-
-    public void deactivate(Activity activity) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setTitle("Deactivate Account");
-        builder.setMessage("Are You Sure You Want To Deactivate Your Account?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.clear();
-                editor.apply();
-                Task<Void> reference;
-                reference = FirebaseDatabase.getInstance().getReference().child("user_M").child(str_phone_no1).setValue(null);
-                Toast.makeText(activity.getApplicationContext(), "Profile Deactivated Successfully",Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(Admin_DashBoard.this,Login.class);
-                startActivity(i);
-                finish();
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                dialog.dismiss();
-            }
-        });
-        builder.show();
-    }
-
-    public void onClickContactUs(View view) {
-        Intent i = new Intent(Admin_DashBoard.this,ContactUs.class);
-        startActivity(i);
-    }
-
-    public void onClickExit(View view) {
-        exit(this);
     }
 
     public void onClickEditProfile(View view) {
@@ -216,11 +109,6 @@ public class Admin_DashBoard extends AppCompatActivity {
         i.putExtra("city",str_city);
         i.putExtra("state",str_state);
         i.putExtra("pincode",str_pincode);
-        startActivity(i);
-    }
-
-    public void onClickCarImages(View view) {
-        Intent i = new Intent(Admin_DashBoard.this,UploadCarImages.class);
         startActivity(i);
     }
 

@@ -23,9 +23,9 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.MyViewHo
     Context contextActivity;
     Context contextCar;
     ArrayList<CarHelperClass> list;
-    private  String str_start_date, str_start_time, str_end_date, str_end_time, str_phone_no1;
+    private  String str_start_date, str_start_time, str_end_date, str_end_time, str_phone_no1, str_utype;
 
-    public CarListAdapter(Context contextActivity, ArrayList<CarHelperClass> list, Context contextCar, String start_date, String start_time, String end_date, String end_time, String phone_no1) {
+    public CarListAdapter(Context contextActivity, ArrayList<CarHelperClass> list, Context contextCar, String start_date, String start_time, String end_date, String end_time, String phone_no1, String utype) {
         this.contextActivity = contextActivity;
         this.contextCar = contextCar;
         this.list = list;
@@ -34,6 +34,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.MyViewHo
         this.str_end_date = end_date;
         this.str_end_time = end_time;
         this.str_phone_no1 = phone_no1;
+        this.str_utype = utype;
     }
 
     @NonNull
@@ -90,6 +91,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.MyViewHo
                     intent.putExtra("end_date", str_end_date);
                     intent.putExtra("end_time", str_end_time);
                     intent.putExtra("phone_no1", str_phone_no1);
+                    intent.putExtra("utype", str_utype);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     contextCar.startActivity(intent);
                 }
@@ -127,6 +129,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.MyViewHo
                     intent.putExtra("end_date", str_end_date);
                     intent.putExtra("end_time", str_end_time);
                     intent.putExtra("phone_no1", str_phone_no1);
+                    intent.putExtra("utype", str_utype);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     contextCar.startActivity(intent);
                 }
@@ -163,6 +166,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.MyViewHo
                     intent.putExtra("end_date", str_end_date);
                     intent.putExtra("end_time", str_end_time);
                     intent.putExtra("phone_no1", str_phone_no1);
+                    intent.putExtra("utype", str_utype);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     contextCar.startActivity(intent);
                 }

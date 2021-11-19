@@ -107,6 +107,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                             str_city = snapshot.child(str_phone_no1).child("city").getValue(String.class);
                             str_state = snapshot.child(str_phone_no1).child("state").getValue(String.class);
                             str_pincode = snapshot.child(str_phone_no1).child("pincode").getValue(String.class);
+                            str_utype = snapshot.child(str_phone_no1).child("utype").getValue(String.class);
                             Toast.makeText(SplashScreenActivity.this,"Welcome To Rent-A-Savari "+str_first_name,Toast.LENGTH_SHORT).show();
                             String str_utype = snapshot.child(str_phone_no1).child("utype").getValue(String.class);
                             if(str_utype.equals("Admin"))
@@ -126,6 +127,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                                 i.putExtra("city",str_city);
                                 i.putExtra("state",str_state);
                                 i.putExtra("pincode",str_pincode);
+                                i.putExtra("utype",str_utype);
                                 startActivity(i);
                                 finish();
                             }
@@ -146,6 +148,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                                 i.putExtra("city",str_city);
                                 i.putExtra("state",str_state);
                                 i.putExtra("pincode",str_pincode);
+                                i.putExtra("utype",str_utype);
                                 startActivity(i);
                                 finish();
                             }

@@ -1,6 +1,7 @@
 package com.example.myrasdemo;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -24,6 +25,7 @@ public class PreviousBooking extends AppCompatActivity {
 
     RecyclerView bookinglistrecyclerView;
     ArrayList<PreviousBookingHelperClass> list;
+    PreviousBookingListAdapterAdmin previousBookingListAdapterAdmin;
     PreviousBookingListAdapter previousBookingListAdapter;
     DatabaseReference database;
     private static int timeOut=500;
@@ -33,7 +35,51 @@ public class PreviousBooking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_previous_booking);
         instance = this;
-        content();
+        Intent i = getIntent();
+        String str_utype = i.getStringExtra("utype");
+        if (str_utype.equals("Admin"))
+        {
+            contentAdmin();
+        }
+        else
+        {
+            content();
+        }
+    }
+
+    private void contentAdmin() {
+        progressDialog = new ProgressDialog(PreviousBooking.this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                bookinglistrecyclerView = findViewById(R.id.bookinglistrecyclerView);
+                database = FirebaseDatabase.getInstance().getReference().child("booking_M");
+                bookinglistrecyclerView.setHasFixedSize(true);
+                bookinglistrecyclerView.setLayoutManager(new LinearLayoutManager(PreviousBooking.this));
+                list = new ArrayList<>();
+                previousBookingListAdapterAdmin = new PreviousBookingListAdapterAdmin(PreviousBooking.this,list);
+                bookinglistrecyclerView.setAdapter(previousBookingListAdapterAdmin);
+                database.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                            PreviousBookingHelperClass previousBookingHelperClass = dataSnapshot.getValue(PreviousBookingHelperClass.class);
+                            list.add(previousBookingHelperClass);
+                        }
+                        previousBookingListAdapterAdmin.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                progressDialog.dismiss();
+            }
+        },timeOut);
     }
 
     public static PreviousBooking getInstance()
@@ -42,10 +88,7 @@ public class PreviousBooking extends AppCompatActivity {
     }
 
     public void content() {
-        if (MainActivity.getInstance().startCheck || MainActivity.getInstance().endCheck)
-        {
-            MainActivity.getInstance().showCarList();
-        }
+
         progressDialog = new ProgressDialog(PreviousBooking.this);
         progressDialog.show();
         progressDialog.setContentView(R.layout.progress_dialog);

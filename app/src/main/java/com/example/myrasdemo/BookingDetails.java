@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso;
 public class BookingDetails extends AppCompatActivity {
     TextView car_name, transmission_type, body_type, car_no_plate, fuel_type, seat_capacity, kms, start_date, start_time, end_date, end_time, trip_fare_price, total_price;
     Button checkoutbtn;
-    private String str_car_image, str_car_name, str_transmission_type, str_body_type, str_car_no_plate, str_fuel_type, str_seat_capacity, str_kms, str_start_date, str_start_time, str_end_date, str_end_time, str_rent_price, str_trip_fare_price, str_total_price, str_phone_no1, str_booking_id;
+    private String str_car_image, str_car_name, str_transmission_type, str_body_type, str_car_no_plate, str_fuel_type, str_seat_capacity, str_kms, str_start_date, str_start_time, str_end_date, str_end_time, str_rent_price, str_trip_fare_price, str_total_price, str_phone_no1, str_booking_id, str_utype;
     Integer int_kms, int_rent_price, int_trip_fare_price, int_total_price;
     ImageView car_image;
     FirebaseDatabase rootNode;
@@ -61,6 +61,7 @@ public class BookingDetails extends AppCompatActivity {
         str_end_date = i.getStringExtra("end_date");
         str_end_time = i.getStringExtra("end_time");
         str_phone_no1 = i.getStringExtra("phone_no1");
+        str_utype = i.getStringExtra("utype");
         str_booking_id = str_phone_no1 +" - "+ str_car_no_plate +" - "+ str_start_date +" - "+ str_start_time +" - "+ str_end_date +" - "+ str_end_time;
         car_name.setText(str_car_name);
         transmission_type.setText(str_transmission_type);
@@ -98,12 +99,13 @@ public class BookingDetails extends AppCompatActivity {
                         String str_status = "Booked";
                         rootNode = FirebaseDatabase.getInstance();
                         reference = rootNode.getReference("booking_M");
-                        BookingHelperClass bookingHelperClass = new BookingHelperClass(str_booking_id,str_car_name,str_car_image,str_car_no_plate,str_kms,str_start_date,str_start_time,str_end_date,str_end_time,str_phone_no1,str_status,str_trip_fare_price);
+                        BookingHelperClass bookingHelperClass = new BookingHelperClass(str_booking_id,str_car_name,str_car_image,str_car_no_plate,str_kms,str_start_date,str_start_time,str_end_date,str_end_time,str_phone_no1,str_status,str_trip_fare_price,str_utype);
                         reference.child(str_booking_id).setValue(bookingHelperClass);
                         Toast.makeText(BookingDetails.this,"Booking Successfull",Toast.LENGTH_SHORT).show();
                         DatabaseReference referenceUpdateStatus = FirebaseDatabase.getInstance().getReference("car_M");
                         referenceUpdateStatus.child(str_car_no_plate).child("status").setValue(str_status);
                         Intent i = new Intent(BookingDetails.this,PreviousBooking.class);
+                        i.putExtra("utype",str_utype);
                         startActivity(i);
                         finish();
                     }

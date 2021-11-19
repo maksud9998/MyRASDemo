@@ -77,7 +77,7 @@ public class Register extends AppCompatActivity {
                         str_phoneno1 = phone_no1.getText().toString();
                         str_password = password.getText().toString();
                         str_licence_no = license_no.getText().toString();
-                        str_utype = "Customer";
+                        str_utype = "User";
                         str_status = "Active";
 
                         for(i = 0; i < str_password.length(); ++i){

@@ -165,6 +165,7 @@ public class Login extends AppCompatActivity {
                                                     i.putExtra("city",str_city);
                                                     i.putExtra("state",str_state);
                                                     i.putExtra("pincode",str_pincode);
+                                                    i.putExtra("utype",str_utype);
                                                     startActivity(i);
                                                     finish();
                                                 }
@@ -185,6 +186,7 @@ public class Login extends AppCompatActivity {
                                                     i.putExtra("city",str_city);
                                                     i.putExtra("state",str_state);
                                                     i.putExtra("pincode",str_pincode);
+                                                    i.putExtra("utype",str_utype);
                                                     startActivity(i);
                                                     finish();
                                                 }
@@ -221,6 +223,7 @@ public class Login extends AppCompatActivity {
                                                             i.putExtra("city",str_city);
                                                             i.putExtra("state",str_state);
                                                             i.putExtra("pincode",str_pincode);
+                                                            i.putExtra("utype",str_utype);
                                                             startActivity(i);
                                                             finish();
                                                         }
@@ -241,6 +244,7 @@ public class Login extends AppCompatActivity {
                                                             i.putExtra("city",str_city);
                                                             i.putExtra("state",str_state);
                                                             i.putExtra("pincode",str_pincode);
+                                                            i.putExtra("utype",str_utype);
                                                             startActivity(i);
                                                             finish();
                                                         }

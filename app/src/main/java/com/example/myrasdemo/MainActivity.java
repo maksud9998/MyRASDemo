@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<CarHelperClass> list;
     private static int timeOut=500;
     ProgressDialog progressDialog;
-    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode, str_start_date, str_start_time, str_end_date, str_end_time;
+    private String str_first_name, str_last_name, str_full_name, str_profile_image, str_phone_no1, str_phone_no2, str_email, str_password, str_licence_no, str_address_proof_no, str_address, str_area, str_city, str_state, str_pincode, str_start_date, str_start_time, str_end_date, str_end_time, str_utype;
     boolean startCheck = false,endCheck=false;
     private static MainActivity instance;
     @Override
@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         str_city = i.getStringExtra("city");
         str_state = i.getStringExtra("state");
         str_pincode = i.getStringExtra("pincode");
+        str_utype = i.getStringExtra("utype");
 
         startLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                 carlistrecyclerView.setHasFixedSize(true);
                 carlistrecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
                 list = new ArrayList<>();
-                carListAdapter = new CarListAdapter(MainActivity.this,list,getApplicationContext(),str_start_date,str_start_time,str_end_date,str_end_time, str_phone_no1);
+                carListAdapter = new CarListAdapter(MainActivity.this,list,getApplicationContext(),str_start_date,str_start_time,str_end_date,str_end_time, str_phone_no1, str_utype);
                 carlistrecyclerView.setAdapter(carListAdapter);
                 referenceCar.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -262,6 +263,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickMyTrip(View view) {
         Intent i = new Intent(MainActivity.this,PreviousBooking.class);
+        i.putExtra("utype",str_utype);
         startActivity(i);
     }
 
