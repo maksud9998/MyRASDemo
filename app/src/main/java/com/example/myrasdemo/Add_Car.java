@@ -3,9 +3,11 @@ package com.example.myrasdemo;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -16,11 +18,15 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 public class Add_Car extends AppCompatActivity {
 
@@ -34,7 +40,7 @@ public class Add_Car extends AppCompatActivity {
     ActivityResultLauncher<String> launcher;
     FloatingActionButton car_image_fltbtn;
     Boolean check = false;
-    private String str_body_type, str_car_name, str_car_no_plate, str_fuel_type, str_is_active, str_rent_price, str_seat_capacity, str_status, str_transmission_type;
+    private String str_body_type, str_car_image, str_car_name, str_car_no_plate, str_fuel_type, str_is_active, str_rent_price, str_seat_capacity, str_status, str_transmission_type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,19 @@ public class Add_Car extends AppCompatActivity {
         transmission_type = findViewById(R.id.Add_TransmissionType);
         rent_price = findViewById(R.id.Add_Rent);
         storage = FirebaseStorage.getInstance();
+        str_car_no_plate = car_no_plate.getText().toString();
+        reference.child(str_car_no_plate).child("car_image").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                str_car_image = snapshot.getValue(String.class);
+                Picasso.get().load(str_car_image).into(car_image);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri uri) {
@@ -110,9 +129,17 @@ public class Add_Car extends AppCompatActivity {
                 str_body_type = body_type.getText().toString();
                 str_is_active = "Active";
                 str_status = "Available";
-                AddCarHelperClass addCarHelperClass = new AddCarHelperClass(str_body_type, str_car_name, str_car_no_plate, str_fuel_type, str_is_active, str_rent_price, str_seat_capacity, str_status, str_transmission_type);
-                reference.child(str_car_no_plate).setValue(addCarHelperClass);
+                reference.child(str_car_no_plate).child("car_name").setValue(str_car_name);
+                reference.child(str_car_no_plate).child("car_no_plate").setValue(str_car_no_plate);
+                reference.child(str_car_no_plate).child("seat_capacity").setValue(str_seat_capacity);
+                reference.child(str_car_no_plate).child("fuel_type").setValue(str_fuel_type);
+                reference.child(str_car_no_plate).child("transmission_type").setValue(str_transmission_type);
+                reference.child(str_car_no_plate).child("rent_price").setValue(str_rent_price);
+                reference.child(str_car_no_plate).child("body_type").setValue(str_body_type);
+                reference.child(str_car_no_plate).child("is_Active").setValue(str_is_active);
+                reference.child(str_car_no_plate).child("status").setValue(str_status);
                 Toast.makeText(Add_Car.this, "Car Uploaded Successfully", Toast.LENGTH_SHORT).show();
+
                 }
                 else {
                     Toast.makeText(Add_Car.this, "Upload Car Image", Toast.LENGTH_SHORT).show();

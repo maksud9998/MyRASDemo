@@ -206,6 +206,8 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which)
             {
                 dialog.dismiss();
+                activity.finishAffinity();
+                System.exit(0);
             }
         });
         builder.show();
