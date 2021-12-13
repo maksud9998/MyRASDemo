@@ -2,9 +2,9 @@ package com.example.myrasdemo;
 
 public class PreviousBookingHelperClass {
 
-    String booking_id, car_image, car_name, car_no_plate, phone_no1, start_date, start_time, end_date, end_time, kms, status, trip_fare_price;
+    String booking_id, car_image, car_name, car_no_plate, phone_no1, start_date, start_time, end_date, end_time, kms, status, trip_fare_price, utype;
 
-    public PreviousBookingHelperClass(String booking_id, String car_image, String car_name, String car_no_plate, String phone_no1, String start_date, String start_time, String end_date, String end_time, String kms, String status, String trip_fare_price) {
+    public PreviousBookingHelperClass(String booking_id, String car_image, String car_name, String car_no_plate, String phone_no1, String start_date, String start_time, String end_date, String end_time, String kms, String status, String trip_fare_price, String utype) {
         this.booking_id = booking_id;
         this.car_image = car_image;
         this.car_name = car_name;
@@ -17,6 +17,7 @@ public class PreviousBookingHelperClass {
         this.kms = kms;
         this.status = status;
         this.trip_fare_price = trip_fare_price;
+        this.utype = utype;
     }
 
     public PreviousBookingHelperClass() {
@@ -116,5 +117,13 @@ public class PreviousBookingHelperClass {
 
     public void setTrip_fare_price(String trip_fare_price) {
         this.trip_fare_price = trip_fare_price;
+    }
+
+    public String getUtype() {
+        return utype;
+    }
+
+    public void setUtype(String utype) {
+        this.utype = utype;
     }
 }

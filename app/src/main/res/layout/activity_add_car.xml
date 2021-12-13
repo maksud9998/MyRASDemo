@@ -20,14 +20,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp">
-
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/Addcar"
-                android:layout_width="130dp"
-                android:layout_height="184dp"
-                android:src="@drawable/addcar"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/addcar"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"/>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/capture_car_image"

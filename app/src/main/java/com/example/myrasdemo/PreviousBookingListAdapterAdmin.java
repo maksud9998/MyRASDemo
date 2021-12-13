@@ -53,6 +53,91 @@ public class PreviousBookingListAdapterAdmin extends RecyclerView.Adapter<Previo
         holder.kms.setText(previousBookingHelperClass.getKms()+" KMs");
         holder.status.setText(previousBookingHelperClass.getStatus());
         holder.total_fair_price.setText(previousBookingHelperClass.getTrip_fare_price());
+        String booking_id = previousBookingHelperClass.getBooking_id();
+        String car_no_plate =previousBookingHelperClass.getCar_no_plate();
+        String status = previousBookingHelperClass.getStatus();
+        holder.upload_car_photos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (status.equals("Cancelled"))
+                {
+                    Toast.makeText(context, "This Booking Is Already Cancelled", Toast.LENGTH_SHORT).show();
+                }
+                else if(status.equals("Trip Ended"))
+                {
+                    Toast.makeText(context, "This Booking Is Already Ended", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    PreviousBooking.getInstance().contentAdmin();
+                    Intent intent = new Intent(context,UploadCarImages.class);
+                    intent.putExtra("booking_id",booking_id);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
+            }
+        });
+        holder.endTripbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (status.equals("Cancelled"))
+                {
+                    Toast.makeText(context, "This Booking Is Already Cancelled", Toast.LENGTH_SHORT).show();
+                }
+                else if(status.equals("Trip Ended"))
+                {
+                    Toast.makeText(context, "This Booking Is Already Ended", Toast.LENGTH_SHORT).show();
+                }
+                else if (status.equals("Booked"))
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Cancel Booking");
+                    builder.setMessage("Trip Has Not Started Yet.\nDo You Want To Cancel This Booking?");
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            list.clear();
+                            Task<Void> referenceBooking,referenceCarStatus;
+                            referenceBooking = FirebaseDatabase.getInstance().getReference().child("booking_M").child(booking_id).child("status").setValue("Cancelled");
+                            referenceCarStatus = FirebaseDatabase.getInstance().getReference().child("car_M").child(car_no_plate).child("status").setValue("Available");
+                            Toast.makeText(context.getApplicationContext(), "Trip Cancelled",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which)
+                        {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.show();
+                }
+                else
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("End Trip");
+                    builder.setMessage("Are You Sure You Want To End This Trip?");
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            list.clear();
+                            Task<Void> referenceBooking,referenceCarStatus;
+                            referenceBooking = FirebaseDatabase.getInstance().getReference().child("booking_M").child(booking_id).child("status").setValue("Trip Ended");
+                            referenceCarStatus = FirebaseDatabase.getInstance().getReference().child("car_M").child(car_no_plate).child("status").setValue("Available");
+                            Toast.makeText(context.getApplicationContext(), "Trip Ended",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which)
+                        {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.show();
+                }
+            }
+        });
     }
 
     @Override
@@ -64,7 +149,7 @@ public class PreviousBookingListAdapterAdmin extends RecyclerView.Adapter<Previo
 
         TextView car_name, car_no_plate, phone_no1, start_date, start_time, end_date, end_time, kms, status, total_fair_price;
         ImageView car_image;
-
+        Button upload_car_photos, endTripbtn;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             car_image = itemView.findViewById(R.id.carImage);
@@ -78,6 +163,8 @@ public class PreviousBookingListAdapterAdmin extends RecyclerView.Adapter<Previo
             kms = itemView.findViewById(R.id.kms_txt);
             status = itemView.findViewById(R.id.status);
             total_fair_price = itemView.findViewById(R.id.total);
+            upload_car_photos = itemView.findViewById(R.id.uploadCarPhotosbtn);
+            endTripbtn = itemView.findViewById(R.id.endTripbtn);
         }
     }
 }

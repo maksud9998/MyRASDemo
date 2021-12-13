@@ -47,7 +47,7 @@ public class UploadCarImages extends AppCompatActivity {
     ImageView car_front,car_back,car_right,car_left,car_speedometer;
     FloatingActionButton capture_car_front, capture_car_back,capture_car_right,capture_car_left,capture_car_speedometer;
     ActivityResultLauncher<String> launcher1, launcher2, launcher3, launcher4, launcher5;
-    String str_booking_id;
+    String str_booking_id, str_utype;
     FirebaseStorage storage;
     ProgressDialog progressDialog;
     private static int timeOut=500;
@@ -69,10 +69,10 @@ public class UploadCarImages extends AppCompatActivity {
         capture_car_right = findViewById(R.id.capture_car_right);
         capture_car_left = findViewById(R.id.capture_car_left);
         capture_car_speedometer = findViewById(R.id.capture_car_speedometer);
-        if (MainActivity.getInstance().startCheck || MainActivity.getInstance().endCheck)
-        {
-            MainActivity.getInstance().showCarList();
-        }
+//        if (MainActivity.getInstance().startCheck || MainActivity.getInstance().endCheck)
+//        {
+//            MainActivity.getInstance().showCarList();
+//        }
         progressBar();
         storage = FirebaseStorage.getInstance();
         reference.child(str_booking_id).child("car_front_image").addValueEventListener(new ValueEventListener() {
@@ -107,6 +107,7 @@ public class UploadCarImages extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         progressDialog.dismiss();
+                                        PreviousBooking.getInstance().contentAdmin();
                                         Toast.makeText(UploadCarImages.this,"Car Front Side Image Uploaded", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -149,6 +150,7 @@ public class UploadCarImages extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         progressDialog.dismiss();
+                                        PreviousBooking.getInstance().contentAdmin();
                                         Toast.makeText(UploadCarImages.this,"Car Back Side Image Uploaded", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -191,6 +193,7 @@ public class UploadCarImages extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         progressDialog.dismiss();
+                                        PreviousBooking.getInstance().contentAdmin();
                                         Toast.makeText(UploadCarImages.this,"Car Right Side Image Uploaded", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -233,6 +236,7 @@ public class UploadCarImages extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         progressDialog.dismiss();
+                                        PreviousBooking.getInstance().contentAdmin();
                                         Toast.makeText(UploadCarImages.this,"Car Left Side Image Uploaded", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -278,7 +282,7 @@ public class UploadCarImages extends AppCompatActivity {
                                         progressDialog.dismiss();
                                         Task<Void> referenceBooking;
                                         referenceBooking = FirebaseDatabase.getInstance().getReference().child("booking_M").child(str_booking_id).child("status").setValue("Trip Started");
-                                        PreviousBooking.getInstance().content();
+                                        PreviousBooking.getInstance().contentAdmin();
                                         Toast.makeText(UploadCarImages.this,"Car Speedometer Image Uploaded", Toast.LENGTH_SHORT).show();
                                     }
                                 });
